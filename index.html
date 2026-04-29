@@ -1,0 +1,1149 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>T3RZO Autopartes | Maestría en repuestos con legado familiar</title>
+  <meta
+    name="description"
+    content="T3RZO resume 50 años de experiencia familiar en autopartes: calidad premium, selección rigurosa y piezas técnicas para que el repuestero trabaje con confianza."
+  />
+  <meta name="theme-color" content="#ffffff" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  />
+  <style>
+    :root {
+      --bg: #ffffff;
+      --bg-soft: #f5f7fb;
+      --panel: rgba(255, 255, 255, 0.94);
+      --panel-soft: #f1f4f8;
+      --text: #111827;
+      --muted: #5b6473;
+      --line: rgba(17, 24, 39, 0.1);
+      --line-strong: rgba(17, 24, 39, 0.18);
+      --brand-blue: #212f61;
+      --brand-blue-strong: #162043;
+      --steel: #a4aab4;
+      --silver: #d6dbe3;
+      --chrome: #eef2f6;
+      --shadow: 0 30px 70px rgba(23, 31, 49, 0.1);
+      --shadow-soft: 0 16px 40px rgba(23, 31, 49, 0.08);
+      --radius: 24px;
+      --max: 1220px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: "Inter", system-ui, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(33, 47, 97, 0.08), transparent 34%),
+        radial-gradient(circle at bottom right, rgba(164, 170, 180, 0.12), transparent 30%),
+        var(--bg);
+      line-height: 1.55;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background-image:
+        linear-gradient(rgba(17, 24, 39, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(17, 24, 39, 0.03) 1px, transparent 1px);
+      background-size: 42px 42px;
+      mask-image: radial-gradient(circle at center, black 42%, transparent 90%);
+      opacity: 0.45;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .wrap {
+      width: min(var(--max), calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    .eyebrow,
+    .nav-link,
+    .meta-tag,
+    .pillar-kicker,
+    .timeline-tag,
+    .specialty-tag,
+    .proof-tag,
+    .footer-tag {
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      font-size: 0.75rem;
+      font-weight: 700;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      backdrop-filter: blur(16px);
+      background: rgba(255, 255, 255, 0.86);
+      border-bottom: 1px solid rgba(17, 24, 39, 0.06);
+    }
+
+    .nav {
+      min-height: 82px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      min-width: 0;
+    }
+
+    .brand-mark {
+      padding: 10px 12px;
+      border-radius: 18px;
+      border: 1px solid rgba(17, 24, 39, 0.08);
+      background: linear-gradient(180deg, #ffffff, #f4f6fa);
+      box-shadow: var(--shadow-soft);
+      flex: 0 0 auto;
+    }
+
+    .brand-mark img {
+      width: 108px;
+      height: auto;
+    }
+
+    .brand-copy h1 {
+      margin: 0;
+      font-size: 0.98rem;
+      line-height: 1.1;
+      color: var(--brand-blue);
+      font-weight: 800;
+      letter-spacing: 0.03em;
+    }
+
+    .brand-copy p {
+      margin: 4px 0 0;
+      color: var(--muted);
+      font-size: 0.84rem;
+    }
+
+    .nav-menu {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .nav-link {
+      color: var(--muted);
+      padding: 10px 14px;
+      border-radius: 999px;
+      transition: color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .nav-link:hover {
+      color: var(--brand-blue);
+      background: linear-gradient(180deg, #ffffff, #eef2f7);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.9), 0 8px 18px rgba(23, 31, 49, 0.06);
+    }
+
+    .nav-actions {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 0 18px;
+      border-radius: 14px;
+      border: 1px solid var(--line-strong);
+      font-weight: 700;
+      font-size: 0.95rem;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+      box-shadow: 0 10px 24px rgba(17, 24, 39, 0.06);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(120deg, rgba(255, 255, 255, 0.66), transparent 34%, transparent 66%, rgba(255, 255, 255, 0.3));
+      opacity: 0.8;
+      pointer-events: none;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 18px 36px rgba(17, 24, 39, 0.12);
+      border-color: rgba(33, 47, 97, 0.28);
+    }
+
+    .btn-primary {
+      color: #ffffff;
+      background: linear-gradient(135deg, #1a2854, #304793);
+      border-color: rgba(22, 32, 67, 0.2);
+    }
+
+    .btn-metal {
+      color: var(--brand-blue);
+      background: linear-gradient(180deg, #ffffff, #dfe5ed);
+    }
+
+    .section {
+      padding: 34px 0;
+      position: relative;
+      z-index: 1;
+    }
+
+    .section-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 18px;
+      margin-bottom: 24px;
+    }
+
+    .section-head h2 {
+      margin: 0;
+      font-size: clamp(1.9rem, 3vw, 3.05rem);
+      line-height: 1;
+      letter-spacing: -0.04em;
+      color: var(--brand-blue-strong);
+    }
+
+    .section-head p {
+      margin: 0;
+      max-width: 46ch;
+      color: var(--muted);
+      font-size: 0.98rem;
+    }
+
+    .accent-bar {
+      width: 88px;
+      height: 5px;
+      margin-top: 14px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--brand-blue), #7b8697, #ffffff);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.85), 0 10px 18px rgba(17, 24, 39, 0.06);
+    }
+
+    .panel {
+      border: 1px solid rgba(17, 24, 39, 0.08);
+      border-radius: var(--radius);
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(244, 247, 251, 0.96));
+      box-shadow: var(--shadow);
+    }
+
+    .hero {
+      padding: 38px 0 22px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(320px, 0.9fr);
+      gap: 24px;
+      align-items: stretch;
+    }
+
+    .hero-copy,
+    .hero-media {
+      padding: clamp(24px, 4vw, 40px);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-copy::after,
+    .hero-media::after,
+    .proof-card::after,
+    .cta-panel::after {
+      content: "";
+      position: absolute;
+      left: 26px;
+      right: 26px;
+      bottom: 0;
+      height: 4px;
+      border-radius: 999px 999px 0 0;
+      background: linear-gradient(90deg, var(--brand-blue), #b4bcc8, #ffffff);
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 9px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(17, 24, 39, 0.08);
+      background: linear-gradient(180deg, #ffffff, #eef2f7);
+      color: #687286;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: var(--brand-blue);
+      box-shadow: 0 0 0 5px rgba(33, 47, 97, 0.08);
+    }
+
+    .hero-copy h2 {
+      margin: 18px 0 14px;
+      max-width: 11ch;
+      font-size: clamp(2.8rem, 6vw, 5.6rem);
+      line-height: 0.94;
+      letter-spacing: -0.06em;
+      color: var(--brand-blue-strong);
+    }
+
+    .hero-copy p {
+      margin: 0;
+      max-width: 62ch;
+      color: var(--muted);
+      font-size: 1rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 26px;
+    }
+
+    .meta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 24px;
+    }
+
+    .meta-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      min-height: 42px;
+      padding: 0 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(17, 24, 39, 0.08);
+      background: linear-gradient(180deg, #ffffff, #f1f4f8);
+      color: #687286;
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.8);
+    }
+
+    .meta-tag::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: linear-gradient(180deg, #8d96a4, #dfe4ea);
+    }
+
+    .hero-media {
+      display: grid;
+      gap: 14px;
+      background:
+        linear-gradient(180deg, rgba(245, 247, 251, 0.9), rgba(231, 236, 243, 0.9)),
+        radial-gradient(circle at top right, rgba(33, 47, 97, 0.08), transparent 36%);
+    }
+
+    .media-placeholder {
+      min-height: 390px;
+      border-radius: 22px;
+      border: 1px solid rgba(17, 24, 39, 0.08);
+      background:
+        linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(226, 232, 239, 0.92)),
+        url("assets/hero.jpg") center center / cover no-repeat;
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.9);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: end;
+      padding: 22px;
+    }
+
+    .media-placeholder::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(rgba(17, 24, 39, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(17, 24, 39, 0.05) 1px, transparent 1px);
+      background-size: 32px 32px;
+      mask-image: linear-gradient(180deg, black 35%, transparent 100%);
+    }
+
+    .media-overlay {
+      position: relative;
+      max-width: 30ch;
+      padding: 18px;
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.82);
+      border: 1px solid rgba(17, 24, 39, 0.08);
+      box-shadow: 0 12px 30px rgba(17, 24, 39, 0.08);
+    }
+
+    .media-overlay strong {
+      display: block;
+      color: var(--brand-blue);
+      margin-bottom: 8px;
+      font-size: 1rem;
+    }
+
+    .media-overlay p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .side-stats {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .stat-card {
+      padding: 18px;
+      border-radius: 20px;
+      border: 1px solid rgba(17, 24, 39, 0.08);
+      background: linear-gradient(180deg, #ffffff, #eef2f7);
+    }
+
+    .stat-card strong {
+      display: block;
+      color: var(--brand-blue-strong);
+      font-size: 1.7rem;
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+
+    .stat-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .pillars {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .pillar-card,
+    .specialty-card,
+    .proof-card {
+      padding: 22px;
+    }
+
+    .pillar-icon {
+      width: 52px;
+      height: 52px;
+      display: grid;
+      place-items: center;
+      border-radius: 16px;
+      border: 1px solid rgba(17, 24, 39, 0.1);
+      background: linear-gradient(180deg, #ffffff, #e3e8ef);
+      color: var(--brand-blue);
+      font-size: 1.1rem;
+      font-weight: 800;
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.85);
+    }
+
+    .pillar-kicker,
+    .timeline-tag,
+    .specialty-tag,
+    .proof-tag,
+    .footer-tag {
+      color: #7c8797;
+      margin-bottom: 10px;
+    }
+
+    .pillar-card h3,
+    .specialty-card h3,
+    .timeline-item h3,
+    .proof-card h3,
+    .cta-panel h2 {
+      margin: 0;
+      color: var(--brand-blue-strong);
+    }
+
+    .pillar-card h3 {
+      margin-top: 18px;
+      font-size: 1.15rem;
+      line-height: 1.15;
+    }
+
+    .pillar-card p,
+    .specialty-card p,
+    .timeline-item p,
+    .proof-card p,
+    .footer-copy p,
+    .cta-panel p {
+      margin: 10px 0 0;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .timeline-shell {
+      padding: clamp(24px, 4vw, 34px);
+    }
+
+    .timeline {
+      position: relative;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px 24px;
+      margin-top: 24px;
+    }
+
+    .timeline::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: calc(50% - 1px);
+      width: 2px;
+      background: linear-gradient(180deg, rgba(33, 47, 97, 0), rgba(33, 47, 97, 0.34), rgba(33, 47, 97, 0));
+    }
+
+    .timeline-item {
+      position: relative;
+      padding: 22px;
+      border-radius: 22px;
+      border: 1px solid rgba(17, 24, 39, 0.08);
+      background: linear-gradient(180deg, #ffffff, #f1f4f8);
+      min-height: 138px;
+    }
+
+    .timeline-item::before {
+      content: "";
+      position: absolute;
+      top: 30px;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: linear-gradient(180deg, #ffffff, #7e8794);
+      box-shadow: 0 0 0 6px rgba(33, 47, 97, 0.08);
+    }
+
+    .timeline-item:nth-child(odd)::before {
+      right: -30px;
+    }
+
+    .timeline-item:nth-child(even)::before {
+      left: -30px;
+    }
+
+    .specialties {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .specialty-card {
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(240, 244, 249, 0.96)),
+        radial-gradient(circle at top right, rgba(33, 47, 97, 0.06), transparent 38%);
+    }
+
+    .proof-grid {
+      display: grid;
+      grid-template-columns: minmax(320px, 0.85fr) minmax(0, 1.15fr);
+      gap: 20px;
+    }
+
+    .proof-hero,
+    .cta-panel {
+      padding: clamp(24px, 4vw, 34px);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .proof-hero h3 {
+      margin: 0;
+      max-width: 13ch;
+      font-size: clamp(1.9rem, 3vw, 3rem);
+      line-height: 1;
+      letter-spacing: -0.04em;
+      color: var(--brand-blue-strong);
+    }
+
+    .proof-points {
+      display: grid;
+      gap: 14px;
+    }
+
+    .proof-card {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .proof-card::after {
+      left: 22px;
+      right: 22px;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .contact-card {
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .contact-card h3 {
+      margin: 0;
+      color: var(--brand-blue-strong);
+      font-size: 1.06rem;
+    }
+
+    .contact-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.92rem;
+      flex: 1;
+    }
+
+    .contact-card .btn {
+      width: 100%;
+    }
+
+    .cta-panel {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      background:
+        linear-gradient(135deg, rgba(255, 255, 255, 0.98), rgba(237, 241, 247, 0.96)),
+        radial-gradient(circle at top right, rgba(33, 47, 97, 0.08), transparent 38%);
+    }
+
+    .cta-panel h2 {
+      font-size: clamp(2rem, 3vw, 3.1rem);
+      line-height: 1;
+      letter-spacing: -0.05em;
+      max-width: 12ch;
+      margin-bottom: 12px;
+    }
+
+    .cta-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      position: relative;
+      z-index: 1;
+    }
+
+    .site-footer {
+      padding: 28px 0 40px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 18px;
+      align-items: end;
+      padding-top: 20px;
+      border-top: 1px solid rgba(17, 24, 39, 0.08);
+    }
+
+    .footer-copy {
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .footer-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: flex-end;
+    }
+
+    .footer-link {
+      min-height: 42px;
+      display: inline-flex;
+      align-items: center;
+      padding: 0 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(17, 24, 39, 0.1);
+      background: linear-gradient(180deg, #ffffff, #dfe5ed);
+      color: var(--brand-blue);
+      font-size: 0.88rem;
+      font-weight: 600;
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.85), 0 10px 20px rgba(17, 24, 39, 0.05);
+      transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+    }
+
+    .footer-link:hover {
+      transform: translateY(-2px);
+      border-color: rgba(33, 47, 97, 0.24);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.95), 0 18px 28px rgba(17, 24, 39, 0.1);
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(16px);
+      transition: opacity 0.55s ease, transform 0.55s ease;
+    }
+
+    .reveal.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 1160px) {
+      .hero-grid,
+      .proof-grid,
+      .cta-panel {
+        grid-template-columns: 1fr;
+      }
+
+      .cta-panel {
+        display: grid;
+      }
+
+      .cta-actions {
+        justify-content: flex-start;
+      }
+
+      .contact-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 900px) {
+      .site-header {
+        position: static;
+      }
+
+      .nav {
+        padding: 18px 0;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .nav-menu,
+      .nav-actions,
+      .footer-actions {
+        justify-content: flex-start;
+      }
+
+      .section-head {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .pillars,
+      .specialties,
+      .contact-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .timeline {
+        grid-template-columns: 1fr;
+      }
+
+      .timeline::before {
+        left: 6px;
+      }
+
+      .timeline-item {
+        padding-left: 30px;
+      }
+
+      .timeline-item::before,
+      .timeline-item:nth-child(odd)::before,
+      .timeline-item:nth-child(even)::before {
+        left: 0;
+        right: auto;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+        align-items: start;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .wrap {
+        width: min(var(--max), calc(100% - 24px));
+      }
+
+      .hero-copy h2 {
+        max-width: 100%;
+      }
+
+      .hero-actions,
+      .cta-actions {
+        flex-direction: column;
+      }
+
+      .btn {
+        width: 100%;
+      }
+
+      .side-stats,
+      .pillars,
+      .specialties,
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap">
+      <div class="nav">
+        <a class="brand" href="#top" aria-label="T3RZO Autopartes">
+          <div class="brand-mark">
+            <img src="assets/logo-t3rzo.png" alt="T3RZO Autopartes" />
+          </div>
+          <div class="brand-copy">
+            <h1>T3RZO Autopartes</h1>
+            <p>Calidad OEM, experiencia familiar y criterio técnico.</p>
+          </div>
+        </a>
+
+        <nav class="nav-menu" aria-label="Navegación principal">
+          <a class="nav-link" href="#historia">Historia</a>
+          <a class="nav-link" href="#calidad">Calidad</a>
+          <a class="nav-link" href="#productos">Productos</a>
+          <a class="nav-link" href="#contacto">Contacto</a>
+        </nav>
+
+        <div class="nav-actions">
+          <a class="btn btn-primary" href="https://wa.me/54911XXXXXXXXX" target="_blank" rel="noopener">WhatsApp Consultas</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="section hero">
+      <div class="wrap">
+        <div class="hero-grid">
+          <article class="panel hero-copy reveal">
+            <div class="eyebrow">Calidad premium para repuesteros que trabajan con criterio</div>
+            <h2>T3RZO: El resumen de 50 años de maestría en repuestos.</h2>
+            <p>
+              No solo vendemos piezas; seleccionamos calidad premium para que el repuestero trabaje con confianza.
+              Tercera generación de expertos a tu servicio.
+            </p>
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="https://wa.me/54911XXXXXXXXX" target="_blank" rel="noopener">WhatsApp</a>
+              <a class="btn btn-metal" href="https://www.mercadolibre.com.ar/" target="_blank" rel="noopener">MercadoLibre</a>
+            </div>
+            <div class="meta-row">
+              <span class="meta-tag">Calidad de equipo original</span>
+              <span class="meta-tag">Legado familiar</span>
+              <span class="meta-tag">Piezas de nicho</span>
+            </div>
+          </article>
+
+          <aside class="panel hero-media reveal" aria-label="Media principal de la marca">
+            <!-- Reemplazar este bloque por un video premium de marca o un reel técnico de alta calidad -->
+            <!-- Si preferís imagen fija, cambiar el background del .media-placeholder o insertar un <img> dentro -->
+            <div class="media-placeholder">
+              <div class="media-overlay">
+                <strong>Placeholder de video o imagen hero</strong>
+                <p>Usá un video institucional o una toma premium de producto, taller o feria para reforzar el carácter OEM de la marca.</p>
+              </div>
+            </div>
+            <div class="side-stats">
+              <div class="stat-card">
+                <strong>50+</strong>
+                <p>Años de experiencia acumulada en autopartes.</p>
+              </div>
+              <div class="stat-card">
+                <strong>3ra</strong>
+                <p>Generación impulsando la evolución de la marca.</p>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="calidad">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <div>
+            <h2>Calidad con lenguaje técnico</h2>
+            <div class="accent-bar" aria-hidden="true"></div>
+          </div>
+          <p>La propuesta no es volumen ni oportunidad. Es calce correcto, selección rigurosa y foco donde más importa.</p>
+        </div>
+
+        <div class="pillars">
+          <article class="panel pillar-card reveal">
+            <div class="pillar-icon">FIT</div>
+            <div class="pillar-kicker">Primer pilar</div>
+            <h3>Calce Perfecto</h3>
+            <p>Compatibilidad precisa para que el repuestero venda con seguridad y reduzca devoluciones evitables.</p>
+          </article>
+          <article class="panel pillar-card reveal">
+            <div class="pillar-icon">OEM</div>
+            <div class="pillar-kicker">Segundo pilar</div>
+            <h3>Selección rigurosa de proveedores</h3>
+            <p>La calidad se construye desde el origen. Elegimos con criterio técnico y consistencia de largo plazo.</p>
+          </article>
+          <article class="panel pillar-card reveal">
+            <div class="pillar-icon">NIC</div>
+            <div class="pillar-kicker">Tercer pilar</div>
+            <h3>Ingeniería de nicho</h3>
+            <p>T3RZO avanza sobre líneas complejas y piezas difíciles, donde el conocimiento real hace la diferencia.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="historia">
+      <div class="wrap">
+        <article class="panel timeline-shell reveal">
+          <div class="section-head">
+            <div>
+              <h2>El legado</h2>
+              <div class="accent-bar" aria-hidden="true"></div>
+            </div>
+            <p>Una historia de oficio, resiliencia y evolución comercial que termina convirtiéndose en una marca propia.</p>
+          </div>
+
+          <div class="timeline">
+            <article class="timeline-item">
+              <div class="timeline-tag">El origen</div>
+              <h3>Domingo Patti en Chrysler y Mercedes-Benz</h3>
+              <p>La historia arranca desde la experiencia concreta dentro de la industria automotriz.</p>
+            </article>
+            <article class="timeline-item">
+              <div class="timeline-tag">Resiliencia</div>
+              <h3>Incendio de la fábrica y renacer en Av. San Martín</h3>
+              <p>Lejos de detenerse, la familia vuelve a empezar y reconstruye el camino desde cero.</p>
+            </article>
+            <article class="timeline-item">
+              <div class="timeline-tag">Evolución</div>
+              <h3>Nace la Distribuidora Patti con Daniel y Marcelo</h3>
+              <p>La segunda generación impulsa la transición desde el oficio original hacia una estructura mayorista más sólida.</p>
+            </article>
+            <article class="timeline-item">
+              <div class="timeline-tag">T3RZO</div>
+              <h3>La 3ra generación lanza la marca propia</h3>
+              <p>Franco y el equipo actual sintetizan experiencia, calidad y visión de futuro en una identidad nueva.</p>
+            </article>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="productos">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <div>
+            <h2>Especialidades de nicho</h2>
+            <div class="accent-bar" aria-hidden="true"></div>
+          </div>
+          <p>Nos enfocamos en las piezas difíciles que otros no cubren con la misma profundidad técnica.</p>
+        </div>
+
+        <div class="specialties">
+          <article class="panel specialty-card reveal">
+            <!-- Insertar aquí imagen premium de sondas lambda si querés reforzar la línea -->
+            <div class="specialty-tag">Línea técnica</div>
+            <h3>Sondas Lambda</h3>
+            <p>Componentes sensibles donde la aplicación correcta y la confianza en el producto son decisivas.</p>
+          </article>
+          <article class="panel specialty-card reveal">
+            <!-- Insertar aquí imagen premium de inyectores o detalle de terminación -->
+            <div class="specialty-tag">Alta exigencia</div>
+            <h3>Inyectores</h3>
+            <p>Piezas que piden criterio al seleccionar y respaldo al vender. Ahí es donde T3RZO quiere estar.</p>
+          </article>
+          <article class="panel specialty-card reveal">
+            <!-- Insertar aquí imagen premium de válvulas EGR o línea asociada -->
+            <div class="specialty-tag">Piezas difíciles</div>
+            <h3>Válvulas EGR</h3>
+            <p>Una categoría de nicho que refleja bien el enfoque de la marca: resolver lo complejo con consistencia.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="hitos">
+      <div class="wrap">
+        <div class="proof-grid">
+          <article class="panel proof-hero reveal">
+            <div class="proof-tag">Social proof / hitos</div>
+            <h3>Automechanika Buenos Aires 2024-2026</h3>
+            <p>
+              La participación en la feria más importante del rubro confirma crecimiento, validación de clientes y vocación de largo plazo.
+            </p>
+          </article>
+
+          <div class="proof-points">
+            <article class="panel proof-card reveal">
+              <div class="proof-tag">Presencia sectorial</div>
+              <h3>Validación frente al mercado</h3>
+              <p>Mostrar T3RZO en Automechanika refuerza una marca seria, visible y comprometida con el rubro.</p>
+            </article>
+            <article class="panel proof-card reveal">
+              <div class="proof-tag">Confianza comercial</div>
+              <h3>Crecimiento acompañado por clientes</h3>
+              <p>La tracción de la marca viene de relaciones reales y de una propuesta técnica que el mercado reconoce.</p>
+            </article>
+            <article class="panel proof-card reveal">
+              <div class="proof-tag">Visión de futuro</div>
+              <h3>Marca construida para durar</h3>
+              <p>T3RZO no nace para hacer ruido un año. Nace para consolidarse como referencia en su segmento.</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="contacto">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <div>
+            <h2>Contacto y canales</h2>
+            <div class="accent-bar" aria-hidden="true"></div>
+          </div>
+          <p>Canales simples para consultar, seguir la marca y abrir conversación comercial.</p>
+        </div>
+
+        <div class="contact-grid">
+          <article class="panel contact-card reveal">
+            <div class="footer-tag">Canal directo</div>
+            <h3>WhatsApp</h3>
+            <p>Consultas comerciales y contacto ágil con el equipo.</p>
+            <a class="btn btn-primary" href="https://wa.me/54911XXXXXXXXX" target="_blank" rel="noopener">Abrir WhatsApp</a>
+          </article>
+          <article class="panel contact-card reveal">
+            <div class="footer-tag">Presencia social</div>
+            <h3>Instagram</h3>
+            <p>Novedades, contenido visual y construcción de marca.</p>
+            <a class="btn btn-metal" href="https://www.instagram.com/t3rzoautopartes/" target="_blank" rel="noopener">Ver Instagram</a>
+          </article>
+          <article class="panel contact-card reveal">
+            <div class="footer-tag">Comunidad</div>
+            <h3>Facebook</h3>
+            <p>Otro punto de contacto para audiencias y publicaciones de la marca.</p>
+            <a class="btn btn-metal" href="https://www.facebook.com/" target="_blank" rel="noopener">Ver Facebook</a>
+          </article>
+          <article class="panel contact-card reveal">
+            <div class="footer-tag">Formato corto</div>
+            <h3>TikTok</h3>
+            <p>Espacio para mostrar producto, oficio y presencia con formato ágil.</p>
+            <a class="btn btn-metal" href="https://www.tiktok.com/" target="_blank" rel="noopener">Ver TikTok</a>
+          </article>
+          <article class="panel contact-card reveal">
+            <div class="footer-tag">Canal formal</div>
+            <h3>Mail</h3>
+            <p>Intercambio comercial, consultas de marca o información más detallada.</p>
+            <a class="btn btn-metal" href="mailto:ventas@t3rzoautopartes.com.ar">Enviar mail</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap">
+        <article class="panel cta-panel reveal">
+          <div>
+            <h2>Calidad premium para vender con confianza.</h2>
+            <p>
+              Si buscás una marca con criterio técnico, legado real y foco en piezas difíciles, T3RZO está lista para acompañarte.
+            </p>
+          </div>
+          <div class="cta-actions">
+            <a class="btn btn-primary" href="https://wa.me/54911XXXXXXXXX" target="_blank" rel="noopener">WhatsApp Consultas</a>
+            <a class="btn btn-metal" href="https://www.mercadolibre.com.ar/" target="_blank" rel="noopener">MercadoLibre</a>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="footer-grid">
+        <div class="footer-copy">
+          <div class="brand">
+            <div class="brand-mark">
+              <img src="assets/logo-t3rzo.png" alt="T3RZO Autopartes" />
+            </div>
+            <div class="brand-copy">
+              <h1>T3RZO Autopartes</h1>
+              <p>Marca propia construida desde experiencia familiar, oficio técnico y visión OEM.</p>
+            </div>
+          </div>
+          <p>Casa central en Parque Avellaneda. © <span id="year"></span> T3RZO Autopartes.</p>
+        </div>
+
+        <div class="footer-actions">
+          <a class="footer-link" href="https://www.instagram.com/t3rzoautopartes/" target="_blank" rel="noopener">Instagram</a>
+          <a class="footer-link" href="https://www.facebook.com/" target="_blank" rel="noopener">Facebook</a>
+          <a class="footer-link" href="https://www.tiktok.com/" target="_blank" rel="noopener">TikTok</a>
+          <a class="footer-link" href="mailto:ventas@t3rzoautopartes.com.ar">Mail</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    const revealObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+            revealObserver.unobserve(entry.target);
+          }
+        });
+      },
+      {
+        threshold: 0.18
+      }
+    );
+
+    document.querySelectorAll(".reveal").forEach((node) => revealObserver.observe(node));
+  </script>
+</body>
+</html>
