@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-settings.json",
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Edit|Write|NotebookEdit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "ROOT=\"${CLAUDE_PROJECT_DIR:-C:/Users/Marcos/Desktop/t3rzo-landing}\"; PY=\"$(command -v python || command -v python3 || command -v py || true)\"; if [ -z \"$PY\" ] && [ -x \"/c/Users/Marcos/AppData/Local/Programs/Python/Python313/python.exe\" ]; then PY=\"/c/Users/Marcos/AppData/Local/Programs/Python/Python313/python.exe\"; fi; if [ -z \"$PY\" ]; then printf '%s' '{\"hookSpecificOutput\":{\"hookEventName\":\"PreToolUse\",\"permissionDecision\":\"deny\",\"permissionDecisionReason\":\"[limite de proyecto] No se encontro Python para verificar el limite del proyecto. Se bloquea por precaucion (ver docs/metodologia-de-trabajo.md, Regla 1).\"}}'; else \"$PY\" \"$ROOT/.claude/hooks/guard-project-boundary.py\"; fi",
+            "timeout": 10,
+            "statusMessage": "Verificando limite del proyecto"
+          }
+        ]
+      }
+    ]
+  }
+}
