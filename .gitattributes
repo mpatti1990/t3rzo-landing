@@ -1,0 +1,23 @@
+# Fines de linea: LF en todos lados, sin depender de la maquina.
+#
+# Windows y Linux marcan el fin de cada linea con caracteres distintos. Sin este
+# archivo, git convierte segun la configuracion local (aca core.autocrlf = true)
+# y avisa con una advertencia por archivo cada vez que entra uno nuevo. Fijandolo
+# aca, la conversion es la misma en cualquier maquina y las advertencias no
+# vuelven.
+#
+# Al momento de crearlo (2026-08-09) todos los archivos de texto del proyecto ya
+# usaban LF, salvo .gitignore, que se normaliza solo la proxima vez que git lo
+# toque. Por eso este cambio no reescribe nada.
+
+* text=auto eol=lf
+
+# Binarios: git no los convierte nunca. Sin estas lineas, una imagen podria
+# corromperse el dia que git la confunda con texto.
+*.png  binary
+*.jpg  binary
+*.jpeg binary
+*.gif  binary
+*.webp binary
+*.ico  binary
+*.pdf  binary

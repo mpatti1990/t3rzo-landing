@@ -84,4 +84,23 @@ nada o bloquea todo.
 
 ---
 
-*Última actualización: 2026-08-09 — bloque METODOLOGIA.1*
+## Los fines de línea se fijan en `.gitattributes`, no en la máquina
+
+**Enunciado.** El proyecto guarda todos los archivos de texto con fin de línea
+LF, declarado en [.gitattributes](../.gitattributes) con `* text=auto eol=lf`.
+Las imágenes y demás binarios se marcan `binary` para que git no los toque
+nunca.
+
+No se resuelve cambiando `core.autocrlf` en la máquina: esa configuración es
+por computadora y por usuario, así que el mismo repositorio se comportaría
+distinto en otra máquina. `.gitattributes` viaja adentro del repositorio.
+
+**Justificación:** el 2026-08-09, el primer `git add` del proyecto devolvió once
+advertencias de conversión de fin de línea. No rompieron nada, pero Marcos tuvo
+que frenar el cierre y preguntar qué eran. La configuración que las produce
+(`core.autocrlf = true`) es la default de Git para Windows y estaba puesta en la
+máquina, no en el proyecto.
+
+---
+
+*Última actualización: 2026-08-09 — bloque METODOLOGIA.2*

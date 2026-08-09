@@ -525,7 +525,26 @@ arriba. Se agregan, no se renegocian. Las mejoras heredadas de `patti-erp` que
 ya están incorporadas al texto (M-7 rutas absolutas, M-2 supuesto falso que no
 frena el bloque) no se repiten acá.
 
-*Todavía no hay mejoras propias registradas.*
+**M-1 (METODOLOGIA.1) — "Qué vas a ver si salió bien" incluye las advertencias,
+no solo la salida principal.** Cuando se le anuncia a Marcos qué va a aparecer
+en pantalla, se cuentan también los avisos que la herramienta pueda tirar de
+paso. Si no se verificó qué imprime exactamente el comando en este repositorio,
+no se afirma "no muestra nada": se dice "puede mostrar advertencias de X, son
+normales". Y si el comando es de solo lectura, se corre antes para ver la salida
+real en vez de anunciarla de memoria.
+
+*Justificación:* en el cierre de METODOLOGIA.1 se le entregó el `git add` con la
+leyenda "No muestra nada si sale bien", y devolvió once advertencias de
+conversión de fin de línea. El comando estaba bien y el resultado también; lo
+que estaba mal era el anuncio. Marcos frenó el cierre para preguntar, que es
+exactamente lo que tiene que hacer — y ese es el problema: un anuncio incorrecto
+gasta el mecanismo con el que él detecta que algo salió distinto. Si los avisos
+falsos se vuelven habituales, el día que aparezca uno de verdad no va a frenar.
+
+*¿Qué dejó que esto pasara?* No se consideró que era el primer `git add` de
+archivos nuevos en un repositorio con `core.autocrlf = true`. La causa técnica
+quedó cerrada aparte, con un `.gitattributes` (ver `reglas-duras.md`); esta
+regla cubre la otra mitad, que es cómo se anuncia.
 
 ---
 
@@ -548,4 +567,4 @@ nunca), que aplica siempre.
 
 ---
 
-*Última actualización: 2026-08-09 — bloque METODOLOGIA.1*
+*Última actualización: 2026-08-09 — bloque METODOLOGIA.2*
