@@ -83,6 +83,18 @@ encuentra Python para ejecutarse, bloquea en vez de dejar pasar.
 (`%LOCALAPPDATA%\Temp\claude\...`), que es papel borrador descartable. Está
 declarado en el script, no es un agujero implícito.
 
+**Probado en vivo el 2026-08-09** (bloque METODOLOGIA.3), con cinco casos de
+punta a punta: rechaza escribir dentro de `patti-erp`, rechaza una ruta que se
+escapa con `..`, rechaza editar un archivo que ya existe afuera, y deja pasar la
+landing y el scratchpad. El detalle de la prueba y cómo se repite está en
+[reglas-duras.md](reglas-duras.md).
+
+**Los hooks se leen una sola vez, al arrancar la sesión.** Una sesión que ya
+estaba abierta cuando se creó o se modificó `.claude/settings.json` **no** tiene
+el candado cargado, aunque el archivo esté en su lugar. Por eso los dos primeros
+bloques del proyecto trabajaron sin protección real. Después de tocar los hooks,
+la sesión se reinicia y se vuelve a ver disparar el control.
+
 **Qué NO cubre.** El hook intercepta las herramientas de edición de archivos.
 **No** intercepta la consola: un `cp`, un `sed`, un `Set-Content` o un
 `git checkout` desde Bash o PowerShell escriben fuera igual. Esa parte queda
@@ -546,6 +558,27 @@ archivos nuevos en un repositorio con `core.autocrlf = true`. La causa técnica
 quedó cerrada aparte, con un `.gitattributes` (ver `reglas-duras.md`); esta
 regla cubre la otra mitad, que es cómo se anuncia.
 
+**M-8 (METODOLOGIA.3) — un control automático que quedó sin probar se prueba al
+principio de la sesión siguiente, antes de trabajar.** Cuando un bloque instala o
+modifica un hook, la sesión que lo escribió no puede probarlo (los hooks se
+cargan al arrancar). Ese pendiente no espera a que alguien se acuerde: la sesión
+siguiente arranca disparándolo a propósito, y hasta que se lo vea actuar el
+proyecto se trata como si no tuviera protección.
+
+*(La numeración salta a M-8 para no chocar con los números heredados de
+`patti-erp` que este documento ya cita, M-2 y M-7.)*
+
+*Justificación:* el candado de la Regla 1 se escribió el 2026-08-09 y quedó dos
+bloques enteros sin verificarse. Estaba correctamente declarado como pendiente en
+la bitácora las dos veces, y aun así solo se probó cuando Marcos lo pidió — o
+sea, el mecanismo que quedó cubriendo el agujero fue que el dueño del proyecto se
+acordara, que es exactamente lo que la metodología dice que no puede ser un
+control.
+
+*¿Qué dejó que esto pasara?* Un pendiente escrito no tiene disparador: dice qué
+falta, no cuándo se hace. Faltaba atarlo a un momento fijo del ciclo, igual que
+los controles de gstack.
+
 ---
 
 ## Para conversaciones nuevas
@@ -567,4 +600,4 @@ nunca), que aplica siempre.
 
 ---
 
-*Última actualización: 2026-08-09 — bloque METODOLOGIA.2*
+*Última actualización: 2026-08-09 — bloque METODOLOGIA.3*

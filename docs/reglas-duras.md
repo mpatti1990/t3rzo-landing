@@ -47,6 +47,31 @@ prueba estaba mal armado (`printf` se había comido las barras invertidas de la
 ruta de Windows) y el hook lo estaba rechazando con razón. Antes de tocar el
 código que se está probando, se verifica que el caso de prueba sea válido.
 
+**Verificado en vivo el 2026-08-09** (bloque METODOLOGIA.3), en la primera sesión
+que arrancó con la carpeta `.claude/` ya existente. Cinco casos de punta a punta:
+bloquea escribir un archivo nuevo dentro de `patti-erp`, bloquea una ruta que se
+escapa con `..`, bloquea editar un archivo que ya existe afuera, y deja pasar
+tanto la landing como el scratchpad. Hasta esa fecha el candado estaba escrito
+pero nunca se lo había visto actuar.
+
+**Segundo corolario — un intento cuenta como prueba solo si aparece el mensaje
+del control.** En la primera vuelta de esa verificación, dos de cuatro intentos
+no probaron nada: uno murió porque el texto a reemplazar no existía en el
+archivo, el otro porque el archivo no existía. Claude Code valida la entrada de
+`Edit` **antes** de correr el hook, así que esos intentos se rechazan sin que el
+candado llegue a opinar. Los dos se veían iguales a "la edición no ocurrió" y
+ninguno demostraba nada — leídos mal, habrían justificado reportar que el candado
+no cubre las ediciones. El criterio de aprobado es que aparezca el texto del
+propio control (acá, `[limite de proyecto] Bloqueado`), nunca la ausencia de un
+cambio.
+
+**Cómo se prueba el caso "editar un archivo que ya existe afuera".** Hace falta
+un archivo real fuera del límite, y **nunca es un archivo de otro proyecto**: se
+crea un centinela descartable (por ejemplo en el Escritorio), se intenta
+editarlo, se verifica que su contenido quedó intacto y se lo borra. Ese centinela
+se crea por consola, que es justamente lo que el candado no vigila — así que la
+prueba deja demostrado, de paso, el agujero declarado en la Regla 1.
+
 ---
 
 ## PowerShell 5.1, no 7
@@ -103,4 +128,4 @@ máquina, no en el proyecto.
 
 ---
 
-*Última actualización: 2026-08-09 — bloque METODOLOGIA.2*
+*Última actualización: 2026-08-09 — bloque METODOLOGIA.3*
