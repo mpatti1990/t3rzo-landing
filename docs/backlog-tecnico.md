@@ -68,6 +68,12 @@ con texto de instrucciones adentro. Es lo primero que ve un visitante.
 
 **Qué hace falta:** el video institucional o la foto premium que va ahí.
 
+**El material existe** (relevado el 2026-08-09, bloque SKILLS.1): en
+`C:\Users\Marcos\Desktop\imagenes para la pagina de t3rzo` hay tres videos
+candidatos (`DDA 5.mp4`, `DDA 6.mp4`, `DDA 7.mp4`) y fotos de cámara profesional
+(`_MAP*.JPG`). Los videos **no** se copian al repositorio: van a YouTube y la
+página los incrusta (ver `reglas-duras.md`). Falta que Marcos elija.
+
 **Detectado:** 2026-08-09, bloque METODOLOGIA.1.
 
 ---
@@ -126,4 +132,39 @@ son lo que saltó en una lectura parcial — no es la lista final.
 
 ---
 
-*Última actualización: 2026-08-09 — bloque METODOLOGIA.1*
+## #8 — Hay material real de T3RZO sin seleccionar ni preparar
+
+Marcos tiene el material que la página necesita, pero todavía no entró: fotos de
+Automechanika 2024 y 2026, de mercadería, de las cajas, y videos de entrevistas
+en TV, streaming y podcasts. Relevado el 2026-08-09 (bloque SKILLS.1).
+
+Lo que se midió en `Desktop\imagenes para la pagina de t3rzo` (828 MB, 75
+archivos):
+
+| Grupo | Estado |
+|---|---|
+| 6 videos `.mp4` (536 MB, dos de 222 y 141 MB) | van a YouTube, no al repositorio |
+| `FotoMercaderia-*.png` (hasta 31 MB) | fotos en PNG: formato equivocado, hay que pasarlas a JPG/WebP y achicarlas ~100 veces |
+| `_MAP*.JPG` (5–11 MB, cámara profesional) | candidatas al hero y a secciones |
+| `Diseño caja T3RZO *.png` | candidatas a la sección de producto |
+| `META_*_1080x1920.jpg` | creativos verticales de publicidad para Instagram; no son material de landing |
+| Fotos numeradas (`3184400.png` y similares, 0,1–0,5 MB) | ya livianas, hay que ver qué son |
+
+Las carpetas originales (`Automechanika 2026` con 20 GB, `Videos mercaderia` con
+22 GB, `Videos Automechanika` con 14 GB) **no se tocan**: son el archivo de
+material, no parte del sitio.
+
+**Qué hace falta:** que Marcos elija qué se muestra y en qué sección. Después la
+conversión la hace Claude Code con Pillow (Python), que está instalado. `ffmpeg`
+y `ImageMagick` **no** están en la máquina, así que el video no se puede procesar
+localmente — otro motivo para que vaya a YouTube.
+
+**Ojo con los derechos:** un clip de un programa de TV o de un podcast es del
+canal o del programa, no de T3RZO. Enlazar al original es seguro; alojar una copia
+propia, no necesariamente.
+
+**Detectado:** 2026-08-09, bloque SKILLS.1.
+
+---
+
+*Última actualización: 2026-08-09 — bloque SKILLS.1*

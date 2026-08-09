@@ -27,6 +27,10 @@ Lo mínimo que hay que saber sin abrirlo:
   WhatsApp, mails, domicilios, URLs, links de redes o de Mercado Libre, precios,
   stock, certificaciones, garantías ni fechas de eventos. Lo que falta va como
   `[CONFIRMAR]`, nunca con un valor de ejemplo.
+- **El material pesado no entra al repositorio.** Solo entra a `assets/` lo que se
+  muestra en la página, ya comprimido para web (150–300 KB una foto). Los videos
+  nunca: van a YouTube y la página los incrusta. GitHub rechaza archivos de más de
+  100 MB. Detalle en `docs/reglas-duras.md`.
 - Los incidentes que no se repiten están en `docs/reglas-duras.md`. Se consulta
   antes de proponer un enfoque, no después de romper algo.
 - Cada bloque cierra con su entrada en `bitacora/`.
@@ -64,3 +68,23 @@ toca, no de entrada.
 - `/cierre` — cierra un bloque: recorre el checklist, sincroniza la
   documentación, escribe la bitácora y entrega los comandos de git a Marcos. No
   commitea ni pushea.
+
+## Skills de diseño instaladas en el proyecto (bloque SKILLS.1)
+
+Viven en `.claude/skills/` y viajan con el repositorio. Se eligieron sobre 22
+candidatas de cuatro repositorios; el descarte y su razón están en la bitácora.
+
+- `impeccable` — audita y pule interfaces (Apache 2.0). **Su hook NO está
+  cableado a propósito**: revisaría el diseño después de cada edición y haría todo
+  más lento. La skill funciona igual cuando se la invoca. Sus dos conexiones a
+  internet (aviso de versión nueva y telemetría de elecciones) están apagadas por
+  `env` en `.claude/settings.json` — y ese `env`, como los hooks, recién toma
+  efecto al reiniciar la sesión.
+- `ui-ux-pro-max` — base de datos local de estilos, paletas, tipografías y
+  patrones de landing. Se consulta con Python, no sale a internet.
+- `design-taste-frontend` — que la página no tenga cara de plantilla.
+- `redesign-existing-projects` — mejora una página que ya existe sin romperla.
+
+**Las cuatro deciden cómo se ve la página, nunca qué dice.** El contenido sale de
+la Fuente Maestra y lo no confirmado queda `[CONFIRMAR]`. Está como regla dura en
+`docs/reglas-duras.md`.

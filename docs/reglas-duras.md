@@ -128,4 +128,65 @@ máquina, no en el proyecto.
 
 ---
 
-*Última actualización: 2026-08-09 — bloque METODOLOGIA.3*
+## Las skills de diseño deciden cómo se ve la página, nunca qué dice
+
+**Enunciado.** Las skills de diseño instaladas (`impeccable`, `ui-ux-pro-max`,
+`design-taste-frontend`, `redesign-existing-projects`) mandan sobre la forma:
+jerarquía visual, tipografías, color, espaciado, movimiento, estructura. **No
+mandan sobre el contenido.** Todo texto visible sigue saliendo de la Fuente
+Maestra, y lo que no está confirmado sigue siendo `[CONFIRMAR]`. Si una skill
+pide un dato para completar un bloque de diseño —un teléfono para el botón, una
+cifra para un contador, un testimonio, una fecha— el dato no se inventa: se deja
+el hueco marcado y se le pregunta a Marcos.
+
+**Por qué.** Ninguna de estas skills sabe nada de T3RZO, y varias están escritas
+para que el resultado se vea vendedor y completo. Un instructivo que premia la
+página terminada empuja a rellenar huecos, y la sección 0.3 de la Fuente Maestra
+prohíbe exactamente eso: teléfonos, precios, stock, URLs, certificaciones,
+garantías y fechas de eventos. Un número de WhatsApp inventado para que el hero
+"cierre bien" es un botón que el cliente toca y no llega a nadie.
+
+**Justificación:** no sale de un incidente todavía, y se escribe igual porque el
+riesgo es estructural: se instalaron cuatro skills cuyo objetivo declarado es que
+la página quede impecable, en un proyecto donde hay cinco datos marcados
+`[CONFIRMAR]` y dos ítems BLOQUEANTE en el backlog por datos inventados por una
+plantilla. La regla existe para que el conflicto esté resuelto antes de que
+aparezca, no después.
+
+---
+
+## El material pesado no entra al repositorio
+
+**Enunciado.** Al repositorio entra únicamente el archivo que **se muestra en la
+página**, ya redimensionado y comprimido para web. El resto del material —las
+carpetas de fotos y videos originales— se queda afuera, donde está. Los videos
+**nunca** entran: se publican en YouTube o Vimeo y la página los incrusta o los
+enlaza.
+
+Números de referencia, no criterio:
+
+| Qué | Cuánto |
+|---|---|
+| Foto de producto o de ambiente para web | 150–300 KB |
+| Imagen del hero (la de arriba, a pantalla completa) | hasta 500 KB |
+| Logo o gráfico de color plano | PNG; una foto **nunca** va en PNG |
+| Video alojado en el repositorio | 0 |
+
+**Por qué.** Git guarda todas las versiones para siempre: una foto de 20 MB que
+entra y después se reemplaza sigue pesando 20 MB en el repositorio de por vida, y
+se descarga entera cada vez que alguien lo clona. Y hay un límite duro que no es
+opinable: **GitHub rechaza cualquier archivo de más de 100 MB** y avisa a partir
+de 50 MB. Un `git push` con un video de 222 MB adentro no se sube lento: falla.
+
+**Justificación:** el 2026-08-09 Marcos preguntó si convenía copiar al proyecto
+la carpeta `Desktop\imagenes para la pagina de t3rzo`. Se midió antes de
+contestar: 828 MB en 75 archivos, con seis videos que suman 536 MB —dos de ellos
+de 222 MB y 141 MB, los dos por encima del límite duro de GitHub— y fotos de
+mercadería de hasta 31 MB guardadas en PNG, que es el formato equivocado para una
+fotografía. El repositorio entero pesa hoy 20 MB. Copiar la carpeta lo habría
+multiplicado por cuarenta y el push habría fallado. La pregunta llegó antes del
+daño; la regla queda para que la próxima vez no dependa de que alguien pregunte.
+
+---
+
+*Última actualización: 2026-08-09 — bloque SKILLS.1*
