@@ -189,4 +189,80 @@ daño; la regla queda para que la próxima vez no dependa de que alguien pregunt
 
 ---
 
-*Última actualización: 2026-08-09 — bloque SKILLS.1*
+---
+
+## El recorte de fondo no se automatiza
+
+**Qué pasó.** Marcos aportó fotos de packaging sobre fondo blanco. Se intentó
+recortarles el fondo con un algoritmo, dos veces. La primera dejó el gris del
+estudio pegado a la caja; la segunda, con el umbral más bajo, le comió pedazos a
+la tapa. Mientras tanto Marcos ya tenía los recortes hechos a mano.
+
+**La regla.** Claude Code **no recorta fondos**. Si una imagen necesita fondo
+transparente, la trae Marcos ya recortada. Lo único permitido sobre una imagen es
+bajarle el peso, sin tocar encuadre ni composición (Regla 4).
+
+**Por qué es estructural y no un problema de parámetros.** El packaging es blanco
+sobre fondo blanco. No hay umbral que separe una cosa de la otra sin romper una
+de las dos. Medirlo lleva minutos; ajustar parámetros a ciegas, horas.
+
+**Cómo se verifica que un recorte es real.** No alcanza con que el PNG tenga
+canal alfa: puede estar entero opaco. Se mide el porcentaje transparente y se
+comprueba que las cuatro esquinas lo sean. Un archivo con 48% de transparencia y
+esquinas opacas tiene el recorte a medias.
+
+*Incidente: 2026-08-12, bloque LANDING.1.*
+
+---
+
+## `height:auto` en las imágenes, siempre
+
+**Qué pasó.** La caja del cierre se veía completamente deformada: estirada en
+vertical. La causa: el `<img>` llevaba `width` y `height` en el HTML, y el CSS le
+fijaba solo el ancho. El alto seguía tomándolo del atributo, así que quedaba de
+340 píxeles de ancho por 734 de alto.
+
+**La regla.** La regla global de imágenes lleva `height:auto`. Los atributos
+`width` y `height` del HTML se conservan —reservan el espacio y evitan que la
+página salte al cargar— pero el alto real lo calcula el navegador.
+
+*Incidente: 2026-08-12, bloque LANDING.1.*
+
+---
+
+## Una animación automática no puede pisar el input del usuario
+
+**Qué pasó.** La cinta de productos tenía una animación que le reescribía la
+posición en cada cuadro. Cuando el usuario la movía con la rueda del mouse, el
+cuadro siguiente le borraba el movimiento. Se veía congelada. La prueba
+automatizada no lo detectó porque disparaba el evento y leía el resultado en el
+mismo instante, antes de que la animación volviera a correr.
+
+**La regla.** Si un elemento se anima solo **y** el usuario lo puede mover, las
+dos cosas tienen que escribir sobre la misma propiedad y la del usuario tiene que
+ganar. Ante la duda, se saca la animación automática: el movimiento del usuario
+no se negocia.
+
+**Corolario sobre las pruebas.** Un evento sintético leído en el mismo tick no
+prueba que algo funcione en vivo. Cuando hay una animación en juego, se verifica
+con el ojo o dejando pasar cuadros.
+
+*Incidente: 2026-08-12, bloque LANDING.1.*
+
+---
+
+## Una skill de gstack puede tocar archivos del repositorio
+
+**Qué pasó.** El navegador de pruebas de gstack (`browse`) creó una carpeta
+`.gstack/` dentro del proyecto con sus registros, y **se agregó solo al
+`.gitignore`**. El cambio era correcto, pero lo hizo una herramienta sin pedirlo.
+
+**La regla.** Después de usar una herramienta de gstack se revisa `git status`
+antes de cerrar. Un archivo del repositorio que cambió sin que nadie lo tocara se
+declara en el reporte, aunque el cambio esté bien.
+
+*Incidente: 2026-08-12, bloque LANDING.1.*
+
+---
+
+*Última actualización: 2026-08-12 — bloque LANDING.1*

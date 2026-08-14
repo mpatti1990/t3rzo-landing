@@ -10,7 +10,7 @@ criterio: no depende de que alguien se acuerde.
 
 ---
 
-## #1 — Los botones de WhatsApp no llevan a ningún lado — BLOQUEANTE
+## #1 — Los botones de WhatsApp no llevan a ningún lado — RESUELTO
 
 Cuatro botones (encabezado, hero, contacto y cierre) apuntan a
 `https://wa.me/54911XXXXXXXXX`, que es el número de ejemplo que quedó de la
@@ -24,10 +24,14 @@ esté el número real, va `[CONFIRMAR]` — o se saca el botón. Un botón que n
 llega a nadie es peor que no tener botón.
 
 **Detectado:** 2026-08-09, bloque METODOLOGIA.1.
+**Resuelto:** 2026-08-12, bloque LANDING.1. Marcos aportó el número real
+(+54 9 11 3767-7069) y el de Patti para casas de repuestos
+(+54 9 11 6135-1111). Los cinco botones apuntan ahí, con mensaje escrito de
+antemano segun desde donde se toque.
 
 ---
 
-## #2 — Links de MercadoLibre, Facebook y TikTok van a la home — BLOQUEANTE
+## #2 — Links de MercadoLibre, Facebook y TikTok van a la home — RESUELTO
 
 Seis links apuntan a la página principal de cada plataforma en vez de al perfil
 o la tienda de T3RZO. El visitante que quiere comprar termina en el buscador de
@@ -41,6 +45,9 @@ Mismo caso que el #1: la Fuente Maestra (sección 0.3) prohíbe expresamente
 inventar URLs, enlaces de Mercado Libre y enlaces de redes sociales.
 
 **Detectado:** 2026-08-09, bloque METODOLOGIA.1.
+**Resuelto:** 2026-08-12, bloque LANDING.1. Mercado Libre, Instagram y Facebook
+apuntan a los destinos reales. Mail y TikTok **no existen todavía**: en vez de
+dejarlos apagados, directamente no aparecen en la página.
 
 ---
 
@@ -61,7 +68,7 @@ aparte y solo vale la pena si el peso del repo llega a molestar.
 
 ---
 
-## #4 — El recuadro principal del hero es un placeholder
+## #4 — El recuadro principal del hero es un placeholder — RESUELTO
 
 La caja grande de la sección de arriba dice "Placeholder de video o imagen hero"
 con texto de instrucciones adentro. Es lo primero que ve un visitante.
@@ -75,6 +82,9 @@ candidatos (`DDA 5.mp4`, `DDA 6.mp4`, `DDA 7.mp4`) y fotos de cámara profesiona
 página los incrusta (ver `reglas-duras.md`). Falta que Marcos elija.
 
 **Detectado:** 2026-08-09, bloque METODOLOGIA.1.
+**Resuelto:** 2026-08-12, bloque LANDING.1. En el hero va una foto real de
+producto sobre la caja de la marca, recortada. Ya no hay ningún placeholder
+visible fuera de los dos `[CONFIRMAR]` declarados.
 
 ---
 
@@ -167,4 +177,64 @@ propia, no necesariamente.
 
 ---
 
-*Última actualización: 2026-08-09 — bloque SKILLS.1*
+---
+
+## #9 — El cierre espera un video 3D de la caja
+
+Al final de la página, arriba del pie, hay una foto chica de la caja rodeada de
+espacio. Ese hueco está reservado: Marcos está generando un video 3D del
+packaging para poner ahí.
+
+**Qué hace falta:** el video subido a YouTube y su link. Los videos no entran al
+repositorio (ver `reglas-duras.md`).
+
+**Detectado:** 2026-08-12, bloque LANDING.1.
+
+---
+
+## #10 — El podcast Detrás del Algoritmo no está en la página
+
+Marcos aportó tres fragmentos de la entrevista que Mariano Sirena le hizo a su
+hermano sobre Patti y T3RZO (452 MB en `imagenes-para-la-pagina/`). Es prueba
+social fuerte y todavía no aparece.
+
+**Qué hace falta:** los links de YouTube. Marcos mencionó seis fragmentos y hay
+tres archivos: pueden faltar tres.
+
+**Ojo con los derechos:** el video es del podcast, no de T3RZO. Enlazar al
+original es seguro; alojar una copia propia, no necesariamente.
+
+**Detectado:** 2026-08-12, bloque LANDING.1.
+
+---
+
+## #11 — Una de las fotos de packaging tiene el recorte incompleto
+
+`imagenes-para-la-pagina/Diseño de cajas/FotoMercaderia+caja.png` conserva un
+rectángulo gris de fondo: el recorte no llegó a los bordes. Medido: 48% de
+transparencia y las cuatro esquinas opacas, contra 66% y esquinas limpias en las
+otras dos.
+
+Se usó una de las buenas en su lugar. Si se quiere usar esa foto, hay que
+rehacerle el recorte.
+
+**Detectado:** 2026-08-12, bloque LANDING.1.
+
+---
+
+## #12 — El candado de la Regla 1 lanza una consola por cada edición
+
+El hook que impide editar fuera del proyecto se dispara en cada Edit y Write, y
+cada disparo lanza un proceso de Python desde la consola. En Windows eso abre una
+ventana que a veces roba el foco. Un bloque que toca `index.html` veinte veces
+son veinte ventanas.
+
+**Deuda aceptada a propósito:** el candado protege un ERP con datos reales. Bajar
+la frecuencia sin debilitarlo es un bloque de trabajo aparte, y hay que probarlo
+en vivo antes de confiar en él.
+
+**Detectado:** 2026-08-12, bloque LANDING.1, a partir de una queja de Marcos.
+
+---
+
+*Última actualización: 2026-08-12 — bloque LANDING.1*

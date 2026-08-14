@@ -1,1149 +1,1103 @@
-<!doctype html>
-<html lang="es">
+<!DOCTYPE html>
+<html lang="es-AR">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>T3RZO Autopartes | Maestría en repuestos con legado familiar</title>
-  <meta
-    name="description"
-    content="T3RZO resume 50 años de experiencia familiar en autopartes: calidad premium, selección rigurosa y piezas técnicas para que el repuestero trabaje con confianza."
-  />
-  <meta name="theme-color" content="#ffffff" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
-    rel="stylesheet"
-  />
-  <style>
-    :root {
-      --bg: #ffffff;
-      --bg-soft: #f5f7fb;
-      --panel: rgba(255, 255, 255, 0.94);
-      --panel-soft: #f1f4f8;
-      --text: #111827;
-      --muted: #5b6473;
-      --line: rgba(17, 24, 39, 0.1);
-      --line-strong: rgba(17, 24, 39, 0.18);
-      --brand-blue: #212f61;
-      --brand-blue-strong: #162043;
-      --steel: #a4aab4;
-      --silver: #d6dbe3;
-      --chrome: #eef2f6;
-      --shadow: 0 30px 70px rgba(23, 31, 49, 0.1);
-      --shadow-soft: 0 16px 40px rgba(23, 31, 49, 0.08);
-      --radius: 24px;
-      --max: 1220px;
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      margin: 0;
-      min-height: 100vh;
-      font-family: "Inter", system-ui, sans-serif;
-      color: var(--text);
-      background:
-        radial-gradient(circle at top left, rgba(33, 47, 97, 0.08), transparent 34%),
-        radial-gradient(circle at bottom right, rgba(164, 170, 180, 0.12), transparent 30%),
-        var(--bg);
-      line-height: 1.55;
-      overflow-x: hidden;
-    }
-
-    body::before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      background-image:
-        linear-gradient(rgba(17, 24, 39, 0.03) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(17, 24, 39, 0.03) 1px, transparent 1px);
-      background-size: 42px 42px;
-      mask-image: radial-gradient(circle at center, black 42%, transparent 90%);
-      opacity: 0.45;
-    }
-
-    img {
-      display: block;
-      max-width: 100%;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    .wrap {
-      width: min(var(--max), calc(100% - 32px));
-      margin: 0 auto;
-    }
-
-    .eyebrow,
-    .nav-link,
-    .meta-tag,
-    .pillar-kicker,
-    .timeline-tag,
-    .specialty-tag,
-    .proof-tag,
-    .footer-tag {
-      text-transform: uppercase;
-      letter-spacing: 0.14em;
-      font-size: 0.75rem;
-      font-weight: 700;
-    }
-
-    .site-header {
-      position: sticky;
-      top: 0;
-      z-index: 40;
-      backdrop-filter: blur(16px);
-      background: rgba(255, 255, 255, 0.86);
-      border-bottom: 1px solid rgba(17, 24, 39, 0.06);
-    }
-
-    .nav {
-      min-height: 82px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 20px;
-    }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      min-width: 0;
-    }
-
-    .brand-mark {
-      padding: 10px 12px;
-      border-radius: 18px;
-      border: 1px solid rgba(17, 24, 39, 0.08);
-      background: linear-gradient(180deg, #ffffff, #f4f6fa);
-      box-shadow: var(--shadow-soft);
-      flex: 0 0 auto;
-    }
-
-    .brand-mark img {
-      width: 108px;
-      height: auto;
-    }
-
-    .brand-copy h1 {
-      margin: 0;
-      font-size: 0.98rem;
-      line-height: 1.1;
-      color: var(--brand-blue);
-      font-weight: 800;
-      letter-spacing: 0.03em;
-    }
-
-    .brand-copy p {
-      margin: 4px 0 0;
-      color: var(--muted);
-      font-size: 0.84rem;
-    }
-
-    .nav-menu {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-
-    .nav-link {
-      color: var(--muted);
-      padding: 10px 14px;
-      border-radius: 999px;
-      transition: color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
-    }
-
-    .nav-link:hover {
-      color: var(--brand-blue);
-      background: linear-gradient(180deg, #ffffff, #eef2f7);
-      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.9), 0 8px 18px rgba(23, 31, 49, 0.06);
-    }
-
-    .nav-actions {
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-      justify-content: flex-end;
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 48px;
-      padding: 0 18px;
-      border-radius: 14px;
-      border: 1px solid var(--line-strong);
-      font-weight: 700;
-      font-size: 0.95rem;
-      transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
-      box-shadow: 0 10px 24px rgba(17, 24, 39, 0.06);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .btn::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(120deg, rgba(255, 255, 255, 0.66), transparent 34%, transparent 66%, rgba(255, 255, 255, 0.3));
-      opacity: 0.8;
-      pointer-events: none;
-    }
-
-    .btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 18px 36px rgba(17, 24, 39, 0.12);
-      border-color: rgba(33, 47, 97, 0.28);
-    }
-
-    .btn-primary {
-      color: #ffffff;
-      background: linear-gradient(135deg, #1a2854, #304793);
-      border-color: rgba(22, 32, 67, 0.2);
-    }
-
-    .btn-metal {
-      color: var(--brand-blue);
-      background: linear-gradient(180deg, #ffffff, #dfe5ed);
-    }
-
-    .section {
-      padding: 34px 0;
-      position: relative;
-      z-index: 1;
-    }
-
-    .section-head {
-      display: flex;
-      align-items: end;
-      justify-content: space-between;
-      gap: 18px;
-      margin-bottom: 24px;
-    }
-
-    .section-head h2 {
-      margin: 0;
-      font-size: clamp(1.9rem, 3vw, 3.05rem);
-      line-height: 1;
-      letter-spacing: -0.04em;
-      color: var(--brand-blue-strong);
-    }
-
-    .section-head p {
-      margin: 0;
-      max-width: 46ch;
-      color: var(--muted);
-      font-size: 0.98rem;
-    }
-
-    .accent-bar {
-      width: 88px;
-      height: 5px;
-      margin-top: 14px;
-      border-radius: 999px;
-      background: linear-gradient(90deg, var(--brand-blue), #7b8697, #ffffff);
-      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.85), 0 10px 18px rgba(17, 24, 39, 0.06);
-    }
-
-    .panel {
-      border: 1px solid rgba(17, 24, 39, 0.08);
-      border-radius: var(--radius);
-      background: linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(244, 247, 251, 0.96));
-      box-shadow: var(--shadow);
-    }
-
-    .hero {
-      padding: 38px 0 22px;
-    }
-
-    .hero-grid {
-      display: grid;
-      grid-template-columns: minmax(0, 1.1fr) minmax(320px, 0.9fr);
-      gap: 24px;
-      align-items: stretch;
-    }
-
-    .hero-copy,
-    .hero-media {
-      padding: clamp(24px, 4vw, 40px);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hero-copy::after,
-    .hero-media::after,
-    .proof-card::after,
-    .cta-panel::after {
-      content: "";
-      position: absolute;
-      left: 26px;
-      right: 26px;
-      bottom: 0;
-      height: 4px;
-      border-radius: 999px 999px 0 0;
-      background: linear-gradient(90deg, var(--brand-blue), #b4bcc8, #ffffff);
-    }
-
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      padding: 9px 14px;
-      border-radius: 999px;
-      border: 1px solid rgba(17, 24, 39, 0.08);
-      background: linear-gradient(180deg, #ffffff, #eef2f7);
-      color: #687286;
-    }
-
-    .eyebrow::before {
-      content: "";
-      width: 9px;
-      height: 9px;
-      border-radius: 50%;
-      background: var(--brand-blue);
-      box-shadow: 0 0 0 5px rgba(33, 47, 97, 0.08);
-    }
-
-    .hero-copy h2 {
-      margin: 18px 0 14px;
-      max-width: 11ch;
-      font-size: clamp(2.8rem, 6vw, 5.6rem);
-      line-height: 0.94;
-      letter-spacing: -0.06em;
-      color: var(--brand-blue-strong);
-    }
-
-    .hero-copy p {
-      margin: 0;
-      max-width: 62ch;
-      color: var(--muted);
-      font-size: 1rem;
-    }
-
-    .hero-actions {
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
-      margin-top: 26px;
-    }
-
-    .meta-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-top: 24px;
-    }
-
-    .meta-tag {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      min-height: 42px;
-      padding: 0 14px;
-      border-radius: 999px;
-      border: 1px solid rgba(17, 24, 39, 0.08);
-      background: linear-gradient(180deg, #ffffff, #f1f4f8);
-      color: #687286;
-      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.8);
-    }
-
-    .meta-tag::before {
-      content: "";
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: linear-gradient(180deg, #8d96a4, #dfe4ea);
-    }
-
-    .hero-media {
-      display: grid;
-      gap: 14px;
-      background:
-        linear-gradient(180deg, rgba(245, 247, 251, 0.9), rgba(231, 236, 243, 0.9)),
-        radial-gradient(circle at top right, rgba(33, 47, 97, 0.08), transparent 36%);
-    }
-
-    .media-placeholder {
-      min-height: 390px;
-      border-radius: 22px;
-      border: 1px solid rgba(17, 24, 39, 0.08);
-      background:
-        linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(226, 232, 239, 0.92)),
-        url("assets/hero.jpg") center center / cover no-repeat;
-      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.9);
-      position: relative;
-      overflow: hidden;
-      display: flex;
-      align-items: end;
-      padding: 22px;
-    }
-
-    .media-placeholder::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background:
-        linear-gradient(rgba(17, 24, 39, 0.05) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(17, 24, 39, 0.05) 1px, transparent 1px);
-      background-size: 32px 32px;
-      mask-image: linear-gradient(180deg, black 35%, transparent 100%);
-    }
-
-    .media-overlay {
-      position: relative;
-      max-width: 30ch;
-      padding: 18px;
-      border-radius: 18px;
-      background: rgba(255, 255, 255, 0.82);
-      border: 1px solid rgba(17, 24, 39, 0.08);
-      box-shadow: 0 12px 30px rgba(17, 24, 39, 0.08);
-    }
-
-    .media-overlay strong {
-      display: block;
-      color: var(--brand-blue);
-      margin-bottom: 8px;
-      font-size: 1rem;
-    }
-
-    .media-overlay p {
-      margin: 0;
-      color: var(--muted);
-      font-size: 0.92rem;
-    }
-
-    .side-stats {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 14px;
-    }
-
-    .stat-card {
-      padding: 18px;
-      border-radius: 20px;
-      border: 1px solid rgba(17, 24, 39, 0.08);
-      background: linear-gradient(180deg, #ffffff, #eef2f7);
-    }
-
-    .stat-card strong {
-      display: block;
-      color: var(--brand-blue-strong);
-      font-size: 1.7rem;
-      line-height: 1;
-      margin-bottom: 8px;
-    }
-
-    .stat-card p {
-      margin: 0;
-      color: var(--muted);
-      font-size: 0.92rem;
-    }
-
-    .pillars {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 16px;
-    }
-
-    .pillar-card,
-    .specialty-card,
-    .proof-card {
-      padding: 22px;
-    }
-
-    .pillar-icon {
-      width: 52px;
-      height: 52px;
-      display: grid;
-      place-items: center;
-      border-radius: 16px;
-      border: 1px solid rgba(17, 24, 39, 0.1);
-      background: linear-gradient(180deg, #ffffff, #e3e8ef);
-      color: var(--brand-blue);
-      font-size: 1.1rem;
-      font-weight: 800;
-      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.85);
-    }
-
-    .pillar-kicker,
-    .timeline-tag,
-    .specialty-tag,
-    .proof-tag,
-    .footer-tag {
-      color: #7c8797;
-      margin-bottom: 10px;
-    }
-
-    .pillar-card h3,
-    .specialty-card h3,
-    .timeline-item h3,
-    .proof-card h3,
-    .cta-panel h2 {
-      margin: 0;
-      color: var(--brand-blue-strong);
-    }
-
-    .pillar-card h3 {
-      margin-top: 18px;
-      font-size: 1.15rem;
-      line-height: 1.15;
-    }
-
-    .pillar-card p,
-    .specialty-card p,
-    .timeline-item p,
-    .proof-card p,
-    .footer-copy p,
-    .cta-panel p {
-      margin: 10px 0 0;
-      color: var(--muted);
-      font-size: 0.95rem;
-    }
-
-    .timeline-shell {
-      padding: clamp(24px, 4vw, 34px);
-    }
-
-    .timeline {
-      position: relative;
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 16px 24px;
-      margin-top: 24px;
-    }
-
-    .timeline::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      left: calc(50% - 1px);
-      width: 2px;
-      background: linear-gradient(180deg, rgba(33, 47, 97, 0), rgba(33, 47, 97, 0.34), rgba(33, 47, 97, 0));
-    }
-
-    .timeline-item {
-      position: relative;
-      padding: 22px;
-      border-radius: 22px;
-      border: 1px solid rgba(17, 24, 39, 0.08);
-      background: linear-gradient(180deg, #ffffff, #f1f4f8);
-      min-height: 138px;
-    }
-
-    .timeline-item::before {
-      content: "";
-      position: absolute;
-      top: 30px;
-      width: 12px;
-      height: 12px;
-      border-radius: 50%;
-      background: linear-gradient(180deg, #ffffff, #7e8794);
-      box-shadow: 0 0 0 6px rgba(33, 47, 97, 0.08);
-    }
-
-    .timeline-item:nth-child(odd)::before {
-      right: -30px;
-    }
-
-    .timeline-item:nth-child(even)::before {
-      left: -30px;
-    }
-
-    .specialties {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 16px;
-    }
-
-    .specialty-card {
-      background:
-        linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(240, 244, 249, 0.96)),
-        radial-gradient(circle at top right, rgba(33, 47, 97, 0.06), transparent 38%);
-    }
-
-    .proof-grid {
-      display: grid;
-      grid-template-columns: minmax(320px, 0.85fr) minmax(0, 1.15fr);
-      gap: 20px;
-    }
-
-    .proof-hero,
-    .cta-panel {
-      padding: clamp(24px, 4vw, 34px);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .proof-hero h3 {
-      margin: 0;
-      max-width: 13ch;
-      font-size: clamp(1.9rem, 3vw, 3rem);
-      line-height: 1;
-      letter-spacing: -0.04em;
-      color: var(--brand-blue-strong);
-    }
-
-    .proof-points {
-      display: grid;
-      gap: 14px;
-    }
-
-    .proof-card {
-      position: relative;
-      overflow: hidden;
-    }
-
-    .proof-card::after {
-      left: 22px;
-      right: 22px;
-    }
-
-    .contact-grid {
-      display: grid;
-      grid-template-columns: repeat(5, minmax(0, 1fr));
-      gap: 14px;
-    }
-
-    .contact-card {
-      padding: 20px;
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-    }
-
-    .contact-card h3 {
-      margin: 0;
-      color: var(--brand-blue-strong);
-      font-size: 1.06rem;
-    }
-
-    .contact-card p {
-      margin: 0;
-      color: var(--muted);
-      font-size: 0.92rem;
-      flex: 1;
-    }
-
-    .contact-card .btn {
-      width: 100%;
-    }
-
-    .cta-panel {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 24px;
-      background:
-        linear-gradient(135deg, rgba(255, 255, 255, 0.98), rgba(237, 241, 247, 0.96)),
-        radial-gradient(circle at top right, rgba(33, 47, 97, 0.08), transparent 38%);
-    }
-
-    .cta-panel h2 {
-      font-size: clamp(2rem, 3vw, 3.1rem);
-      line-height: 1;
-      letter-spacing: -0.05em;
-      max-width: 12ch;
-      margin-bottom: 12px;
-    }
-
-    .cta-actions {
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
-      justify-content: flex-end;
-      position: relative;
-      z-index: 1;
-    }
-
-    .site-footer {
-      padding: 28px 0 40px;
-    }
-
-    .footer-grid {
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) auto;
-      gap: 18px;
-      align-items: end;
-      padding-top: 20px;
-      border-top: 1px solid rgba(17, 24, 39, 0.08);
-    }
-
-    .footer-copy {
-      color: var(--muted);
-      font-size: 0.92rem;
-    }
-
-    .footer-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      justify-content: flex-end;
-    }
-
-    .footer-link {
-      min-height: 42px;
-      display: inline-flex;
-      align-items: center;
-      padding: 0 14px;
-      border-radius: 999px;
-      border: 1px solid rgba(17, 24, 39, 0.1);
-      background: linear-gradient(180deg, #ffffff, #dfe5ed);
-      color: var(--brand-blue);
-      font-size: 0.88rem;
-      font-weight: 600;
-      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.85), 0 10px 20px rgba(17, 24, 39, 0.05);
-      transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
-    }
-
-    .footer-link:hover {
-      transform: translateY(-2px);
-      border-color: rgba(33, 47, 97, 0.24);
-      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.95), 0 18px 28px rgba(17, 24, 39, 0.1);
-    }
-
-    .reveal {
-      opacity: 0;
-      transform: translateY(16px);
-      transition: opacity 0.55s ease, transform 0.55s ease;
-    }
-
-    .reveal.is-visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    @media (max-width: 1160px) {
-      .hero-grid,
-      .proof-grid,
-      .cta-panel {
-        grid-template-columns: 1fr;
-      }
-
-      .cta-panel {
-        display: grid;
-      }
-
-      .cta-actions {
-        justify-content: flex-start;
-      }
-
-      .contact-grid {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-      }
-    }
-
-    @media (max-width: 900px) {
-      .site-header {
-        position: static;
-      }
-
-      .nav {
-        padding: 18px 0;
-        flex-direction: column;
-        align-items: flex-start;
-      }
-
-      .nav-menu,
-      .nav-actions,
-      .footer-actions {
-        justify-content: flex-start;
-      }
-
-      .section-head {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-
-      .pillars,
-      .specialties,
-      .contact-grid {
-        grid-template-columns: 1fr 1fr;
-      }
-
-      .timeline {
-        grid-template-columns: 1fr;
-      }
-
-      .timeline::before {
-        left: 6px;
-      }
-
-      .timeline-item {
-        padding-left: 30px;
-      }
-
-      .timeline-item::before,
-      .timeline-item:nth-child(odd)::before,
-      .timeline-item:nth-child(even)::before {
-        left: 0;
-        right: auto;
-      }
-
-      .footer-grid {
-        grid-template-columns: 1fr;
-        align-items: start;
-      }
-    }
-
-    @media (max-width: 640px) {
-      .wrap {
-        width: min(var(--max), calc(100% - 24px));
-      }
-
-      .hero-copy h2 {
-        max-width: 100%;
-      }
-
-      .hero-actions,
-      .cta-actions {
-        flex-direction: column;
-      }
-
-      .btn {
-        width: 100%;
-      }
-
-      .side-stats,
-      .pillars,
-      .specialties,
-      .contact-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-  </style>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>T3RZO Autopartes | Calidad, producto y respaldo</title>
+<meta name="description" content="T3RZO Autopartes es una marca argentina desarrollada desde la experiencia real del mercado. Conocé nuestras líneas, el trabajo de desarrollo y dónde encontrar T3RZO." />
+<meta name="theme-color" content="#0B0D24" />
+<link rel="icon" href="assets/logo-t3rzo.png" />
+
+<meta property="og:type" content="website" />
+<meta property="og:title" content="T3RZO Autopartes | Calidad, producto y respaldo" />
+<meta property="og:description" content="Marca argentina de autopartes desarrollada desde la experiencia real del mercado de reposición." />
+<meta property="og:image" content="assets/hero-producto-caja.webp" />
+<meta property="og:locale" content="es_AR" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+<style>
+/* ═══════════════════════════════════════════════════════════════
+   T3RZO Autopartes
+
+   Dirección de diseño dictada por las skills del proyecto (Regla 3):
+     · ui-ux-pro-max      → estilo "Kinetic Brutalism" (piel única
+                            oscura), patrón "Trust & Authority +
+                            Conversion", tipografía Space Grotesk,
+                            entrada escalonada con rebote.
+     · design-taste-frontend → máximo 4 etiquetitas, hero de 2 líneas,
+                            ningún esquema de sección repetido, sin
+                            tres tarjetas iguales, sin señales de scroll.
+     · redesign-existing-projects → fondo tintado en vez de negro puro,
+                            un solo acento, sombras tintadas, grano
+                            sutil, FAQ sin acordeón, 100dvh.
+
+   Los colores son de marca y los fija la Fuente Maestra, no las skills.
+   ═══════════════════════════════════════════════════════════════ */
+
+:root{
+  /* Marca (Fuente Maestra, sección 17) */
+  --azul:        #20245C;
+  --verde:       #00B541;
+  --rojo:        #FF0000;
+
+  /* Superficies. Nunca negro puro: azul desaturado y profundo. */
+  --fondo:       #0B0D24;
+  --fondo-2:     #10133046;
+  --panel:       #161A3D;
+  --panel-alto:  #1E2350;
+  --linea:       #2C3167;
+
+  /* Texto */
+  --tinta:       #F3F4FB;
+  --tinta-media: #A9AEDA;
+  --tinta-baja:  #7D83B4;
+
+  --shell: 1240px;
+  --aire:  clamp(72px, 9vw, 132px);
+
+  --tipo: 'Space Grotesk', 'Segoe UI', system-ui, sans-serif;
+
+  /* Sombras tintadas del color del fondo, nunca negro plano. */
+  --sombra:      0 24px 60px rgba(6, 8, 26, .55);
+  --sombra-alta: 0 40px 90px rgba(6, 8, 26, .70);
+
+  /* Rebote del preset "Stagger List" de ui-ux-pro-max */
+  --rebote: cubic-bezier(.34, 1.4, .55, 1);
+}
+
+*,*::before,*::after{ box-sizing:border-box; }
+
+html{ scroll-behavior:smooth; }
+@media (prefers-reduced-motion: reduce){ html{ scroll-behavior:auto; } }
+
+body{
+  margin:0;
+  background:var(--fondo);
+  color:var(--tinta);
+  font-family:var(--tipo);
+  font-size:17px;
+  line-height:1.6;
+  font-variant-numeric:tabular-nums;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+
+/* Grano fijo: rompe la planitud digital sin costar repintados. */
+body::after{
+  content:'';
+  position:fixed; inset:0; z-index:60;
+  pointer-events:none; opacity:.028;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='140' height='140'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/></filter><rect width='140' height='140' filter='url(%23n)'/></svg>");
+}
+
+/* height:auto es obligatorio: sin esto, el alto del atributo HTML manda
+   sobre el ancho del CSS y la imagen sale estirada. */
+img{ max-width:100%; height:auto; display:block; }
+a{ color:inherit; }
+p{ margin:0; text-wrap:pretty; }
+
+h1,h2,h3{
+  margin:0;
+  font-weight:700;
+  line-height:1.02;
+  letter-spacing:-.035em;
+  text-wrap:balance;
+}
+
+:focus-visible{
+  outline:3px solid var(--verde);
+  outline-offset:4px;
+  border-radius:3px;
+}
+
+.shell{
+  width:100%; max-width:var(--shell);
+  margin-inline:auto;
+  padding-inline:clamp(20px, 5vw, 44px);
+}
+
+.saltar{
+  position:absolute; left:-9999px;
+  background:var(--verde); color:#04230F;
+  padding:14px 22px; z-index:200; font-weight:700;
+}
+.saltar:focus{ left:16px; top:16px; }
+
+section{ padding-block:var(--aire); position:relative; }
+
+/* ── Etiquetita de sección. Presupuesto: 4 en toda la página. ── */
+.rotulo{
+  font-size:11.5px; font-weight:700;
+  letter-spacing:.22em; text-transform:uppercase;
+  color:var(--verde);
+  margin:0 0 20px;
+}
+
+.titulo{ font-size:clamp(31px, 4.6vw, 58px); }
+.bajada{
+  margin-top:20px; max-width:56ch;
+  font-size:clamp(16.5px, 1.5vw, 18.5px);
+  color:var(--tinta-media);
+}
+
+/* ── Barra tricolor: el único lugar donde entra el rojo ── */
+.tricolor{
+  display:block; height:4px; width:72px; border-radius:2px;
+  background:linear-gradient(90deg,
+    var(--verde) 0 33.34%, #FFFFFF 33.34% 66.67%, var(--rojo) 66.67% 100%);
+}
+
+/* ── Botones ── */
+.btn{
+  display:inline-flex; align-items:center; justify-content:center; gap:10px;
+  min-height:52px; padding:15px 28px;
+  border-radius:8px; border:2px solid transparent;
+  font-family:var(--tipo); font-weight:700; font-size:15.5px;
+  text-decoration:none; white-space:nowrap; cursor:pointer;
+  transition:transform .2s var(--rebote), background-color .2s ease, border-color .2s ease;
+}
+.btn:hover{ transform:translateY(-2px); }
+.btn:active{ transform:translateY(0) scale(.985); }
+.btn svg{ width:19px; height:19px; flex:none; }
+
+.btn--accion{ background:var(--verde); color:#04230F; }
+.btn--accion:hover{ background:#12CB55; }
+
+.btn--linea{ background:transparent; color:var(--tinta); border-color:var(--linea); }
+.btn--linea:hover{ border-color:var(--tinta-media); background:rgba(255,255,255,.045); }
+
+/* ── Marcador de dato sin confirmar ── */
+.pendiente{
+  display:inline-block;
+  background:rgba(255,196,71,.14);
+  color:#FFC447;
+  border:1px dashed rgba(255,196,71,.5);
+  border-radius:4px; padding:1px 9px;
+  font-size:11.5px; font-weight:700; letter-spacing:.06em;
+  white-space:nowrap;
+}
+
+/* ═══════════ ENCABEZADO ═══════════ */
+/* El encabezado y el pie son claros a propósito, y son lo único claro de
+   la página. Razón: el logo original es azul marino sobre transparente y
+   sobre el fondo oscuro no contrasta. En vez de meterlo en un cuadrado
+   blanco, la barra entera es clara y hace de marco del mundo oscuro. */
+.cabecera{
+  position:sticky; top:0; z-index:50;
+  background:rgba(245,246,251,.93);
+  backdrop-filter:blur(14px);
+  border-bottom:1px solid #DDE0EE;
+}
+.cabecera__fila{ display:flex; align-items:center; gap:20px; min-height:80px; }
+
+.placa{ display:flex; align-items:center; flex:none; }
+.placa img{ height:34px; width:auto; }
+.pie .placa img{ height:46px; }
+
+.nav{ display:flex; gap:26px; margin-left:auto; font-size:14.5px; font-weight:500; }
+.nav a{
+  color:#4B5177; text-decoration:none;
+  /* 11px arriba y abajo para llegar a 44px de alto tocable. */
+  padding:11px 0; border-bottom:2px solid transparent;
+  transition:color .2s ease, border-color .2s ease;
+}
+.nav a:hover{ color:var(--azul); border-bottom-color:var(--verde); }
+
+.cabecera .btn{ min-height:44px; padding:11px 20px; font-size:14.5px; }
+
+.menu-btn{
+  display:none; margin-left:auto;
+  width:46px; height:46px; border-radius:8px;
+  background:transparent; border:1.5px solid #C9CDE2;
+  color:var(--azul); cursor:pointer;
+  align-items:center; justify-content:center;
+}
+.menu-btn span{ display:block; width:19px; height:2px; background:currentColor; position:relative; }
+.menu-btn span::before,.menu-btn span::after{
+  content:''; position:absolute; left:0; width:19px; height:2px; background:currentColor;
+}
+.menu-btn span::before{ top:-6px; } .menu-btn span::after{ top:6px; }
+
+@media (max-width: 940px){
+  .nav{
+    display:none; position:absolute; left:0; right:0; top:100%;
+    flex-direction:column; gap:0;
+    background:#F5F6FB; border-bottom:1px solid #DDE0EE;
+    padding:6px clamp(20px,5vw,44px) 18px;
+  }
+  .nav.abierto{ display:flex; }
+  .nav a{ padding:15px 0; border-bottom:1px solid #E3E6F1; }
+  .menu-btn{ display:flex; margin-left:auto; order:3; }
+  .cabecera .btn{ order:2; margin-left:auto; width:46px; padding:0; }
+  .cabecera .btn .btn__t{ display:none; }
+}
+
+/* ═══════════ 1. HERO — familia: asimétrico con solapamiento ═══════════ */
+.hero{
+  min-height:100dvh;
+  display:flex; align-items:center;
+  padding-block:clamp(48px,7vw,80px) clamp(60px,8vw,96px);
+  overflow:hidden;
+}
+.hero::before{
+  content:''; position:absolute; inset:0; z-index:0; pointer-events:none;
+  background:
+    radial-gradient(940px 620px at 76% 34%, rgba(46,52,136,.62) 0%, transparent 66%),
+    radial-gradient(700px 500px at 8% 88%, rgba(0,181,65,.10) 0%, transparent 64%);
+}
+.hero__grid{
+  position:relative; z-index:1;
+  display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1.02fr);
+  align-items:center; gap:clamp(24px,4vw,40px);
+}
+.hero h1{
+  font-size:clamp(44px, 7.6vw, 96px);
+  letter-spacing:-.05em;
+  margin-top:22px;
+}
+.hero__sub{
+  margin-top:26px; max-width:34ch;
+  font-size:clamp(17px,1.6vw,19.5px);
+  color:var(--tinta-media);
+}
+.hero__botones{ display:flex; flex-wrap:wrap; gap:13px; margin-top:38px; }
+
+/* La foto se sale de la grilla a propósito: rompe la simetría. */
+.hero__foto{
+  position:relative;
+  margin-right:clamp(-140px, -7vw, -20px);
+  filter:drop-shadow(0 40px 70px rgba(4,6,22,.75));
+}
+.hero__foto img{ width:100%; height:auto; }
+
+@media (max-width: 940px){
+  .hero{ min-height:auto; }
+  .hero__grid{ grid-template-columns:1fr; }
+  .hero__foto{ margin-right:0; order:-1; }
+  .hero__botones .btn{ flex:1 1 auto; }
+  .hero__sub{ max-width:none; }
+}
+
+/* ═══════════ 2. CATÁLOGO — familia: cinta en movimiento ═══════════
+   Una sola cinta en toda la página (regla de design-taste-frontend). */
+/* El recorte va acá y no en el body: la pista mide más que la pantalla
+   a propósito, y si no se la recorta en su contenedor el celular queda
+   con barra horizontal. */
+.cinta{
+  padding-block:clamp(30px,4vw,44px);
+  border-block:1px solid var(--linea);
+}
+/* La ventana es un contenedor con desplazamiento horizontal real: así el
+   dedo en el celular y la ruedita en la compu mueven lo mismo. */
+.cinta__ventana{
+  overflow-x:auto; overflow-y:hidden;
+  overscroll-behavior-x:contain;
+  cursor:grab;
+  padding-bottom:14px;
+  scrollbar-width:thin;
+  scrollbar-color:var(--linea) transparent;
+}
+.cinta__ventana.agarrando{ cursor:grabbing; }
+.cinta__ventana::-webkit-scrollbar{ height:8px; }
+.cinta__ventana::-webkit-scrollbar-track{ background:transparent; }
+.cinta__ventana::-webkit-scrollbar-thumb{
+  background:var(--linea); border-radius:4px;
+}
+.cinta__ventana::-webkit-scrollbar-thumb:hover{ background:#3D4488; }
+.cinta__pista{
+  display:flex; gap:clamp(30px,5vw,72px); align-items:center;
+  width:max-content;
+}
+.cinta__pista img{
+  height:clamp(74px, 9vw, 116px); width:auto;
+  filter:drop-shadow(0 14px 26px rgba(4,6,22,.6));
+}
+.cinta__pie{
+  margin-top:26px; text-align:center;
+  font-size:13.5px; color:var(--tinta-baja);
+}
+
+/* ═══════════ 3. LA MARCA — familia: declaración editorial ═══════════ */
+.declara{ max-width:24ch; font-size:clamp(34px,5.4vw,68px); letter-spacing:-.045em; }
+.declara em{ font-style:normal; color:var(--verde); }
+.declara-cuerpo{
+  display:grid; grid-template-columns:repeat(2, minmax(0,1fr));
+  gap:clamp(24px,4vw,56px); margin-top:clamp(36px,5vw,60px);
+  max-width:1000px;
+}
+.declara-cuerpo p{ color:var(--tinta-media); font-size:17px; }
+.anio{
+  margin-top:44px; display:flex; align-items:baseline; gap:18px;
+  border-top:1px solid var(--linea); padding-top:28px;
+}
+.anio b{
+  font-size:clamp(56px,9vw,104px); line-height:.85;
+  letter-spacing:-.06em; color:var(--tinta);
+}
+.anio span{ font-size:13px; letter-spacing:.18em; text-transform:uppercase; color:var(--tinta-baja); }
+@media (max-width: 800px){ .declara-cuerpo{ grid-template-columns:1fr; } }
+
+/* ═══════════ 4. PILARES — familia: bento, 4 celdas exactas ═══════════ */
+.bento{
+  display:grid; gap:14px;
+  grid-template-columns:repeat(4, minmax(0,1fr));
+  grid-auto-rows:minmax(190px, auto);
+}
+.celda{
+  background:var(--panel); border:1px solid var(--linea);
+  border-radius:16px; padding:30px;
+  display:flex; flex-direction:column; justify-content:flex-end;
+  position:relative; overflow:hidden;
+}
+.celda h3{ font-size:23px; margin-bottom:9px; }
+.celda p{ font-size:15px; color:var(--tinta-media); }
+.celda--ancha{ grid-column:span 2; }
+/* La grilla tiene exactamente las celdas que hay contenido para llenar:
+   una celda vacía al final es un error de planificación, no un espacio. */
+.celda--completa{
+  grid-column:1 / -1;
+  /* En fila hay que reiniciar la alineación: la celda base empuja el
+     contenido hacia abajo, y en horizontal eso lo empuja a la derecha. */
+  flex-direction:row; align-items:center; justify-content:flex-start;
+  gap:34px; padding-block:26px;
+}
+.celda--completa h3{ flex:none; margin-bottom:0; }
+.celda--completa p{ max-width:64ch; }
+@media (max-width: 620px){
+  .celda--completa{ flex-direction:column; align-items:stretch; gap:9px; }
+}
+.celda--foto{
+  background:
+    radial-gradient(520px 340px at 70% 30%, rgba(46,52,136,.85), var(--panel));
+  min-height:300px;
+}
+.celda--foto img{
+  position:absolute; right:-6%; top:50%; transform:translateY(-50%);
+  width:62%; height:auto;
+  filter:drop-shadow(0 22px 36px rgba(4,6,22,.65));
+}
+.celda--foto .celda__texto{ position:relative; z-index:1; max-width:56%; }
+.celda--verde{ background:linear-gradient(150deg, #0B7A33, #045C25); border-color:#0B7A33; }
+.celda--verde p{ color:rgba(255,255,255,.86); }
+
+@media (max-width: 1000px){
+  .bento{ grid-template-columns:repeat(2, minmax(0,1fr)); }
+  .celda--ancha{ grid-column:span 2; }
+}
+@media (max-width: 620px){
+  .bento{ grid-template-columns:1fr; }
+  .celda--ancha{ grid-column:span 1; }
+  .celda--foto img{ position:static; transform:none; width:70%; margin-top:22px; }
+  .celda--foto .celda__texto{ max-width:none; }
+}
+
+/* ═══════════ 5. LÍNEAS — familia: lista escalonada ═══════════
+   Sin una rayita debajo de cada renglón: eso lo prohíbe la skill. */
+.lineas{ display:grid; gap:6px; margin-top:clamp(34px,4vw,52px); counter-reset:l; }
+.linea{
+  counter-increment:l;
+  display:grid; grid-template-columns:64px minmax(0,1fr);
+  gap:20px; align-items:start;
+  padding:22px 26px; border-radius:13px;
+  transition:background-color .25s ease, transform .25s var(--rebote);
+}
+.linea:hover{ background:var(--panel); transform:translateX(6px); }
+.linea:nth-child(even){ margin-left:clamp(0px, 5vw, 76px); }
+.linea::before{
+  content:counter(l, decimal-leading-zero);
+  font-size:14px; font-weight:700; color:var(--verde); letter-spacing:.06em;
+  padding-top:5px;
+}
+.linea h3{ font-size:clamp(21px,2.6vw,29px); letter-spacing:-.03em; }
+.linea p{ margin-top:7px; font-size:15.5px; color:var(--tinta-media); max-width:52ch; }
+@media (max-width: 620px){
+  .linea{ grid-template-columns:44px minmax(0,1fr); padding:18px 14px; }
+  .linea:nth-child(even){ margin-left:0; }
+}
+
+.aviso{
+  margin-top:30px; padding-left:18px;
+  border-left:3px solid var(--verde);
+  font-size:14.5px; color:var(--tinta-baja); max-width:70ch;
+}
+
+/* ═══════════ 6. LA PIEZA CORRECTA — familia: placa técnica ═══════════ */
+.placa-tecnica{
+  background:var(--panel);
+  border:1px solid var(--linea);
+  border-radius:20px;
+  padding:clamp(30px,4.4vw,60px);
+  box-shadow:var(--sombra);
+}
+.placa-tecnica__cabeza{ max-width:34ch; }
+.golpe{
+  font-size:clamp(29px,4.4vw,52px); font-weight:700;
+  letter-spacing:-.04em; line-height:1.03; margin-top:16px;
+}
+.golpe em{ font-style:normal; color:var(--verde); }
+.campos{
+  display:grid; grid-template-columns:repeat(5, minmax(0,1fr));
+  gap:11px; margin-top:clamp(30px,4vw,48px);
+}
+.campo{
+  background:var(--panel-alto); border:1px solid var(--linea);
+  border-radius:11px; padding:18px 16px;
+}
+.campo b{ display:block; font-size:15px; }
+/* --tinta-baja acá daba 4,09 de contraste y el mínimo legible es 4,5. */
+.campo span{ font-size:12.5px; color:var(--tinta-media); line-height:1.4; display:block; margin-top:5px; }
+.placa-tecnica__pie{
+  display:flex; flex-wrap:wrap; gap:20px 30px;
+  align-items:center; justify-content:space-between;
+  margin-top:clamp(28px,3.4vw,40px);
+  padding-top:26px; border-top:1px solid var(--linea);
+}
+.placa-tecnica__pie p{ font-size:14.5px; color:var(--tinta-media); max-width:52ch; }
+@media (max-width: 900px){ .campos{ grid-template-columns:repeat(2, minmax(0,1fr)); } }
+@media (max-width: 480px){ .campos{ grid-template-columns:1fr; } }
+
+/* ═══════════ 7. DESARROLLO — familia: riel horizontal ═══════════ */
+.riel{
+  display:flex; gap:0; margin-top:clamp(38px,5vw,58px);
+  border-top:1px solid var(--linea);
+}
+.paso{
+  flex:1; padding:26px 20px 0; position:relative;
+  border-right:1px solid var(--linea);
+}
+.paso:last-child{ border-right:0; }
+.paso::before{
+  content:''; position:absolute; top:-4px; left:0;
+  width:7px; height:7px; border-radius:50%; background:var(--linea);
+}
+.paso:last-child::before{ background:var(--verde); box-shadow:0 0 0 5px rgba(0,181,65,.16); }
+.paso b{ display:block; font-size:12px; color:var(--tinta-baja); letter-spacing:.14em; margin-bottom:9px; }
+.paso span{ font-size:15.5px; font-weight:500; line-height:1.32; }
+@media (max-width: 1000px){
+  .riel{ flex-wrap:wrap; border-top:0; }
+  .paso{ flex:1 1 45%; border-right:0; border-top:1px solid var(--linea); }
+}
+@media (max-width: 560px){ .paso{ flex:1 1 100%; } }
+
+.cita{
+  margin-top:clamp(44px,5vw,64px);
+  font-size:clamp(23px,3.2vw,38px); font-weight:700;
+  letter-spacing:-.035em; line-height:1.16; max-width:20ch;
+  color:var(--tinta);
+}
+
+/* ═══════════ 8. RESPALDO — familia: foto a sangre con velo ═══════════ */
+.respaldo{ padding:0; }
+.respaldo__marco{ position:relative; min-height:clamp(440px, 62vh, 620px); overflow:hidden; }
+.respaldo__marco img{
+  position:absolute; inset:0; width:100%; height:100%; object-fit:cover;
+}
+.respaldo__velo{
+  position:absolute; inset:0;
+  background:linear-gradient(100deg, rgba(11,13,36,.95) 0%, rgba(11,13,36,.78) 46%, rgba(11,13,36,.22) 100%);
+}
+.respaldo__caja{
+  position:relative; z-index:1;
+  padding-block:clamp(56px,7vw,88px);
+}
+.respaldo__texto{ max-width:min(600px, 100%); }
+.patti{
+  margin-top:32px; padding:22px 24px;
+  background:rgba(11,13,36,.7); border:1px solid var(--linea);
+  border-radius:13px; backdrop-filter:blur(6px);
+}
+.patti h3{ font-size:17px; }
+.patti p{ margin-top:8px; font-size:14.5px; color:var(--tinta-media); }
+.pie-foto{
+  display:flex; flex-wrap:wrap; gap:9px; align-items:center;
+  margin-top:22px; font-size:12.5px; color:var(--tinta-baja);
+}
+
+/* ═══════════ 9. LOS DOS CAMINOS — familia: partido en dos ═══════════ */
+.caminos{
+  display:grid; grid-template-columns:repeat(2, minmax(0,1fr));
+  gap:16px; margin-top:clamp(36px,4.6vw,56px);
+}
+.camino{
+  border-radius:18px; padding:clamp(28px,3.4vw,44px);
+  display:flex; flex-direction:column; gap:15px;
+  border:1px solid var(--linea);
+}
+.camino--b2b{ background:linear-gradient(155deg, var(--azul), #171B45); }
+.camino--b2c{ background:var(--panel); }
+.camino h3{ font-size:clamp(22px,2.6vw,30px); letter-spacing:-.03em; }
+.camino p{ font-size:15.5px; color:var(--tinta-media); }
+.camino .btn{ margin-top:auto; align-self:flex-start; }
+.camino__nota{ font-size:13.5px; color:var(--tinta-baja); }
+@media (max-width: 860px){ .caminos{ grid-template-columns:1fr; } }
+
+/* ═══════════ 10. PREGUNTAS — familia: dos columnas, sin acordeón ═══════════ */
+.preguntas{
+  display:grid; grid-template-columns:repeat(2, minmax(0,1fr));
+  gap:clamp(26px,3.4vw,48px); margin-top:clamp(36px,4.6vw,54px);
+}
+.pregunta h3{ font-size:17.5px; letter-spacing:-.02em; color:var(--tinta); }
+.pregunta p{ margin-top:9px; font-size:15px; color:var(--tinta-media); }
+@media (max-width: 760px){ .preguntas{ grid-template-columns:1fr; } }
+
+/* ═══════════ 11. CIERRE ═══════════ */
+.cierre{ text-align:center; padding-block:clamp(84px,10vw,140px); }
+.cierre .tricolor{ margin:0 auto 30px; }
+.cierre h2{ font-size:clamp(34px,6.4vw,82px); letter-spacing:-.05em; }
+.cierre .btn{ margin-top:38px; }
+.cierre__caja{
+  width:min(340px, 68%); margin:clamp(38px,5vw,58px) auto 0;
+  filter:drop-shadow(0 30px 50px rgba(4,6,22,.7));
+}
+
+/* ═══════════ PIE ═══════════ */
+.pie{ background:#F5F6FB; color:#4B5177; padding-block:46px 38px; }
+.pie__fila{
+  display:flex; flex-wrap:wrap; gap:24px;
+  align-items:center; justify-content:space-between;
+}
+.redes{ display:flex; gap:10px; flex-wrap:wrap; }
+.redes a{
+  display:inline-flex; align-items:center; gap:9px;
+  min-height:44px; padding:10px 17px;
+  border:1px solid #CFD4E6; border-radius:8px;
+  font-size:14px; font-weight:500; text-decoration:none; color:var(--azul);
+  transition:border-color .2s ease, background-color .2s ease;
+}
+.redes a:hover{ border-color:var(--azul); background:#EAECF6; }
+.redes svg{ width:16px; height:16px; }
+.pie__legal{
+  display:flex; flex-wrap:wrap; gap:10px 28px; justify-content:space-between;
+  margin-top:32px; padding-top:24px; border-top:1px solid #DDE0EE;
+  font-size:13px; color:#6E7499;
+}
+
+/* ═══════════ Entrada escalonada ═══════════
+   Preset "Stagger List" de ui-ux-pro-max: 300-450ms con rebote.
+   Solo actúa si arrancó el JavaScript: sin él, todo se ve igual. */
+.js .sube{ opacity:0; transform:translateY(22px); }
+.js .sube.visto{
+  opacity:1; transform:none;
+  transition:opacity .45s ease, transform .45s var(--rebote);
+}
+.js .sube.visto:nth-child(2){ transition-delay:.06s; }
+.js .sube.visto:nth-child(3){ transition-delay:.12s; }
+.js .sube.visto:nth-child(4){ transition-delay:.18s; }
+
+@media (prefers-reduced-motion: reduce){
+  .js .sube{ opacity:1; transform:none; }
+  .js .sube.visto{ transition:none; }
+  .btn:hover,.linea:hover{ transform:none; }
+}
+</style>
 </head>
+
 <body>
-  <header class="site-header">
-    <div class="wrap">
-      <div class="nav">
-        <a class="brand" href="#top" aria-label="T3RZO Autopartes">
-          <div class="brand-mark">
-            <img src="assets/logo-t3rzo.png" alt="T3RZO Autopartes" />
-          </div>
-          <div class="brand-copy">
-            <h1>T3RZO Autopartes</h1>
-            <p>Calidad OEM, experiencia familiar y criterio técnico.</p>
-          </div>
+<a class="saltar" href="#contenido">Saltar al contenido</a>
+
+<header class="cabecera">
+  <div class="shell cabecera__fila">
+    <a class="placa" href="#top" aria-label="T3RZO Autopartes, ir al inicio">
+      <img src="assets/logo-t3rzo.png" alt="T3RZO Autopartes" width="8021" height="2223" />
+    </a>
+
+    <button class="menu-btn" id="btnMenu" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav">
+      <span></span>
+    </button>
+
+    <nav class="nav" id="nav" aria-label="Principal">
+      <a href="#marca">La marca</a>
+      <a href="#lineas">Líneas</a>
+      <a href="#pieza">La pieza correcta</a>
+      <a href="#comprar">Dónde comprar</a>
+    </nav>
+
+    <a class="btn btn--accion" aria-label="Escribinos por WhatsApp" href="https://wa.me/5491137677069?text=Hola%20T3RZO%2C%20quiero%20hacer%20una%20consulta." target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.9-4.45 9.9-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Zm0 18.15c-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.38c0-4.54 3.7-8.23 8.25-8.23 2.2 0 4.27.86 5.83 2.41a8.19 8.19 0 0 1 2.41 5.83c0 4.54-3.7 8.23-8.24 8.23Zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.24-.64.8-.78.97-.14.16-.29.18-.54.06-.25-.13-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.01-.38.11-.5.11-.11.25-.29.37-.43.13-.15.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.4-.42-.56-.43h-.47c-.17 0-.43.06-.66.31-.22.25-.86.85-.86 2.06s.89 2.39 1.01 2.56c.12.16 1.74 2.66 4.22 3.73.59.25 1.05.4 1.41.52.59.19 1.13.16 1.56.1.47-.07 1.47-.6 1.68-1.18.21-.58.21-1.08.14-1.18-.06-.11-.22-.17-.47-.29Z"/></svg>
+      <span class="btn__t">WhatsApp</span>
+    </a>
+  </div>
+</header>
+
+<main id="contenido">
+
+<!-- ══ 1. HERO ══ -->
+<section class="hero" id="top">
+  <div class="shell hero__grid">
+    <div>
+      <span class="tricolor" aria-hidden="true"></span>
+      <h1>Autopartes de calidad premium.</h1>
+      <p class="hero__sub">
+        Desarrolladas con conocimiento real del mercado argentino.
+        Producto, aplicación y respaldo.
+      </p>
+      <div class="hero__botones">
+        <a class="btn btn--accion" href="https://wa.me/5491137677069?text=Hola%20T3RZO%2C%20quiero%20hacer%20una%20consulta." target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.9-4.45 9.9-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Zm0 18.15c-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.38c0-4.54 3.7-8.23 8.25-8.23 2.2 0 4.27.86 5.83 2.41a8.19 8.19 0 0 1 2.41 5.83c0 4.54-3.7 8.23-8.24 8.23Zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.24-.64.8-.78.97-.14.16-.29.18-.54.06-.25-.13-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.01-.38.11-.5.11-.11.25-.29.37-.43.13-.15.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.4-.42-.56-.43h-.47c-.17 0-.43.06-.66.31-.22.25-.86.85-.86 2.06s.89 2.39 1.01 2.56c.12.16 1.74 2.66 4.22 3.73.59.25 1.05.4 1.41.52.59.19 1.13.16 1.56.1.47-.07 1.47-.6 1.68-1.18.21-.58.21-1.08.14-1.18-.06-.11-.22-.17-.47-.29Z"/></svg>
+          Escribinos por WhatsApp
         </a>
-
-        <nav class="nav-menu" aria-label="Navegación principal">
-          <a class="nav-link" href="#historia">Historia</a>
-          <a class="nav-link" href="#calidad">Calidad</a>
-          <a class="nav-link" href="#productos">Productos</a>
-          <a class="nav-link" href="#contacto">Contacto</a>
-        </nav>
-
-        <div class="nav-actions">
-          <a class="btn btn-primary" href="https://wa.me/54911XXXXXXXXX" target="_blank" rel="noopener">WhatsApp Consultas</a>
-        </div>
+        <a class="btn btn--linea" href="#lineas">Ver las líneas</a>
       </div>
     </div>
-  </header>
 
-  <main id="top">
-    <section class="section hero">
-      <div class="wrap">
-        <div class="hero-grid">
-          <article class="panel hero-copy reveal">
-            <div class="eyebrow">Calidad premium para repuesteros que trabajan con criterio</div>
-            <h2>T3RZO: El resumen de 50 años de maestría en repuestos.</h2>
-            <p>
-              No solo vendemos piezas; seleccionamos calidad premium para que el repuestero trabaje con confianza.
-              Tercera generación de expertos a tu servicio.
-            </p>
-            <div class="hero-actions">
-              <a class="btn btn-primary" href="https://wa.me/54911XXXXXXXXX" target="_blank" rel="noopener">WhatsApp</a>
-              <a class="btn btn-metal" href="https://www.mercadolibre.com.ar/" target="_blank" rel="noopener">MercadoLibre</a>
-            </div>
-            <div class="meta-row">
-              <span class="meta-tag">Calidad de equipo original</span>
-              <span class="meta-tag">Legado familiar</span>
-              <span class="meta-tag">Piezas de nicho</span>
-            </div>
-          </article>
+    <div class="hero__foto">
+      <img src="assets/hero-producto-caja.webp"
+           alt="Depósito de refrigerante T3RZO apoyado sobre su caja, con las franjas verde, blanca y roja de la marca"
+           width="1500" height="1001" fetchpriority="high" />
+    </div>
+  </div>
+</section>
 
-          <aside class="panel hero-media reveal" aria-label="Media principal de la marca">
-            <!-- Reemplazar este bloque por un video premium de marca o un reel técnico de alta calidad -->
-            <!-- Si preferís imagen fija, cambiar el background del .media-placeholder o insertar un <img> dentro -->
-            <div class="media-placeholder">
-              <div class="media-overlay">
-                <strong>Placeholder de video o imagen hero</strong>
-                <p>Usá un video institucional o una toma premium de producto, taller o feria para reforzar el carácter OEM de la marca.</p>
-              </div>
-            </div>
-            <div class="side-stats">
-              <div class="stat-card">
-                <strong>50+</strong>
-                <p>Años de experiencia acumulada en autopartes.</p>
-              </div>
-              <div class="stat-card">
-                <strong>3ra</strong>
-                <p>Generación impulsando la evolución de la marca.</p>
-              </div>
-            </div>
-          </aside>
+<!-- ══ 2. CATÁLOGO EN MOVIMIENTO ══ -->
+<section class="cinta" aria-label="Piezas de la línea T3RZO">
+ <div class="cinta__ventana" id="ventanaCinta" tabindex="0" role="group" aria-label="Piezas de la línea, se desplazan de costado">
+  <div class="cinta__pista" id="cinta">
+    <img src="assets/p-01.webp" alt="Sensor de flujo de aire T3RZO" width="700" height="465" loading="lazy" />
+    <img src="assets/p-02.webp" alt="Válvula EGR T3RZO" width="596" height="508" loading="lazy" />
+    <img src="assets/p-03.webp" alt="Inyector T3RZO" width="700" height="591" loading="lazy" />
+    <img src="assets/p-04.webp" alt="Sonda lambda T3RZO" width="601" height="596" loading="lazy" />
+    <img src="assets/p-05.webp" alt="Portatermostato T3RZO" width="633" height="407" loading="lazy" />
+    <img src="assets/p-06.webp" alt="Depósito de refrigerante T3RZO" width="700" height="700" loading="lazy" />
+    <img src="assets/p-07.webp" alt="Enfriador T3RZO" width="700" height="642" loading="lazy" />
+    <img src="assets/p-08.webp" alt="Caño de conducción T3RZO" width="700" height="467" loading="lazy" />
+    <img src="assets/p-09.webp" alt="Enfriador de aceite T3RZO" width="700" height="458" loading="lazy" />
+    <img src="assets/p-10.webp" alt="Módulo de bomba de combustible T3RZO" width="700" height="467" loading="lazy" />
+    <img src="assets/p-11.webp" alt="Solenoide de distribución variable T3RZO" width="434" height="515" loading="lazy" />
+    <img src="assets/p-12.webp" alt="Cuerpo de termostato T3RZO" width="261" height="286" loading="lazy" />
+  </div>
+ </div>
+  <p class="cinta__pie shell">Piezas reales de la línea. Verificá siempre la aplicación antes de comprar.</p>
+</section>
+
+<!-- ══ 3. LA MARCA ══ -->
+<section id="marca">
+  <div class="shell">
+    <h2 class="declara sube">Una marca desarrollada desde la <em>experiencia</em>.</h2>
+
+    <div class="declara-cuerpo">
+      <p class="sube">
+        T3RZO Autopartes nació en 2019 como evolución de años de experiencia en
+        importación, distribución y contacto directo con el mercado argentino.
+        Marca argentina, con desarrollo y selección de productos para las
+        necesidades del mercado local.
+      </p>
+      <p class="sube">
+        Trabajamos sobre una idea simple: una buena autoparte no se define
+        solamente por cómo se ve. No somos un logo sobre una caja. Detrás de cada
+        línea existe un criterio de selección, aplicación, presentación y respaldo.
+      </p>
+    </div>
+
+    <div class="anio sube">
+      <b>2019</b>
+      <span>Nace T3RZO Autopartes</span>
+    </div>
+  </div>
+</section>
+
+<!-- ══ 4. PILARES ══ -->
+<section>
+  <div class="shell">
+    <p class="rotulo">Por qué T3RZO</p>
+    <h2 class="titulo">Producto, aplicación, experiencia y respaldo.</h2>
+
+    <div class="bento" style="margin-top:clamp(34px,4.4vw,52px)">
+      <article class="celda celda--ancha celda--foto sube">
+        <div class="celda__texto">
+          <h3>Calidad</h3>
+          <p>Producto y terminaciones como parte central de la marca, no como un detalle final.</p>
         </div>
+        <img src="assets/producto-caja-2.webp"
+             alt="Módulo de bomba de combustible T3RZO apoyado sobre su caja"
+             width="1100" height="734" loading="lazy" />
+      </article>
+
+      <article class="celda celda--verde sube">
+        <h3>Aplicación</h3>
+        <p>La pieza correcta empieza por una identificación correcta. El parecido no alcanza.</p>
+      </article>
+
+      <article class="celda sube">
+        <h3>Experiencia</h3>
+        <p>Décadas de contacto real con casas de repuestos, mecánicos y proveedores.</p>
+      </article>
+
+      <article class="celda celda--completa sube">
+        <h3>Respaldo</h3>
+        <p>Una marca nacida desde la experiencia de Patti Autopartes en el mercado argentino, con distribución mayorista propia.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ══ 5. LÍNEAS ══ -->
+<section id="lineas">
+  <div class="shell">
+    <p class="rotulo">Líneas de producto</p>
+    <h2 class="titulo">Distintas líneas.<br />Un mismo criterio de marca.</h2>
+    <p class="bajada">
+      T3RZO nació con una fortaleza particular en climatización y fue ampliando su
+      oferta a otros rubros del mercado de reposición.
+    </p>
+
+    <div class="lineas">
+      <article class="linea">
+        <div>
+          <h3>Climatización</h3>
+          <p>El rubro donde nació la marca y donde se construyó su primer criterio de selección.</p>
+        </div>
+      </article>
+      <article class="linea">
+        <div>
+          <h3>Refrigeración</h3>
+          <p>Bombas de agua, termostatos, portatermostatos, depósitos de refrigerante y enfriadores completos.</p>
+        </div>
+      </article>
+      <article class="linea">
+        <div>
+          <h3>Sensores y electrónica</h3>
+          <p>Sensores MAF, sensores MAP, bobinas de encendido y componentes eléctricos y electrónicos.</p>
+        </div>
+      </article>
+      <article class="linea">
+        <div>
+          <h3>Embrague y transmisión</h3>
+          <p>Cilindros maestros, cilindros de embrague y cables de selectora.</p>
+        </div>
+      </article>
+      <article class="linea">
+        <div>
+          <h3>Mangueras y conducción</h3>
+          <p>Mangueras de agua, de aire y de intercooler o turbo, además de caños.</p>
+        </div>
+      </article>
+      <article class="linea">
+        <div>
+          <h3>Componentes especializados</h3>
+          <p>Piezas de alta rotación junto a piezas difíciles de conseguir en el mercado.</p>
+        </div>
+      </article>
+    </div>
+
+    <p class="aviso">
+      El listado representa la amplitud del catálogo, no una promesa de
+      disponibilidad. Consultá siempre la aplicación correcta antes de comprar.
+    </p>
+  </div>
+</section>
+
+<!-- ══ 6. LA PIEZA CORRECTA ══ -->
+<section id="pieza">
+  <div class="shell">
+    <div class="placa-tecnica sube">
+      <div class="placa-tecnica__cabeza">
+        <span class="tricolor" aria-hidden="true"></span>
+        <h2 class="golpe">El parecido <em>no alcanza</em>.</h2>
+        <p class="bajada">
+          Dos piezas pueden parecer iguales y corresponder a aplicaciones
+          diferentes. Estos cinco datos verifican la pieza correcta.
+        </p>
       </div>
-    </section>
 
-    <section class="section" id="calidad">
-      <div class="wrap">
-        <div class="section-head reveal">
-          <div>
-            <h2>Calidad con lenguaje técnico</h2>
-            <div class="accent-bar" aria-hidden="true"></div>
-          </div>
-          <p>La propuesta no es volumen ni oportunidad. Es calce correcto, selección rigurosa y foco donde más importa.</p>
-        </div>
-
-        <div class="pillars">
-          <article class="panel pillar-card reveal">
-            <div class="pillar-icon">FIT</div>
-            <div class="pillar-kicker">Primer pilar</div>
-            <h3>Calce Perfecto</h3>
-            <p>Compatibilidad precisa para que el repuestero venda con seguridad y reduzca devoluciones evitables.</p>
-          </article>
-          <article class="panel pillar-card reveal">
-            <div class="pillar-icon">OEM</div>
-            <div class="pillar-kicker">Segundo pilar</div>
-            <h3>Selección rigurosa de proveedores</h3>
-            <p>La calidad se construye desde el origen. Elegimos con criterio técnico y consistencia de largo plazo.</p>
-          </article>
-          <article class="panel pillar-card reveal">
-            <div class="pillar-icon">NIC</div>
-            <div class="pillar-kicker">Tercer pilar</div>
-            <h3>Ingeniería de nicho</h3>
-            <p>T3RZO avanza sobre líneas complejas y piezas difíciles, donde el conocimiento real hace la diferencia.</p>
-          </article>
-        </div>
+      <div class="campos">
+        <div class="campo"><b>Modelo</b><span>Qué vehículo es</span></div>
+        <div class="campo"><b>Año</b><span>Desde y hasta</span></div>
+        <div class="campo"><b>Motorización</b><span>Qué motor lleva</span></div>
+        <div class="campo"><b>Versión</b><span>Qué variante es</span></div>
+        <div class="campo"><b>OEM</b><span>El código del fabricante, tal cual figura</span></div>
       </div>
-    </section>
 
-    <section class="section" id="historia">
-      <div class="wrap">
-        <article class="panel timeline-shell reveal">
-          <div class="section-head">
-            <div>
-              <h2>El legado</h2>
-              <div class="accent-bar" aria-hidden="true"></div>
-            </div>
-            <p>Una historia de oficio, resiliencia y evolución comercial que termina convirtiéndose en una marca propia.</p>
-          </div>
-
-          <div class="timeline">
-            <article class="timeline-item">
-              <div class="timeline-tag">El origen</div>
-              <h3>Domingo Patti en Chrysler y Mercedes-Benz</h3>
-              <p>La historia arranca desde la experiencia concreta dentro de la industria automotriz.</p>
-            </article>
-            <article class="timeline-item">
-              <div class="timeline-tag">Resiliencia</div>
-              <h3>Incendio de la fábrica y renacer en Av. San Martín</h3>
-              <p>Lejos de detenerse, la familia vuelve a empezar y reconstruye el camino desde cero.</p>
-            </article>
-            <article class="timeline-item">
-              <div class="timeline-tag">Evolución</div>
-              <h3>Nace la Distribuidora Patti con Daniel y Marcelo</h3>
-              <p>La segunda generación impulsa la transición desde el oficio original hacia una estructura mayorista más sólida.</p>
-            </article>
-            <article class="timeline-item">
-              <div class="timeline-tag">T3RZO</div>
-              <h3>La 3ra generación lanza la marca propia</h3>
-              <p>Franco y el equipo actual sintetizan experiencia, calidad y visión de futuro en una identidad nueva.</p>
-            </article>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <section class="section" id="productos">
-      <div class="wrap">
-        <div class="section-head reveal">
-          <div>
-            <h2>Especialidades de nicho</h2>
-            <div class="accent-bar" aria-hidden="true"></div>
-          </div>
-          <p>Nos enfocamos en las piezas difíciles que otros no cubren con la misma profundidad técnica.</p>
-        </div>
-
-        <div class="specialties">
-          <article class="panel specialty-card reveal">
-            <!-- Insertar aquí imagen premium de sondas lambda si querés reforzar la línea -->
-            <div class="specialty-tag">Línea técnica</div>
-            <h3>Sondas Lambda</h3>
-            <p>Componentes sensibles donde la aplicación correcta y la confianza en el producto son decisivas.</p>
-          </article>
-          <article class="panel specialty-card reveal">
-            <!-- Insertar aquí imagen premium de inyectores o detalle de terminación -->
-            <div class="specialty-tag">Alta exigencia</div>
-            <h3>Inyectores</h3>
-            <p>Piezas que piden criterio al seleccionar y respaldo al vender. Ahí es donde T3RZO quiere estar.</p>
-          </article>
-          <article class="panel specialty-card reveal">
-            <!-- Insertar aquí imagen premium de válvulas EGR o línea asociada -->
-            <div class="specialty-tag">Piezas difíciles</div>
-            <h3>Válvulas EGR</h3>
-            <p>Una categoría de nicho que refleja bien el enfoque de la marca: resolver lo complejo con consistencia.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="hitos">
-      <div class="wrap">
-        <div class="proof-grid">
-          <article class="panel proof-hero reveal">
-            <div class="proof-tag">Social proof / hitos</div>
-            <h3>Automechanika Buenos Aires 2024-2026</h3>
-            <p>
-              La participación en la feria más importante del rubro confirma crecimiento, validación de clientes y vocación de largo plazo.
-            </p>
-          </article>
-
-          <div class="proof-points">
-            <article class="panel proof-card reveal">
-              <div class="proof-tag">Presencia sectorial</div>
-              <h3>Validación frente al mercado</h3>
-              <p>Mostrar T3RZO en Automechanika refuerza una marca seria, visible y comprometida con el rubro.</p>
-            </article>
-            <article class="panel proof-card reveal">
-              <div class="proof-tag">Confianza comercial</div>
-              <h3>Crecimiento acompañado por clientes</h3>
-              <p>La tracción de la marca viene de relaciones reales y de una propuesta técnica que el mercado reconoce.</p>
-            </article>
-            <article class="panel proof-card reveal">
-              <div class="proof-tag">Visión de futuro</div>
-              <h3>Marca construida para durar</h3>
-              <p>T3RZO no nace para hacer ruido un año. Nace para consolidarse como referencia en su segmento.</p>
-            </article>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="contacto">
-      <div class="wrap">
-        <div class="section-head reveal">
-          <div>
-            <h2>Contacto y canales</h2>
-            <div class="accent-bar" aria-hidden="true"></div>
-          </div>
-          <p>Canales simples para consultar, seguir la marca y abrir conversación comercial.</p>
-        </div>
-
-        <div class="contact-grid">
-          <article class="panel contact-card reveal">
-            <div class="footer-tag">Canal directo</div>
-            <h3>WhatsApp</h3>
-            <p>Consultas comerciales y contacto ágil con el equipo.</p>
-            <a class="btn btn-primary" href="https://wa.me/54911XXXXXXXXX" target="_blank" rel="noopener">Abrir WhatsApp</a>
-          </article>
-          <article class="panel contact-card reveal">
-            <div class="footer-tag">Presencia social</div>
-            <h3>Instagram</h3>
-            <p>Novedades, contenido visual y construcción de marca.</p>
-            <a class="btn btn-metal" href="https://www.instagram.com/t3rzoautopartes/" target="_blank" rel="noopener">Ver Instagram</a>
-          </article>
-          <article class="panel contact-card reveal">
-            <div class="footer-tag">Comunidad</div>
-            <h3>Facebook</h3>
-            <p>Otro punto de contacto para audiencias y publicaciones de la marca.</p>
-            <a class="btn btn-metal" href="https://www.facebook.com/" target="_blank" rel="noopener">Ver Facebook</a>
-          </article>
-          <article class="panel contact-card reveal">
-            <div class="footer-tag">Formato corto</div>
-            <h3>TikTok</h3>
-            <p>Espacio para mostrar producto, oficio y presencia con formato ágil.</p>
-            <a class="btn btn-metal" href="https://www.tiktok.com/" target="_blank" rel="noopener">Ver TikTok</a>
-          </article>
-          <article class="panel contact-card reveal">
-            <div class="footer-tag">Canal formal</div>
-            <h3>Mail</h3>
-            <p>Intercambio comercial, consultas de marca o información más detallada.</p>
-            <a class="btn btn-metal" href="mailto:ventas@t3rzoautopartes.com.ar">Enviar mail</a>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="wrap">
-        <article class="panel cta-panel reveal">
-          <div>
-            <h2>Calidad premium para vender con confianza.</h2>
-            <p>
-              Si buscás una marca con criterio técnico, legado real y foco en piezas difíciles, T3RZO está lista para acompañarte.
-            </p>
-          </div>
-          <div class="cta-actions">
-            <a class="btn btn-primary" href="https://wa.me/54911XXXXXXXXX" target="_blank" rel="noopener">WhatsApp Consultas</a>
-            <a class="btn btn-metal" href="https://www.mercadolibre.com.ar/" target="_blank" rel="noopener">MercadoLibre</a>
-          </div>
-        </article>
-      </div>
-    </section>
-  </main>
-
-  <footer class="site-footer">
-    <div class="wrap">
-      <div class="footer-grid">
-        <div class="footer-copy">
-          <div class="brand">
-            <div class="brand-mark">
-              <img src="assets/logo-t3rzo.png" alt="T3RZO Autopartes" />
-            </div>
-            <div class="brand-copy">
-              <h1>T3RZO Autopartes</h1>
-              <p>Marca propia construida desde experiencia familiar, oficio técnico y visión OEM.</p>
-            </div>
-          </div>
-          <p>Casa central en Parque Avellaneda. © <span id="year"></span> T3RZO Autopartes.</p>
-        </div>
-
-        <div class="footer-actions">
-          <a class="footer-link" href="https://www.instagram.com/t3rzoautopartes/" target="_blank" rel="noopener">Instagram</a>
-          <a class="footer-link" href="https://www.facebook.com/" target="_blank" rel="noopener">Facebook</a>
-          <a class="footer-link" href="https://www.tiktok.com/" target="_blank" rel="noopener">TikTok</a>
-          <a class="footer-link" href="mailto:ventas@t3rzoautopartes.com.ar">Mail</a>
-        </div>
+      <div class="placa-tecnica__pie">
+        <p>
+          Contanos qué pieza buscás y qué datos tenés del vehículo. Un síntoma
+          puede tener distintas causas: el diagnóstico lo hace un profesional.
+        </p>
+        <a class="btn btn--accion" href="https://wa.me/5491137677069?text=Hola%20T3RZO%2C%20necesito%20verificar%20una%20aplicaci%C3%B3n.%20La%20pieza%20que%20busco%20es%3A" target="_blank" rel="noopener">
+          Verificar una aplicación
+        </a>
       </div>
     </div>
-  </footer>
+  </div>
+</section>
 
-  <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
+<!-- ══ 7. DESARROLLO ══ -->
+<section>
+  <div class="shell">
+    <h2 class="titulo">La calidad empieza mucho antes<br />de instalar la pieza.</h2>
+    <p class="bajada">
+      T3RZO desarrolla y amplía líneas a partir del conocimiento del mercado
+      argentino y el trabajo con proveedores especializados. Cada incorporación
+      forma parte de una estrategia de marca, no de una selección al azar.
+    </p>
 
-    const revealObserver = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("is-visible");
-            revealObserver.unobserve(entry.target);
-          }
-        });
-      },
-      {
-        threshold: 0.18
+    <div class="riel">
+      <div class="paso"><b>01</b><span>Detectar una necesidad</span></div>
+      <div class="paso"><b>02</b><span>Analizar la línea</span></div>
+      <div class="paso"><b>03</b><span>Trabajar con proveedores</span></div>
+      <div class="paso"><b>04</b><span>Revisar el producto</span></div>
+      <div class="paso"><b>05</b><span>Definir la presentación</span></div>
+      <div class="paso"><b>06</b><span>Identificar la aplicación</span></div>
+      <div class="paso"><b>07</b><span>Respaldarla con experiencia</span></div>
+    </div>
+
+    <p class="cita">Una marca propia no se construye eligiendo piezas al azar.</p>
+  </div>
+</section>
+
+<!-- ══ 8. RESPALDO ══ -->
+<section class="respaldo" id="respaldo">
+  <div class="respaldo__marco">
+    <img src="assets/feria-1.webp"
+         alt="Equipo de T3RZO y Patti Autopartes en el stand de la marca durante una feria del sector"
+         width="1600" height="1068" loading="lazy" />
+    <div class="respaldo__velo" aria-hidden="true"></div>
+
+    <div class="shell respaldo__caja">
+     <div class="respaldo__texto">
+      <p class="rotulo">Historia y respaldo</p>
+      <h2 class="titulo">Una marca nueva con décadas de experiencia detrás.</h2>
+      <p class="bajada">
+        T3RZO no nació desde una oficina intentando imaginar qué necesita el
+        mercado. Nació después de años de escuchar al repuestero, trabajar con
+        proveedores, importar y entender qué piezas necesitaban una alternativa
+        confiable.
+      </p>
+
+      <div class="patti">
+        <h3>Patti Autopartes</h3>
+        <p>
+          La empresa familiar importadora y distribuidora que le dio origen a la
+          marca. La distribución mayorista de T3RZO se realiza a través de ella.
+        </p>
+      </div>
+
+      <p class="pie-foto">
+        El stand de T3RZO y Patti Autopartes en una feria del sector.
+        <span class="pendiente">CONFIRMAR evento y año</span>
+      </p>
+     </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ 9. LOS DOS CAMINOS ══ -->
+<section id="comprar">
+  <div class="shell">
+    <p class="rotulo">Dónde conseguirla</p>
+    <h2 class="titulo">Pedila por T3RZO.</h2>
+
+    <div class="caminos">
+      <article class="camino camino--b2b sube">
+        <span class="tricolor" aria-hidden="true"></span>
+        <h3>Tenés una casa de repuestos</h3>
+        <p>
+          Para una casa de repuestos, cada recomendación importa. T3RZO combina
+          variedad, presentación, calidad y el respaldo mayorista de Patti
+          Autopartes para acompañar el trabajo del mostrador.
+        </p>
+        <a class="btn btn--accion" href="https://wa.me/5491161351111?text=Hola%2C%20tengo%20una%20casa%20de%20repuestos%20y%20quiero%20consultar%20por%20la%20l%C3%ADnea%20T3RZO." target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.9-4.45 9.9-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Zm0 18.15c-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.38c0-4.54 3.7-8.23 8.25-8.23 2.2 0 4.27.86 5.83 2.41a8.19 8.19 0 0 1 2.41 5.83c0 4.54-3.7 8.23-8.24 8.23Zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.24-.64.8-.78.97-.14.16-.29.18-.54.06-.25-.13-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.01-.38.11-.5.11-.11.25-.29.37-.43.13-.15.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.4-.42-.56-.43h-.47c-.17 0-.43.06-.66.31-.22.25-.86.85-.86 2.06s.89 2.39 1.01 2.56c.12.16 1.74 2.66 4.22 3.73.59.25 1.05.4 1.41.52.59.19 1.13.16 1.56.1.47-.07 1.47-.6 1.68-1.18.21-.58.21-1.08.14-1.18-.06-.11-.22-.17-.47-.29Z"/></svg>
+          Consultá la línea T3RZO
+        </a>
+        <p class="camino__nota">El pedido mayorista se gestiona con Patti Autopartes, distribuidor de la marca.</p>
+      </article>
+
+      <article class="camino camino--b2c sube">
+        <span class="tricolor" aria-hidden="true"></span>
+        <h3>Buscás una pieza para tu auto</h3>
+        <p>
+          Consultá en tu casa de repuestos de confianza y pedí la marca por su
+          nombre. También encontrás productos seleccionados en nuestra presencia
+          oficial de Mercado Libre.
+        </p>
+        <a class="btn btn--linea" href="https://www.mercadolibre.com.ar/pagina/warnesecommerce2435" target="_blank" rel="noopener">
+          Ver Mercado Libre
+        </a>
+        <p class="camino__nota">Antes de comprar, verificá modelo, versión, motorización y OEM.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ══ 10. PREGUNTAS ══ -->
+<section>
+  <div class="shell">
+    <h2 class="titulo">Lo que más nos preguntan.</h2>
+
+    <div class="preguntas">
+      <article class="pregunta">
+        <h3>¿Qué es T3RZO?</h3>
+        <p>Una marca argentina de autopartes desarrollada desde la experiencia real del mercado de reposición automotor.</p>
+      </article>
+      <article class="pregunta">
+        <h3>¿Quién distribuye T3RZO?</h3>
+        <p>La distribución mayorista se realiza a través de Patti Autopartes.</p>
+      </article>
+      <article class="pregunta">
+        <h3>¿Dónde puedo comprarla?</h3>
+        <p>Pedila en tu casa de repuestos de confianza, o buscá productos seleccionados en nuestra presencia oficial de Mercado Libre.</p>
+      </article>
+      <article class="pregunta">
+        <h3>¿Cómo sé si una pieza corresponde a mi vehículo?</h3>
+        <p>Depende de modelo, año, motorización, versión y OEM. Ante una duda, escribinos con esos datos antes de comprar.</p>
+      </article>
+      <article class="pregunta">
+        <h3>¿T3RZO fabrica todo en Argentina?</h3>
+        <p>No. T3RZO es una marca argentina y trabaja con proveedores de distintos orígenes según cada línea.</p>
+      </article>
+      <article class="pregunta">
+        <h3>¿Tiene garantía?</h3>
+        <p>Existe identidad de garantía de marca. Las condiciones específicas se consultan en la política vigente. <span class="pendiente">CONFIRMAR política de garantía</span></p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ══ 11. CIERRE ══ -->
+<section class="cierre">
+  <div class="shell">
+    <span class="tricolor" aria-hidden="true"></span>
+    <h2>Producto. Calidad.<br />Desarrollo. Respaldo.</h2>
+    <a class="btn btn--accion" href="https://wa.me/5491137677069?text=Hola%20T3RZO%2C%20quiero%20hacer%20una%20consulta." target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.9-4.45 9.9-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Zm0 18.15c-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.38c0-4.54 3.7-8.23 8.25-8.23 2.2 0 4.27.86 5.83 2.41a8.19 8.19 0 0 1 2.41 5.83c0 4.54-3.7 8.23-8.24 8.23Zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.24-.64.8-.78.97-.14.16-.29.18-.54.06-.25-.13-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.01-.38.11-.5.11-.11.25-.29.37-.43.13-.15.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.4-.42-.56-.43h-.47c-.17 0-.43.06-.66.31-.22.25-.86.85-.86 2.06s.89 2.39 1.01 2.56c.12.16 1.74 2.66 4.22 3.73.59.25 1.05.4 1.41.52.59.19 1.13.16 1.56.1.47-.07 1.47-.6 1.68-1.18.21-.58.21-1.08.14-1.18-.06-.11-.22-.17-.47-.29Z"/></svg>
+      Pedila por T3RZO
+    </a>
+    <img class="cierre__caja" src="assets/caja.webp"
+         alt="Caja de packaging T3RZO Autopartes"
+         width="1100" height="734" loading="lazy" />
+  </div>
+</section>
+
+</main>
+
+<footer class="pie">
+  <div class="shell">
+    <div class="pie__fila">
+      <a class="placa" href="#top" aria-label="T3RZO Autopartes, ir al inicio">
+        <img src="assets/logo-t3rzo.png" alt="T3RZO Autopartes" width="8021" height="2223" />
+      </a>
+
+      <div class="redes">
+        <a href="https://www.instagram.com/t3rzoautopartes/" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41-.56-.22-.96-.48-1.38-.9-.42-.42-.68-.82-.9-1.38-.16-.42-.36-1.06-.41-2.23C2.17 15.58 2.16 15.2 2.16 12s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.42 2.17 8.8 2.16 12 2.16Zm0 5.68a4.16 4.16 0 1 0 0 8.32 4.16 4.16 0 0 0 0-8.32Zm0 6.86a2.7 2.7 0 1 1 0-5.4 2.7 2.7 0 0 1 0 5.4Zm5.3-7.02a.97.97 0 1 1-1.94 0 .97.97 0 0 1 1.94 0Z"/></svg>
+          Instagram
+        </a>
+        <a href="https://www.facebook.com/t3rzo" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M22 12.06C22 6.5 17.52 2 12 2S2 6.5 2 12.06c0 5.02 3.66 9.18 8.44 9.94v-7.03H7.9v-2.91h2.54V9.85c0-2.52 1.5-3.91 3.77-3.91 1.1 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.78-1.63 1.57v1.89h2.78l-.45 2.91h-2.33V22c4.78-.76 8.44-4.92 8.44-9.94Z"/></svg>
+          Facebook
+        </a>
+        <a href="https://www.mercadolibre.com.ar/pagina/warnesecommerce2435" target="_blank" rel="noopener">Mercado Libre</a>
+      </div>
+    </div>
+
+    <div class="pie__legal">
+      <span>T3RZO Autopartes es la marca propia desarrollada por la familia Patti. Distribución mayorista a través de Patti Autopartes.</span>
+      <span>&copy; <span id="anio"></span> T3RZO Autopartes</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function () {
+  'use strict';
+
+  document.documentElement.classList.add('js');
+
+  var anio = document.getElementById('anio');
+  if (anio) { anio.textContent = String(new Date().getFullYear()); }
+
+  // Menú de celular
+  var btn = document.getElementById('btnMenu');
+  var nav = document.getElementById('nav');
+  if (btn && nav) {
+    btn.addEventListener('click', function () {
+      var abierto = nav.classList.toggle('abierto');
+      btn.setAttribute('aria-expanded', abierto ? 'true' : 'false');
+      btn.setAttribute('aria-label', abierto ? 'Cerrar menú' : 'Abrir menú');
+    });
+    nav.addEventListener('click', function (e) {
+      if (e.target.tagName === 'A') {
+        nav.classList.remove('abierto');
+        btn.setAttribute('aria-expanded', 'false');
+        btn.setAttribute('aria-label', 'Abrir menú');
       }
-    );
+    });
+  }
 
-    document.querySelectorAll(".reveal").forEach((node) => revealObserver.observe(node));
-  </script>
+  var quieto = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // ── La cinta de productos ──────────────────────────────────────────
+  // Sin animacion automatica: la que habia le reescribia la posicion en
+  // cada cuadro y se comia el movimiento de la rueda del usuario.
+  // Ahora todo pasa por scrollLeft: rueda, dedo, arrastre y teclado.
+  var cinta = document.getElementById('cinta');
+  var ventana = document.getElementById('ventanaCinta');
+
+  if (cinta && ventana) {
+    var copia = cinta.cloneNode(true);
+    copia.removeAttribute('id');
+    copia.setAttribute('aria-hidden', 'true');
+    while (copia.firstChild) { cinta.appendChild(copia.firstChild); }
+
+    var tope = function () {
+      return ventana.scrollWidth - ventana.clientWidth;
+    };
+
+    // El atrape: con el cursor encima, la rueda mueve las piezas en vez
+    // de bajar la pagina. Suelta al llegar a la punta, para que nadie
+    // quede clavado bajando rapido.
+    ventana.addEventListener('wheel', function (e) {
+      if (Math.abs(e.deltaX) > Math.abs(e.deltaY)) { return; }
+      var d = e.deltaY;
+      var x = ventana.scrollLeft;
+      var limite = tope();
+      if ((d > 0 && x >= limite - 1) || (d < 0 && x <= 1)) { return; }
+      e.preventDefault();
+      ventana.scrollLeft = Math.max(0, Math.min(limite, x + d));
+    }, { passive: false });
+
+    // Arrastre con el mouse, como una vitrina.
+    var arrastrando = false, xInicio = 0, scrollInicio = 0;
+    ventana.addEventListener('pointerdown', function (e) {
+      if (e.pointerType === 'touch') { return; }
+      arrastrando = true;
+      xInicio = e.clientX;
+      scrollInicio = ventana.scrollLeft;
+      ventana.classList.add('agarrando');
+    });
+    window.addEventListener('pointermove', function (e) {
+      if (!arrastrando) { return; }
+      e.preventDefault();
+      ventana.scrollLeft = scrollInicio - (e.clientX - xInicio);
+    });
+    window.addEventListener('pointerup', function () {
+      arrastrando = false;
+      ventana.classList.remove('agarrando');
+    });
+  }
+
+  // Entrada escalonada
+  var piezas = document.querySelectorAll('.sube');
+
+  if (quieto || !('IntersectionObserver' in window)) {
+    for (var i = 0; i < piezas.length; i++) { piezas[i].classList.add('visto'); }
+    return;
+  }
+
+  var ojo = new IntersectionObserver(function (entradas) {
+    entradas.forEach(function (e) {
+      if (e.isIntersecting) {
+        e.target.classList.add('visto');
+        ojo.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.05, rootMargin: '0px 0px -40px 0px' });
+
+  piezas.forEach(function (p) { ojo.observe(p); });
+})();
+</script>
 </body>
 </html>

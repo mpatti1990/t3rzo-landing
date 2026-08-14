@@ -2,3 +2,9 @@
 node_modules/
 __pycache__/
 *.log
+.gstack/
+
+# Originales pesados que aporta Marcos. A la pagina va la version liviana,
+# que se guarda en assets/. Ver imagenes-para-la-pagina/LEEME.md
+imagenes-para-la-pagina/*
+!imagenes-para-la-pagina/LEEME.md

@@ -14,6 +14,15 @@ Lo mínimo que hay que saber sin abrirlo:
   desde Bash o PowerShell escriben igual.
 - **Git es de Marcos (Regla 2).** Claude Code no hace commit ni push. El cierre
   lo ejecuta Marcos, incluso si pide "subilo" o "ship it".
+- **El diseño lo hacen las skills, no Claude Code (Regla 3).** Todo bloque que
+  toque cómo se ve la página **arranca abriendo las skills de diseño de
+  `.claude/skills/`**, antes de proponer nada. Claude Code no elige paleta,
+  tipografía, estructura de secciones ni composición por criterio propio: para eso
+  se instalaron las skills. Es un paso mecánico del ciclo, no una opción.
+- **Las imágenes las elige Marcos (Regla 4).** Se usan **solo** las que estén en
+  `imagenes-para-la-pagina/`. No se buscan en otras carpetas, no se elige cuáles
+  entran y cuáles no, y **no se recortan ni se les borra el fondo**. Lo único
+  permitido es bajarles el peso y dejar la copia liviana en `assets/`.
 - No se escribe código hasta que Marcos aprueba el plan del bloque.
 - Máximo DOS tandas de preguntas por bloque. Lo normal es UNA.
 - Todo comando que ejecuta Marcos viene explicado: dónde se corre, qué hace, qué
@@ -88,3 +97,17 @@ candidatas de cuatro repositorios; el descarte y su razón están en la bitácor
 **Las cuatro deciden cómo se ve la página, nunca qué dice.** El contenido sale de
 la Fuente Maestra y lo no confirmado queda `[CONFIRMAR]`. Está como regla dura en
 `docs/reglas-duras.md`.
+
+**Y se abren solas, en un momento fijo del ciclo — Regla 3.** No dependen de que
+Marcos las pida ni de que Claude Code se acuerde:
+
+| Momento | Qué se abre |
+|---|---|
+| Antes de proponer un plan que toque la apariencia | `ui-ux-pro-max` + `design-taste-frontend` |
+| Si la página ya existe | además `redesign-existing-projects` |
+| Al terminar de escribir, antes de mostrarle nada a Marcos | `impeccable` |
+
+Este renglón existe porque en el bloque LANDING.1 la página se rediseñó entera sin
+abrir ninguna de las cuatro. La regla de arriba ya estaba escrita; lo que faltaba
+era el momento en que se dispara. El detalle y la justificación están en la Regla 3
+de `docs/metodologia-de-trabajo.md`.

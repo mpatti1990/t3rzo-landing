@@ -129,6 +129,82 @@ Tampoco `gstack-team-init` ni el "Paso 2 / team mode" de su README. Tampoco se
 inyecta la sección "Skill routing" que gstack ofrece agregar al CLAUDE.md: su
 texto enruta explícitamente a `/ship`.
 
+### Regla 3 — El diseño lo hacen las skills de diseño, no Claude Code
+
+**Enunciado.** Todo bloque que toque **cómo se ve** la página arranca abriendo
+las skills de diseño instaladas en `.claude/skills/`, **antes** de proponer nada.
+Claude Code no decide por criterio propio la paleta, la tipografía, la estructura
+de secciones, la composición ni el ritmo visual. Esas decisiones salen de las
+skills, y Claude Code declara cuál dictó cada una.
+
+Claude Code **no tiene** criterio de diseño propio homologado en este proyecto.
+Para eso se instalaron las skills. Usar criterio propio habiendo skills
+disponibles no es una alternativa aceptable, aunque el resultado parezca
+razonable.
+
+**Cuándo se dispara. Es mecánico, no es criterio:**
+
+| Momento | Qué se abre |
+|---|---|
+| Antes de proponer un plan que toque la apariencia | `ui-ux-pro-max` (estilo, paleta, tipografía, patrón de secciones) y `design-taste-frontend` (que no tenga cara de plantilla) |
+| Sobre una página que ya existe | además `redesign-existing-projects` |
+| Al terminar de escribir, antes de mostrarle nada a Marcos | `impeccable` (auditoría y pulido) |
+
+**Qué NO deciden las skills.** El contenido. Todo texto visible sale de la Fuente
+Maestra, y lo no confirmado queda `[CONFIRMAR]`. Si una skill propone un texto,
+una cifra o un dato, se descarta esa parte.
+
+**Si dos skills se contradicen** (pasó en el primer uso: la base de datos de
+`ui-ux-pro-max` propuso una tipografía serif de lujo y `design-taste-frontend` la
+prohíbe por defecto), se declara la contradicción y se resuelve con la Fuente
+Maestra. No se elige la que quede más linda.
+
+**Por qué.** Marcos no evalúa diseño en código: delega esa capacidad completa en
+las skills. Que Claude Code las saltee equivale a que nadie con criterio de diseño
+haya mirado la página, con el agravante de que el reporte dice que sí.
+
+*Justificación (bloque LANDING.1, 2026-08-12).* La página se rediseñó entera sin
+abrir una sola de las cuatro skills instaladas dos bloques antes. Marcos la
+recibió y contestó que era "aceptable, realmente muy genérica". Cuando después se
+corrió `design-taste-frontend` sobre ese mismo resultado, su lista de control
+contó 10 etiquetitas donde el máximo era 4, el mismo esquema de sección repetido 5
+veces donde el máximo era 1, un hero de 5 líneas donde el máximo era 2, y una
+piel que alternaba claro y oscuro cuando la Fuente Maestra dice que el azul marino
+domina. Todo eso lo detecta una lista mecánica en un minuto.
+
+*¿Qué dejó que esto pasara?* El `CLAUDE.md` **ya decía** que las cuatro skills
+"deciden cómo se ve la página". Lo que no existía era el momento del ciclo en que
+se abren. Una regla sin disparador depende de que alguien se acuerde, y este
+documento ya establece que acordarse no es un control.
+
+### Regla 4 — Las imágenes las elige Marcos
+
+**Enunciado.** Claude Code usa **únicamente** las imágenes que Marcos deja en
+[imagenes-para-la-pagina/](../imagenes-para-la-pagina/). No sale a buscar
+imágenes a otras carpetas de la máquina, no las elige por su cuenta y no decide
+cuáles se descartan.
+
+**Qué tiene prohibido hacerles.** Recortar, cambiar el encuadre, borrar el fondo
+o alterar la composición. Si una foto necesita fondo transparente, la trae Marcos
+ya recortada. Lo único permitido es **bajarle el peso**: la misma imagen, mismo
+encuadre, archivo más chico, para que la página abra rápido en un celular. El
+original nunca se toca.
+
+**Dónde queda cada cosa.** El original en `imagenes-para-la-pagina/` (que no sube
+a GitHub, por peso). La versión liviana en `assets/`, que es la que usa la página
+y la que sí se commitea.
+
+**Si falta una imagen para una sección**, se deja el hueco declarado y se le pide
+a Marcos. No se rellena con otra que haya a mano.
+
+*Justificación (bloque LANDING.1, 2026-08-12).* Marcos aprobó traer tres fotos de
+packaging. Claude Code borró una por su cuenta, decidió dónde iban las otras dos,
+y probó dos veces recortarles el fondo con un algoritmo: el primer intento dejó el
+gris del estudio y el segundo le comió pedazos a la tapa de la caja. Marcos lo
+resumió así: quedaron peor que hechas por un chico de cinco años. Las decisiones
+de qué se muestra son de negocio y son suyas; el recorte fotográfico es un oficio
+que este proyecto no tiene automatizado.
+
 ---
 
 ## Límite estricto de tandas de preguntas
@@ -229,14 +305,19 @@ diga cuándo usar cada una de las habilidades, cagamos, porque yo no sé nada de
 programación"*. Los controles **no se piden: se disparan solos** en un momento
 fijo del ciclo. Es una lista mecánica, no un criterio.
 
+- **Paso 3-4 (antes de proponer el plan)** → **las skills de diseño del proyecto**
+  (`ui-ux-pro-max`, `design-taste-frontend`, y `redesign-existing-projects` si la
+  página ya existe). Es la Regla 3 y va primero: sin esto, el plan que se le
+  presenta a Marcos sale del criterio de Claude Code, que es exactamente lo que
+  las skills vinieron a reemplazar.
 - **Paso 4 (plan, antes de escribir)** → `/plan-design-review`. Es una landing:
   el riesgo principal está en la jerarquía visual y el mensaje, no en la
   arquitectura. Se suma `/plan-eng-review` solo si el bloque toca JavaScript,
   un formulario o una integración con un servicio externo.
-- **Paso 6 (al terminar de escribir)** → `/review` sobre el diff, y
-  `/design-review`, que busca inconsistencias de espaciado, jerarquía rota y
-  patrones de "hecho por IA". Lo que encuentren se arregla o se declara en el
-  reporte; nunca se omite.
+- **Paso 6 (al terminar de escribir)** → `impeccable` para auditar y pulir lo
+  escrito, más `/review` sobre el diff y `/design-review`, que busca
+  inconsistencias de espaciado, jerarquía rota y patrones de "hecho por IA". Lo
+  que encuentren se arregla o se declara en el reporte; nunca se omite.
 - **Antes del paso 7** → `/qa` con navegador real, para que Marcos no sea el
   primero en descubrir un link roto o una imagen que no carga.
 - **Ante un bug que no se entiende** → `/investigate`, que busca causa raíz en
