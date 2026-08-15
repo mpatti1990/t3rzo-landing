@@ -21,3 +21,11 @@
 *.webp binary
 *.ico  binary
 *.pdf  binary
+
+# Documentos de Office. Hasta el 2026-08-15 caian en `text=auto`, o sea que git
+# adivinaba si eran texto o no mirando el contenido. Para un documento legal eso
+# es un riesgo que no hace falta correr.
+*.doc  binary
+*.docx binary
+*.xls  binary
+*.xlsx binary

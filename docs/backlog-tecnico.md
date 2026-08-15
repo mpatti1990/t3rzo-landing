@@ -112,7 +112,22 @@ configurado.
 **Qué hace falta:** decidir dónde se publica. Para un sitio estático como este,
 GitHub Pages es gratis y sale de este mismo repositorio.
 
-**Detectado:** 2026-08-09, bloque METODOLOGIA.1.
+**Dos dominios de la marca, medidos el 2026-08-15 contra el resolutor del sistema
+y contra el público de Google:**
+
+| Dominio | Estado |
+|---|---|
+| `pattimap.com.ar` | Registrado, pero **sin sitio**: devuelve el registro de zona y ninguna dirección |
+| `t3rzo.com.ar` | **No resuelve** |
+
+**Atado a este ítem, para que no se pierda:** cuando el sitio esté publicado y
+tenga dirección definitiva, hay que **volver a la política de garantía y poner esa
+dirección**. Hoy el documento dice "la versión vigente es la que Patti Autopartes
+publica en su sitio oficial", sin nombrar ninguna, justamente porque todavía no
+hay ninguna que responda. Es el paso que cierra el circuito del punto 10 de la
+política, que obliga a que exista un lugar donde consultar la versión vigente.
+
+**Detectado:** 2026-08-09, bloque METODOLOGIA.1. **Ampliado:** 2026-08-15, LANDING.2.
 
 ---
 
@@ -184,7 +199,7 @@ propia, no necesariamente.
 
 ---
 
-## #9 — El video 360 de la caja: probado, rechazado, esperando una versión nueva
+## #9 — El video 360 de la caja — DESCARTADO
 
 Marcos generó el video (`imagenes-para-la-pagina/Video de caja 360/`, 25,7 MB,
 1920×1080, 11,8 s, vuelta completa que cierra sin salto) y en LANDING.2 se probó
@@ -201,19 +216,21 @@ Por qué no sirvió, en orden de importancia:
 3. **El texto chico de la caja está mal escrito**: dice "Dizzribu/dor ezzlusivo"
    donde la caja real dice "Distribuidor exclusivo". Se lee si se muestra grande.
 
-**Qué hace falta:** que Marcos **regenere el video con fondo negro liso** (sin
-degradado de estudio, sin piso visible), sin marca de agua y con el texto bien.
-Con fondo negro no hace falta ni recortar ni fundir: entra directo contra el azul
-de la página y anda en todos los teléfonos.
+**CERRADO el 2026-08-15 por decisión de Marcos: "el video olvidate, no va".** No
+se va a regenerar y el cierre de la página se queda con la foto de la caja, que
+en LANDING.2 pasó a verse casi tres veces más grande. **Este ítem no espera nada
+de nadie.**
 
-**Lo que ya está resuelto y no hay que rehacer:** el video comprime a **1,12 MB**
-en 1280×720 sin audio, con `imageio-ffmpeg` (ya instalado en la máquina). El
-código del reproductor también quedó probado: arranca por el atributo `autoplay`
-del HTML —nunca por JavaScript, que varios navegadores rechazan—, se frena cuando
-sale de pantalla y respeta "menos movimiento". Está en la bitácora del
-2026-08-15.
+Si algún día se retoma, lo que quedó averiguado y no hay que volver a investigar:
 
-**Detectado:** 2026-08-12, bloque LANDING.1. **Actualizado:** 2026-08-15, LANDING.2.
+- El video comprime a **1,12 MB** en 1280×720 sin audio, con `imageio-ffmpeg`, que
+  ya está instalado en la máquina.
+- El material tendría que venir con **fondo negro liso**, sin degradado de estudio
+  ni piso visible. Con fondo claro no hay forma de integrarlo a una página oscura.
+- El reproductor arranca por el atributo `autoplay` del HTML, nunca por
+  JavaScript, que varios navegadores rechazan.
+
+**Detectado:** 2026-08-12, bloque LANDING.1. **Cerrado:** 2026-08-15, LANDING.2.
 
 ---
 

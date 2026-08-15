@@ -89,10 +89,13 @@ pregunta de garantía, y "Garantía" en el pie.
   líneas), que **repite los colores y la tipografía** de `index.html` porque no
   hay hoja compartida todavía. Es deuda declarada, ver backlog #13.
 
-**Pendiente que depende de Marcos:** el primer párrafo de la política dice que
-"la versión vigente es la publicada en pattimap.com.ar". Como ahora está
-publicada acá, esa frase quedó desactualizada. No se corrigió porque es texto
-legal y lo cambia Marcos en el Word, no Claude Code en la página.
+**Sobre la dirección de la versión vigente.** El documento original decía que la
+versión vigente era "la publicada en pattimap.com.ar". Ese dominio está
+registrado pero no tiene sitio andando (medido el 2026-08-15), así que la frase
+mandaba al lector a un lugar vacío. Marcos la reemplazó en el Word por una que no
+nombra ningún dominio y remite al canal de garantías, que sí existe. Cuando el
+sitio se publique se le agrega la dirección concreta: está atado al ítem #6 del
+backlog.
 
 ---
 
