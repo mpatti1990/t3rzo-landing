@@ -217,7 +217,9 @@ Estos datos forman parte del contexto histórico trabajado en el proyecto y pued
 - **1996:** primera importación.
 - **2009:** incorporación de Marco y Franco.
 - **2019:** nacimiento de T3RZO.
-- **2024:** primera participación/exposición mencionada en Automechanika Buenos Aires.
+- **2024 y 2026:** participación en Automechanika Buenos Aires. **Confirmado por
+  Marcos el 2026-08-15** (bloque LANDING.2): las dos ediciones ya se realizaron y
+  el dato está publicado en la página.
 
 ### Estado de estos datos
 
@@ -1487,7 +1489,11 @@ No usar logos de terceros sin necesidad.
 
 No inventar participación en eventos.
 
-El proyecto registra una participación de T3RZO/Patti en **Automechanika Buenos Aires 2024**, dato a validar antes de publicarlo como hito formal.
+**CONFIRMADO (2026-08-15, bloque LANDING.2).** Marcos confirmó la participación de
+T3RZO/Patti en **Automechanika Buenos Aires, ediciones 2024 y 2026**, y que las dos
+ya se realizaron. La página lo publica como pie de la foto del stand, con la
+aclaración de que Automechanika es la feria más importante del sector automotriz
+del mundo. Ya no requiere validación previa.
 
 ---
 
@@ -1671,7 +1677,20 @@ No. T3RZO es una marca argentina y trabaja con proveedores de distintos orígene
 
 ## ¿T3RZO tiene garantía?
 
-Existe identidad de garantía de marca, pero las condiciones específicas deben consultarse en la política vigente. No publicar plazos o alcances sin confirmación.
+**CONFIRMADO (2026-08-15, bloque LANDING.2).** Existe una política de garantía
+escrita, aportada por Marcos en `docs/POLÍTICA DE GARANTÍA.doc` y publicada
+completa en `garantia.html`. Los plazos y alcances ya se pueden publicar porque
+salen de ese documento, no de una estimación:
+
+- La otorga **Patti Autopartes** (CUIT 20-12588854-3), no T3RZO.
+- **Seis (6) meses** desde la factura de venta al comercio.
+- Cubre **defectos de fabricación** y se limita al valor de la pieza.
+- Exige **instalación por taller con comprobante**; sin eso no se da curso.
+- Se gestiona por WhatsApp +54 9 11 3767-7069.
+- **Regula la relación con el comercio, no con el consumidor final**, a quien lo
+  ampara la Ley 24.240. Esa distinción no se omite al resumirla.
+
+Cualquier condición que no esté en ese documento sigue sin publicarse.
 
 ## ¿Soy una casa de repuestos, cómo compro?
 
@@ -2318,16 +2337,22 @@ Completar con Marco antes de publicar la versión definitiva.
 [CONFIRMAR WHATSAPP]
 [CONFIRMAR EMAIL]
 [CONFIRMAR DIRECCIÓN]
-[CONFIRMAR MERCADO LIBRE]
-[CONFIRMAR TIENDA OFICIAL]
 [CONFIRMAR CTA MAYORISTA PATTI]
-[CONFIRMAR POLÍTICA DE GARANTÍA]
 [CONFIRMAR HISTORIA / FECHAS EXACTAS]
 [CONFIRMAR FAMILIAS DE PRODUCTOS A MOSTRAR]
 [CONFIRMAR FOTOS DE PRODUCTO HERO]
-[CONFIRMAR MATERIAL DE AUTOMECHANIKA]
 [CONFIRMAR TESTIMONIOS / RESEÑAS]
 ```
+
+### Resueltos
+
+- `[CONFIRMAR MERCADO LIBRE]` y `[CONFIRMAR TIENDA OFICIAL]` — 2026-08-12 y
+  2026-08-15. La marca tiene **Tienda Oficial** en Mercado Libre y la página la
+  nombra así, con sello y link propio.
+- `[CONFIRMAR POLÍTICA DE GARANTÍA]` — 2026-08-15. Documento aportado por Marcos,
+  publicado completo en `garantia.html`.
+- `[CONFIRMAR MATERIAL DE AUTOMECHANIKA]` — 2026-08-15. Ediciones 2024 y 2026 de
+  Buenos Aires, las dos ya realizadas.
 
 ---
 

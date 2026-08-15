@@ -10,8 +10,9 @@ Regla: acá se describe **lo que existe**, no lo que se planea. Lo que falta va 
 LANDING.1 tomándolo de
 [la Fuente Maestra](../T3RZO_Fuente_Maestra_Landing_Claude_Code.md). Los textos
 inventados que había antes ("50 años", "3ra generación", "Calidad OEM",
-"Automechanika 2024-2026", "Parque Avellaneda") se eliminaron. Quedan dos datos
-sin confirmar, marcados a la vista con un cartel amarillo `[CONFIRMAR]`.
+"Parque Avellaneda") se eliminaron. En LANDING.2 Marcos confirmó los dos datos
+que faltaban —la feria y la política de garantía—, así que **ya no queda ningún
+cartel amarillo `[CONFIRMAR]` a la vista en la página**.
 
 ---
 
@@ -19,11 +20,11 @@ sin confirmar, marcados a la vista con un cartel amarillo `[CONFIRMAR]`.
 
 | Dato | Valor |
 |---|---|
-| Tipo | Sitio estático de una sola página |
-| Archivos | `index.html` (1103 líneas, CSS y JS incluidos) + `assets/` |
+| Tipo | Sitio estático de dos páginas |
+| Archivos | `index.html` (1151 líneas, CSS y JS incluidos), `garantia.html` (201) + `assets/` |
 | Build | No hay. Se abre el archivo y funciona. |
 | Dependencias | Ninguna instalada. Tipografía Space Grotesk desde Google Fonts. |
-| Peso que descarga el visitante | ~720 KB |
+| Peso que descarga el visitante | ~742 KB la landing, ~150 KB la de garantía |
 | Repositorio | `mpatti1990/t3rzo-landing` |
 | Publicado en | Todavía en ningún lado |
 
@@ -63,11 +64,35 @@ El detalle de qué decidió cada una está en la bitácora del 2026-08-12.
 | 5 | Líneas | `#lineas` | Las seis familias de producto, en lista escalonada |
 | 6 | La pieza correcta | `#pieza` | Placa técnica con los cinco datos que identifican una aplicación, y botón de consulta |
 | 7 | Desarrollo | — | Los siete pasos, en riel horizontal |
-| 8 | Historia y respaldo | `#respaldo` | Foto del stand a sangre con velo, texto y recuadro de Patti Autopartes |
-| 9 | Dónde conseguirla | `#comprar` | Dos caminos: casas de repuestos (WhatsApp de Patti) y consumidor final (Mercado Libre) |
-| 10 | Preguntas frecuentes | — | Seis preguntas en dos columnas, sin acordeón |
+| 8 | Historia y respaldo | `#respaldo` | Foto del stand a sangre con velo, texto y recuadro de Patti Autopartes. El pie de foto nombra **Automechanika Buenos Aires, ediciones 2024 y 2026** |
+| 9 | Dónde conseguirla | `#comprar` | Dos caminos: casas de repuestos (WhatsApp de Patti) y consumidor final (Mercado Libre, con sello de **Tienda Oficial**) |
+| 10 | Preguntas frecuentes | — | Seis preguntas en dos columnas, sin acordeón. La de garantía enlaza a la página de la política |
 | 11 | Cierre | — | "Producto. Calidad. Desarrollo. Respaldo." y la caja |
-| — | Pie | — | Barra clara: logo, tres links y año automático |
+| — | Pie | — | Barra clara: logo, cuatro links y año automático |
+
+---
+
+## La segunda página: `garantia.html`
+
+La política de garantía completa, publicada como página propia dentro del mismo
+sitio. Se llega desde dos lugares: el link "Leer la política completa" en la
+pregunta de garantía, y "Garantía" en el pie.
+
+- **El texto es una copia exacta** de `POLÍTICA DE GARANTÍA.doc`, el documento
+  que aportó Marcos. Se verificó palabra por palabra: CUIT, domicilio, teléfono,
+  la Ley 24.240, los cuatro plazos, la fecha de vigencia y las 12 exclusiones.
+  Lo único que cambia es el formato del título.
+- Diez secciones numeradas, misma piel que la landing (barras claras arriba y
+  abajo, fondo azul, Space Grotesk), ancho de lectura de 75 caracteres por línea.
+- Tiene estilos de impresión: en papel o PDF sale en fondo blanco y sin barras.
+- Sus estilos viven aparte, en [assets/legal.css](../assets/legal.css) (81
+  líneas), que **repite los colores y la tipografía** de `index.html` porque no
+  hay hoja compartida todavía. Es deuda declarada, ver backlog #13.
+
+**Pendiente que depende de Marcos:** el primer párrafo de la política dice que
+"la versión vigente es la publicada en pattimap.com.ar". Como ahora está
+publicada acá, esa frase quedó desactualizada. No se corrigió porque es texto
+legal y lo cambia Marcos en el Word, no Claude Code en la página.
 
 ---
 
@@ -85,7 +110,20 @@ vienen así del original.
 | `producto-caja-2.webp` | 68 KB | Celda "Calidad" |
 | `p-01.webp` a `p-12.webp` | 12–44 KB c/u | Cinta de productos |
 | `feria-1.webp` | 112 KB | Sección de respaldo |
-| `caja.webp` | 36 KB | Cierre |
+| `caja.webp` | 55 KB | Cierre y página de garantía |
+
+**Sobre `caja.webp`.** En LANDING.2 se re-exportó desde el original de Marcos
+(`Diseño de cajas/Diseño caja T3RZO 1.png`, 6016×4016): pasó de 1100×1228 px y
+33 KB a **1840×1228 px y 55 KB**. Mismo encuadre exacto, sin recortar nada; solo
+más píxeles, porque en la página ahora se muestra al triple de tamaño y con el
+archivo viejo se veía blanda en pantallas de alta resolución.
+
+**Ojo con este archivo:** la caja ocupa apenas el **38,7% del ancho** de la
+imagen y el resto es aire transparente, y además viene 39 px corrida a la
+izquierda del centro. Por eso el CSS le pone un ancho mucho mayor de lo que
+parece (hasta 920 px para que la caja se vea de 356), márgenes negativos que se
+comen ese aire, y un `translateX` que centra la caja y no el archivo. Quien toque
+ese bloque sin saberlo va a creer que los números están mal.
 
 **En `assets/` pero sin usar:** `hero.jpg` (228 KB, la foto de feria vieja, la
 reemplazó `feria-1.webp`) y `producto-1.jpg` (19,6 MB, backlog #3). Ninguna de
@@ -104,6 +142,7 @@ las dos se descarga, porque el HTML no las pide.
 | Facebook `facebook.com/t3rzo` | Real |
 | Mail | **No aparece.** No existe todavía |
 | TikTok | **No aparece.** No existe todavía |
+| `garantia.html` (2 links: pregunta y pie) | Interno, la política completa |
 
 Los botones de WhatsApp llevan un mensaje escrito de antemano, distinto según
 desde dónde se toque.
@@ -124,4 +163,4 @@ desde dónde se toque.
 
 ---
 
-*Última actualización: 2026-08-12 — bloque LANDING.1*
+*Última actualización: 2026-08-15 — bloque LANDING.2*

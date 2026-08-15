@@ -1,0 +1,81 @@
+/* Estilos de las paginas de texto legal (garantia.html).
+   Los valores estan repetidos del bloque <style> de index.html a proposito:
+   hoy no hay una hoja de estilos compartida. Cuando se resuelva el item #5 del
+   backlog (sacar el CSS de index.html a assets/styles.css), este archivo pasa a
+   importar los tokens de ahi en vez de redeclararlos. */
+
+:root{
+  --azul:#20245C; --verde:#00B541; --rojo:#FF0000;
+  --fondo:#0B0D24; --panel:#161A3D; --linea:#2C3167;
+  --tinta:#F3F4FB; --tinta-media:#A9AEDA; --tinta-baja:#7D83B4;
+  --tipo:'Space Grotesk','Segoe UI',system-ui,sans-serif;
+}
+*{ box-sizing:border-box; margin:0; padding:0; }
+html{ scroll-behavior:smooth; }
+@media (prefers-reduced-motion: reduce){ html{ scroll-behavior:auto; } }
+body{
+  background:var(--fondo); color:var(--tinta-media);
+  font-family:var(--tipo); font-size:16px; line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+}
+img{ max-width:100%; height:auto; display:block; }
+a{ color:var(--verde); }
+a:focus-visible, .volver:focus-visible{ outline:2px solid var(--verde); outline-offset:3px; }
+
+/* Barras claras del encabezado y del pie, igual que en la landing: el logo es
+   azul marino sobre transparente y sobre fondo oscuro no contrasta. */
+.barra{ background:#F5F6FB; }
+.barra__fila{
+  max-width:1240px; margin:0 auto; padding:18px clamp(20px,4vw,40px);
+  display:flex; align-items:center; justify-content:space-between; gap:20px; flex-wrap:wrap;
+}
+.barra img{ width:132px; }
+.volver{
+  display:inline-flex; align-items:center; gap:8px; min-height:44px; padding:10px 17px;
+  border:1px solid #CFD4E6; border-radius:8px;
+  font-size:14px; font-weight:600; text-decoration:none; color:var(--azul);
+  transition:border-color .2s ease, background-color .2s ease;
+}
+.volver:hover{ border-color:var(--azul); background:#EAECF7; }
+.pie .barra__fila{ font-size:13.5px; color:#4B5177; }
+
+/* 660px deja unos 70 caracteres por linea. Mas ancho que eso cansa la vista:
+   el ojo pierde el renglon al volver al margen izquierdo. */
+.doc{ max-width:660px; margin:0 auto; padding:clamp(46px,7vw,84px) clamp(20px,4vw,40px) clamp(64px,8vw,110px); }
+.tricolor{
+  display:block; width:58px; height:6px; border-radius:2px; margin-bottom:26px;
+  background:linear-gradient(90deg,var(--verde) 0 33.33%,#fff 33.33% 66.66%,var(--rojo) 66.66%);
+}
+h1{ font-size:clamp(30px,5.2vw,50px); line-height:1.06; letter-spacing:-.04em; color:var(--tinta); text-wrap:balance; }
+.subtitulo{ margin-top:6px; font-size:clamp(19px,2.6vw,26px); letter-spacing:-.02em; color:var(--tinta-media); }
+.vigencia{ margin-top:16px; font-size:14px; letter-spacing:.02em; color:var(--tinta-baja); }
+.entrada{
+  margin-top:30px; padding:clamp(20px,2.6vw,28px);
+  background:var(--panel); border:1px solid var(--linea); border-radius:14px;
+  font-size:15px;
+}
+h2{
+  margin-top:clamp(38px,4.6vw,54px); margin-bottom:12px;
+  font-size:clamp(19px,2.4vw,23px); letter-spacing:-.02em; color:var(--tinta); text-wrap:balance;
+}
+h2 .n{ color:var(--verde); font-variant-numeric:tabular-nums; margin-right:9px; }
+p + p{ margin-top:13px; }
+ul, ol{ margin-top:13px; padding-left:22px; }
+li + li{ margin-top:9px; }
+li::marker{ color:var(--tinta-baja); }
+strong{ color:var(--tinta); font-weight:600; }
+
+.contacto{
+  margin-top:clamp(44px,5vw,62px); padding:clamp(22px,2.8vw,30px);
+  background:var(--panel); border:1px solid var(--linea); border-radius:14px;
+}
+.contacto p + p{ margin-top:8px; }
+.contacto .dato{ color:var(--tinta); font-weight:600; }
+
+@media print{
+  body{ background:#fff; color:#111; }
+  .barra, .tricolor{ display:none; }
+  h1, h2, strong, .contacto .dato{ color:#000; }
+  .entrada, .contacto{ background:#fff; border:1px solid #999; }
+  .doc{ max-width:none; padding:0; }
+}

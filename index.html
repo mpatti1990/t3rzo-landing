@@ -528,6 +528,16 @@ section{ padding-block:var(--aire); position:relative; }
 }
 .camino--b2b{ background:linear-gradient(155deg, var(--azul), #171B45); }
 .camino--b2c{ background:var(--panel); }
+/* Sello de Tienda Oficial de Mercado Libre. Es una credencial verificable, no
+   un adorno: por eso lleva tilde y texto, y no se usa en ningun otro lado.
+   Radio 8px, el mismo de los botones, para no meter una forma nueva. */
+.sello-oficial{
+  display:inline-flex; align-items:center; gap:8px; align-self:flex-start;
+  padding:8px 13px; border-radius:8px;
+  border:1px solid rgba(0,181,65,.42); background:rgba(0,181,65,.10);
+  font-size:13px; font-weight:600; color:#5BE08D;
+}
+.sello-oficial svg{ width:15px; height:15px; flex:none; }
 .camino h3{ font-size:clamp(22px,2.6vw,30px); letter-spacing:-.03em; }
 .camino p{ font-size:15.5px; color:var(--tinta-media); }
 .camino .btn{ margin-top:auto; align-self:flex-start; }
@@ -541,6 +551,15 @@ section{ padding-block:var(--aire); position:relative; }
 }
 .pregunta h3{ font-size:17.5px; letter-spacing:-.02em; color:var(--tinta); }
 .pregunta p{ margin-top:9px; font-size:15px; color:var(--tinta-media); }
+/* Enlace dentro de un parrafo. Va subrayado ademas de verde: el color solo no
+   alcanza para distinguir un enlace si alguien no ve bien los colores. */
+.enlace-texto{
+  color:var(--verde); font-weight:600;
+  text-decoration:underline; text-underline-offset:3px;
+  text-decoration-thickness:1px; text-decoration-color:rgba(0,181,65,.5);
+  transition:text-decoration-color .2s ease;
+}
+.enlace-texto:hover{ text-decoration-color:var(--verde); }
 @media (max-width: 760px){ .preguntas{ grid-template-columns:1fr; } }
 
 /* ═══════════ 11. CIERRE ═══════════ */
@@ -548,10 +567,34 @@ section{ padding-block:var(--aire); position:relative; }
 .cierre .tricolor{ margin:0 auto 30px; }
 .cierre h2{ font-size:clamp(34px,6.4vw,82px); letter-spacing:-.05em; }
 .cierre .btn{ margin-top:38px; }
+/* La caja del cierre.
+   El archivo (assets/caja.webp, 1840x1228) trae la caja ocupando apenas el 38,7%
+   de su ancho: todo el resto es aire transparente. Por eso los anchos de aca son
+   mucho mas grandes de lo que parecen. Con los 340px que habia antes, la caja
+   real media 132px y quedaba perdida en la seccion.
+   Los margenes negativos se comen ese aire para que no abra un hueco en la
+   pagina, y el translateX corrige que la caja viene 39px a la izquierda del
+   centro del archivo. Nada de esto toca el archivo, que es material de Marcos.
+
+   Una sola regla fluida, sin punto de corte: 150vw hace que en el celular el
+   aire transparente se vaya fuera de la pantalla y la caja se vea grande, y el
+   tope de 920px la frena en el escritorio. Con un @media habia un salto de
+   454px a 271px justo al cruzar el limite.
+   El margin-left:50% mas el translateX centran la CAJA (no el archivo) aunque
+   el elemento sea mas ancho que su contenedor, que es cuando margin:auto deja
+   de centrar. El -46,5% sale de -50% para centrar, mas 3,5% de correccion. */
 .cierre__caja{
-  width:min(340px, 68%); margin:clamp(38px,5vw,58px) auto 0;
-  filter:drop-shadow(0 30px 50px rgba(4,6,22,.7));
+  width:min(920px, 150vw);
+  max-width:none;   /* la regla global de img lo caparia en 100% */
+  margin:clamp(-38px,-2.6vw,-10px) 0 clamp(-100px,-7vw,-40px) 50%;
+  transform:translateX(-46.5%);
+  filter:drop-shadow(0 26px 46px rgba(4,6,22,.66));
 }
+/* El corte lo hace la propia seccion: confiar solo en el overflow-x:hidden de
+   body deja pasar el desplazamiento lateral en Safari de iPhone. Se usa clip y
+   no hidden porque hidden convertiria la seccion en un contenedor con scroll
+   vertical propio. */
+.cierre{ overflow-x:clip; }
 
 /* ═══════════ PIE ═══════════ */
 .pie{ background:#F5F6FB; color:#4B5177; padding-block:46px 38px; }
@@ -851,7 +894,7 @@ section{ padding-block:var(--aire); position:relative; }
 <section class="respaldo" id="respaldo">
   <div class="respaldo__marco">
     <img src="assets/feria-1.webp"
-         alt="Equipo de T3RZO y Patti Autopartes en el stand de la marca durante una feria del sector"
+         alt="Equipo de T3RZO y Patti Autopartes en el stand de la marca en Automechanika Buenos Aires"
          width="1600" height="1068" loading="lazy" />
     <div class="respaldo__velo" aria-hidden="true"></div>
 
@@ -875,8 +918,8 @@ section{ padding-block:var(--aire); position:relative; }
       </div>
 
       <p class="pie-foto">
-        El stand de T3RZO y Patti Autopartes en una feria del sector.
-        <span class="pendiente">CONFIRMAR evento y año</span>
+        T3RZO y Patti Autopartes en Automechanika Buenos Aires, ediciones 2024 y
+        2026: la feria más importante del sector automotriz del mundo.
       </p>
      </div>
     </div>
@@ -908,13 +951,17 @@ section{ padding-block:var(--aire); position:relative; }
       <article class="camino camino--b2c sube">
         <span class="tricolor" aria-hidden="true"></span>
         <h3>Buscás una pieza para tu auto</h3>
+        <span class="sello-oficial">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Zm4.7 7.7-5.6 5.6a1 1 0 0 1-1.4 0l-2.4-2.4a1 1 0 1 1 1.4-1.4l1.7 1.7 4.9-4.9a1 1 0 0 1 1.4 1.4Z"/></svg>
+          Tienda Oficial en Mercado Libre
+        </span>
         <p>
           Consultá en tu casa de repuestos de confianza y pedí la marca por su
-          nombre. También encontrás productos seleccionados en nuestra presencia
-          oficial de Mercado Libre.
+          nombre. También encontrás productos seleccionados en nuestra Tienda
+          Oficial de Mercado Libre.
         </p>
         <a class="btn btn--linea" href="https://www.mercadolibre.com.ar/pagina/warnesecommerce2435" target="_blank" rel="noopener">
-          Ver Mercado Libre
+          Ver la Tienda Oficial
         </a>
         <p class="camino__nota">Antes de comprar, verificá modelo, versión, motorización y OEM.</p>
       </article>
@@ -950,7 +997,7 @@ section{ padding-block:var(--aire); position:relative; }
       </article>
       <article class="pregunta">
         <h3>¿Tiene garantía?</h3>
-        <p>Existe identidad de garantía de marca. Las condiciones específicas se consultan en la política vigente. <span class="pendiente">CONFIRMAR política de garantía</span></p>
+        <p>Sí, y está escrita. La otorga Patti Autopartes por seis meses desde la factura, cubre defectos de fabricación y requiere que la pieza haya sido instalada por un taller, con comprobante. Los reclamos se gestionan por WhatsApp. Al consumidor final lo ampara además la garantía legal. <a class="enlace-texto" href="garantia.html">Leer la política completa</a>.</p>
       </article>
     </div>
   </div>
@@ -967,7 +1014,7 @@ section{ padding-block:var(--aire); position:relative; }
     </a>
     <img class="cierre__caja" src="assets/caja.webp"
          alt="Caja de packaging T3RZO Autopartes"
-         width="1100" height="734" loading="lazy" />
+         width="1840" height="1228" loading="lazy" />
   </div>
 </section>
 
@@ -990,6 +1037,7 @@ section{ padding-block:var(--aire); position:relative; }
           Facebook
         </a>
         <a href="https://www.mercadolibre.com.ar/pagina/warnesecommerce2435" target="_blank" rel="noopener">Mercado Libre</a>
+        <a href="garantia.html">Garantía</a>
       </div>
     </div>
 

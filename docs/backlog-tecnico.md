@@ -129,7 +129,7 @@ se inventan) ya aparecen textos de la página que hay que confirmar o corregir:
 |---|---|
 | "50 años de maestría" y "50+ años de experiencia" | La Fuente dice que T3RZO nació en **2019** y que Patti tiene "décadas" de experiencia, sin dar un número. Un número exacto necesita confirmación |
 | "3ra generación" | Mismo caso: cifra exacta no confirmada en las secciones leídas |
-| "Automechanika Buenos Aires 2024-2026" | La Fuente prohíbe inventar fechas de eventos |
+| ~~"Automechanika Buenos Aires 2024-2026"~~ | **RESUELTO 2026-08-15 (LANDING.2).** Marcos confirmó las ediciones 2024 y 2026 de Buenos Aires, las dos ya realizadas. Publicado en el pie de la foto del stand |
 | "Casa central en Parque Avellaneda" | Los domicilios están en la lista de datos que no se completan de memoria |
 | "Calidad OEM" / "Calidad de equipo original" | OEM es un tema válido para la marca, pero la Fuente prohíbe afirmar OEM sin confirmar |
 | "Sondas Lambda", "Inyectores", "Válvulas EGR" | Hay que confirmar que sean líneas reales de T3RZO y no un ejemplo de la plantilla |
@@ -137,6 +137,11 @@ se inventan) ya aparecen textos de la página que hay que confirmar o corregir:
 **Qué hace falta:** un bloque propio de auditoría de contenido, leyendo la
 Fuente completa (2400 líneas) contra la página completa. Los ítems de la tabla
 son lo que saltó en una lectura parcial — no es la lista final.
+
+**Avance parcial 2026-08-15 (LANDING.2):** se resolvieron los dos `[CONFIRMAR]`
+que quedaban visibles en la página (la feria y la política de garantía) y se
+confirmó la Tienda Oficial de Mercado Libre. **La auditoría completa sigue
+pendiente**: los otros cinco renglones de la tabla no se tocaron.
 
 **Detectado:** 2026-08-09, bloque METODOLOGIA.1.
 
@@ -179,16 +184,36 @@ propia, no necesariamente.
 
 ---
 
-## #9 — El cierre espera un video 3D de la caja
+## #9 — El video 360 de la caja: probado, rechazado, esperando una versión nueva
 
-Al final de la página, arriba del pie, hay una foto chica de la caja rodeada de
-espacio. Ese hueco está reservado: Marcos está generando un video 3D del
-packaging para poner ahí.
+Marcos generó el video (`imagenes-para-la-pagina/Video de caja 360/`, 25,7 MB,
+1920×1080, 11,8 s, vuelta completa que cierra sin salto) y en LANDING.2 se probó
+en el cierre. **Se descartó y la página volvió a la foto quieta.**
 
-**Qué hace falta:** el video subido a YouTube y su link. Los videos no entran al
-repositorio (ver `reglas-duras.md`).
+Por qué no sirvió, en orden de importancia:
 
-**Detectado:** 2026-08-12, bloque LANDING.1.
+1. **El fondo del video es gris claro y la página es azul oscuro.** Se intentó
+   disolverlo con un fundido y no alcanza: un degradado de claro a oscuro da un
+   halo, nunca un recorte. Marcos quería la caja "como si fuera una foto
+   transparente" y por ahí no se llega. Ver la regla nueva en `reglas-duras.md`.
+2. **Tiene la marca de agua de IA** (la estrellita de Gemini) abajo a la derecha,
+   en todos los cuadros. Recortarla está prohibido por la Regla 4.
+3. **El texto chico de la caja está mal escrito**: dice "Dizzribu/dor ezzlusivo"
+   donde la caja real dice "Distribuidor exclusivo". Se lee si se muestra grande.
+
+**Qué hace falta:** que Marcos **regenere el video con fondo negro liso** (sin
+degradado de estudio, sin piso visible), sin marca de agua y con el texto bien.
+Con fondo negro no hace falta ni recortar ni fundir: entra directo contra el azul
+de la página y anda en todos los teléfonos.
+
+**Lo que ya está resuelto y no hay que rehacer:** el video comprime a **1,12 MB**
+en 1280×720 sin audio, con `imageio-ffmpeg` (ya instalado en la máquina). El
+código del reproductor también quedó probado: arranca por el atributo `autoplay`
+del HTML —nunca por JavaScript, que varios navegadores rechazan—, se frena cuando
+sale de pantalla y respeta "menos movimiento". Está en la bitácora del
+2026-08-15.
+
+**Detectado:** 2026-08-12, bloque LANDING.1. **Actualizado:** 2026-08-15, LANDING.2.
 
 ---
 
@@ -237,4 +262,40 @@ en vivo antes de confiar en él.
 
 ---
 
-*Última actualización: 2026-08-12 — bloque LANDING.1*
+---
+
+## #13 — `assets/legal.css` repite los colores y la tipografía de `index.html`
+
+La página de garantía tiene su propia hoja de estilos y ahí se volvieron a
+declarar los mismos tokens que viven dentro del `<style>` de `index.html`: los
+colores de marca, las superficies, la tipografía. Si mañana cambia un color hay
+que tocarlo en dos lados, y si alguien se olvida de uno las dos páginas dejan de
+parecerse.
+
+**Qué hace falta:** resolver antes el ítem #5 (sacar el CSS de `index.html` a
+`assets/styles.css`). Con eso hecho, `legal.css` importa los tokens de ahí en vez
+de redeclararlos. Está anotado como comentario en la cabecera del propio archivo,
+para que quien lo abra lo sepa sin leer este backlog.
+
+**Deuda aceptada a propósito:** la alternativa era hacer el refactor completo del
+CSS dentro de un bloque cuyo alcance era publicar un documento legal.
+
+**Detectado:** 2026-08-15, bloque LANDING.2.
+
+---
+
+## #14 — La clase `.pendiente` quedó sin usar
+
+El cartel amarillo que marcaba los datos sin confirmar ya no se usa en ninguna
+parte de la página: los dos `[CONFIRMAR]` que quedaban se resolvieron en
+LANDING.2. La regla CSS sigue en `index.html`.
+
+**No se borró a propósito:** es la convención del proyecto para marcar un dato no
+confirmado, y van a aparecer más. Si dentro de unos bloques sigue sin usarse, se
+saca.
+
+**Detectado:** 2026-08-15, bloque LANDING.2.
+
+---
+
+*Última actualización: 2026-08-15 — bloque LANDING.2*

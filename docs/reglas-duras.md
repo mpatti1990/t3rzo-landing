@@ -265,4 +265,105 @@ declara en el reporte, aunque el cambio esté bien.
 
 ---
 
-*Última actualización: 2026-08-12 — bloque LANDING.1*
+## Un fundido no convierte un fondo claro en transparente
+
+**Enunciado.** Si el material viene sobre fondo **claro** y la página es
+**oscura** (o al revés), un degradado hacia el color del fondo **no** va a
+parecer un recorte: va a parecer un halo. No es cuestión de ajustar el radio ni
+la suavidad, es cómo funciona la luz. Cuando el pedido es "que se vea flotando,
+como una foto transparente", las únicas salidas reales son dos: que el material
+venga con fondo transparente de verdad, o que venga con el fondo del mismo tono
+que la página.
+
+**Y el recorte no lo hace Claude Code** (ver la regla del recorte de fondo, más
+arriba). Así que en la práctica la salida es pedir el material de nuevo.
+
+**Antes de proponer un fundido, se compara el brillo de los dos fondos.** Si van
+en direcciones opuestas, se dice que no va a funcionar en vez de intentarlo.
+
+**Justificación:** el 2026-08-15 se le ofreció a Marcos un fundido para integrar
+un video 360 de la caja, con fondo gris de estudio, sobre la piel azul oscuro de
+la página. Eligió esa opción sobre una imagen fija de muestra, se construyó
+entera —máscara medida contra la silueta real de la caja en los 282 cuadros,
+color calibrado, video comprimido de 25,7 MB a 1,12 MB— y cuando la vio dijo
+"queda horrible" y pidió volver a la foto. Tenía razón, y el problema no era la
+ejecución: la opción no podía dar lo que él quería y **eso se sabía desde antes
+de empezar**. Un catálogo de opciones donde una no puede cumplir el objetivo no
+es una opción, es tiempo perdido.
+
+*Incidente: 2026-08-15, bloque LANDING.2.*
+
+---
+
+## Un color que tiene que coincidir con el fondo se mide, no se copia el hex
+
+**Enunciado.** Cuando un archivo lleva grabado adentro el color de fondo de la
+página para fundirse con ella, **no alcanza con poner el mismo código de color**:
+hay que abrir el archivo generado, leer el píxel de la esquina y compararlo
+contra el color de la página. Los compresores mueven los colores. Y **se hace con
+cada archivo que se publica**, no solo con el que uno tiene en la cabeza.
+
+**Justificación:** el 2026-08-15, al meter el video de la caja, el compresor de
+video corrió el azul `#0B0D24` tres niveles. Se detectó midiendo y se corrigió
+calibrando el color de entrada. Pero la **imagen de arranque** del video se
+generó a partir de ese mismo cuadro ya calibrado, y una imagen no pasa por el
+compresor de video: se quedó con la corrección puesta y salió **cinco niveles más
+clara** que la página. Marcos vio un rectángulo pegado y su comentario fue "parece
+pegado en Paint". El chequeo existía y decía "las esquinas del video coinciden":
+miraba el video y nadie miró el otro archivo.
+
+*Incidente: 2026-08-15, bloque LANDING.2.*
+
+---
+
+## Un dato del sistema se confirma contra el comportamiento, no al revés
+
+**Enunciado.** Cuando se lee una configuración de la máquina (el registro de
+Windows, una variable de entorno, un archivo de ajustes) para explicar por qué
+algo no funciona, esa lectura es una **hipótesis**, no una prueba. Si el
+comportamiento observado la contradice, gana el comportamiento y la lectura está
+mal hecha. No se le informa a Marcos una conclusión basada solo en la lectura.
+
+**Justificación:** el 2026-08-15 el video no arrancaba. Se leyó el registro de
+Windows para ver si Marcos tenía las animaciones apagadas —lo que haría que el
+código, correctamente, no lo reprodujera— y se leyó **el bit equivocado**
+(`MenuFade` en vez de `ClientAreaAnimation`). Con eso se le informó "tus
+animaciones están activadas, así que no es eso", se descartó la causa real y se
+reescribió el arranque del video para nada. Dos entregas seguidas fallaron por
+el mismo motivo que se había descartado. El comportamiento ya lo estaba gritando:
+la segunda versión mostró los controles del reproductor, y esos controles **solo**
+los pone la rama de "menos movimiento".
+
+*Incidente: 2026-08-15, bloque LANDING.2.*
+
+---
+
+## El texto legal se copia, no se redacta
+
+**Enunciado.** Un documento legal que aporta Marcos (política de garantía,
+términos, condiciones) se publica **copiado exacto**. No se resume, no se
+"mejora" la redacción, no se corrigen inconsistencias por cuenta propia. Cambiar
+el formato del título o pasar una lista a `<ul>` está bien; tocar una palabra del
+contenido, no.
+
+Si el documento se contradice con la realidad —por ejemplo dice que la versión
+vigente está publicada en otro lado—, **se declara y lo corrige Marcos en el
+documento original**, no Claude Code en la página.
+
+Un resumen en otra parte de la página está permitido, pero tiene que ser fiel y
+no puede borrar las distinciones que el documento hace a propósito. La política
+de T3RZO regula la relación con el **comercio**, no con el consumidor final, a
+quien lo ampara la Ley 24.240: mezclar las dos cosas en un resumen no es un error
+de redacción, es un problema legal.
+
+**Cómo se verifica:** comparando el texto publicado contra el original palabra por
+palabra, con especial atención a los números —CUIT, plazos, importes, fechas— y
+no leyéndolo por encima.
+
+**Justificación:** no sale de un incidente. Se escribe el 2026-08-15, cuando entró
+el primer documento legal al proyecto, porque el riesgo es evidente y el costo de
+equivocarse no lo paga la página.
+
+---
+
+*Última actualización: 2026-08-15 — bloque LANDING.2*

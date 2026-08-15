@@ -4,6 +4,9 @@ __pycache__/
 *.log
 .gstack/
 
+# Archivos temporales que Word y Excel crean mientras un documento esta abierto
+~$*
+
 # Originales pesados que aporta Marcos. A la pagina va la version liviana,
 # que se guarda en assets/. Ver imagenes-para-la-pagina/LEEME.md
 imagenes-para-la-pagina/*

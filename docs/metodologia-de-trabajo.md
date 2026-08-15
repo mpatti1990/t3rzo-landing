@@ -649,6 +649,31 @@ proyecto se trata como si no tuviera protección.
 *(La numeración salta a M-8 para no chocar con los números heredados de
 `patti-erp` que este documento ya cita, M-2 y M-7.)*
 
+**M-9 (LANDING.2) — una lista de verificación declara qué quedó SIN probar.**
+Cuando se le reporta a Marcos lo que se verificó, la lista incluye un renglón
+explícito con lo que **no** se pudo probar y por qué. No alcanza con enumerar lo
+que salió bien: una lista que solo dice verdades pero omite el agujero se lee
+como completa, y Marcos decide en base a eso.
+
+En particular, **el comportamiento central de lo que se entrega no se da por
+bueno sin haberlo visto ocurrir**. Si el entorno no permite verlo, eso es el
+hallazgo principal del reporte, no una nota al pie.
+
+*Justificación:* el 2026-08-15 se le entregó un video que tenía que girar solo en
+el cierre de la página, con una lista de siete verificaciones —medidas, pesos,
+colores, contrastes, códigos de respuesta, consola limpia— todas ciertas. **Que
+el video efectivamente se reprodujera no estaba probado**, porque el navegador de
+pruebas no reproduce video con su panel oculto. Marcos abrió la página y vio una
+imagen quieta. La segunda entrega repitió el patrón. El reporte era técnicamente
+correcto y funcionalmente inútil: lo único que él necesitaba saber era si la caja
+se movía.
+
+*¿Qué dejó que esto pasara?* La metodología ya exige decir "qué se verificó y con
+qué resultado", pero nada obligaba a declarar lo no verificado, y una omisión no
+tiene forma de aparecer en una lista de cosas hechas. Es el mismo mecanismo de la
+M-1: el anuncio incorrecto gasta el control con el que Marcos detecta que algo
+salió distinto.
+
 *Justificación:* el candado de la Regla 1 se escribió el 2026-08-09 y quedó dos
 bloques enteros sin verificarse. Estaba correctamente declarado como pendiente en
 la bitácora las dos veces, y aun así solo se probó cuando Marcos lo pidió — o
@@ -681,4 +706,4 @@ nunca), que aplica siempre.
 
 ---
 
-*Última actualización: 2026-08-09 — bloque METODOLOGIA.3*
+*Última actualización: 2026-08-15 — bloque LANDING.2*
