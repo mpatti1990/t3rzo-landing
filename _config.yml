@@ -1,0 +1,21 @@
+# Que se publica en www.t3rzoautopartes.com.ar y que no.
+#
+# GitHub Pages sirve el repositorio ENTERO por defecto: sin este archivo, la
+# Fuente Maestra, la bitacora y los documentos de trabajo quedan descargables
+# desde el dominio de la marca y los indexa Google. Lo de abajo los deja afuera
+# del sitio publicado. Siguen en GitHub como siempre; lo que cambia es que no
+# se sirven por web.
+#
+# Las carpetas que empiezan con punto (.claude/, .git/) y los archivos que
+# empiezan con guion bajo los excluye Jekyll solo, sin declararlos aca.
+#
+# Al sitio publicado solo llegan: index.html, garantia.html, assets/ y CNAME.
+
+exclude:
+  - docs/
+  - bitacora/
+  - imagenes-para-la-pagina/
+  - CLAUDE.md
+  - T3RZO_Fuente_Maestra_Landing_Claude_Code.md
+  - .gitattributes
+  - .gitignore
