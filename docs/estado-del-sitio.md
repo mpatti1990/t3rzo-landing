@@ -14,6 +14,15 @@ inventados que había antes ("50 años", "3ra generación", "Calidad OEM",
 que faltaban —la feria y la política de garantía—, así que **ya no queda ningún
 cartel amarillo `[CONFIRMAR]` a la vista en la página**.
 
+**La página está auditada contra la Fuente (2026-08-16, bloque AUDITORIA.1).** Se
+leyó la Fuente entera contra la página entera, por primera vez. No apareció nada
+inventado sobre la marca. Lo que sí apareció fue que **los nombres de las catorce
+fotos de producto los había deducido Claude Code mirando la foto**: Marcos los
+confirmó uno por uno, trece estaban bien y uno estaba mal (la pieza que figuraba
+como *válvula EGR* es una bomba de agua eléctrica). La lista confirmada, con el
+archivo original de cada una, vive en la sección 13 de la Fuente. Detalle completo
+en el backlog #7 y en la bitácora del día.
+
 ---
 
 ## Resumen
@@ -21,7 +30,7 @@ cartel amarillo `[CONFIRMAR]` a la vista en la página**.
 | Dato | Valor |
 |---|---|
 | Tipo | Sitio estático de dos páginas |
-| Archivos | `index.html` (1151 líneas, CSS y JS incluidos), `garantia.html` (201) + `assets/` |
+| Archivos | `index.html` (1157 líneas, CSS y JS incluidos), `garantia.html` (202) + `assets/` |
 | Build | No hay. Se abre el archivo y funciona. |
 | Dependencias | Ninguna instalada. Tipografía Space Grotesk desde Google Fonts. |
 | Peso que descarga el visitante | ~742 KB la landing, ~150 KB la de garantía |
@@ -163,7 +172,23 @@ desde dónde se toque.
 - No hay formularios. Todo el contacto sale por links externos.
 - No hay analítica, ni cookies, ni scripts de terceros más allá de la tipografía
   de Google Fonts.
+- **La imagen de la caja del cierre no recibe clicks** (`pointer-events:none`).
+  No es un detalle: sus 920 px de ancho, con 61% de aire transparente y margen
+  negativo, se comían el click del botón "Pedila por T3RZO". Está explicado en
+  [reglas-duras.md](reglas-duras.md); quien toque ese bloque tiene que saberlo.
 
 ---
 
-*Última actualización: 2026-08-15 — bloque LANDING.2*
+## Cómo se abre la página para probarla
+
+Doble click en `index.html` alcanza para mirarla. Para **probarla** hace falta
+servirla, porque un archivo abierto directo tiene limitaciones que confunden el
+diagnóstico. La receta está en `.claude/launch.json` y levanta la página en
+`http://localhost:8765` con el Python que ya está instalado.
+
+Se usó por primera vez el 2026-08-16 para medir quién recibía el click en cada
+botón, que es la verificación que ahora exige la metodología.
+
+---
+
+*Última actualización: 2026-08-16 — bloque AUDITORIA.1*

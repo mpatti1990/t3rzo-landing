@@ -366,4 +366,37 @@ equivocarse no lo paga la página.
 
 ---
 
-*Última actualización: 2026-08-15 — bloque LANDING.2*
+## El aire transparente de una imagen recibe los clicks igual
+
+**Qué pasó.** El botón "Pedila por T3RZO" del cierre no llevaba a ningún lado. El
+link estaba puesto y era el correcto. Lo que fallaba era otra cosa: la imagen de la
+caja mide 920 px de ancho y **el 61% de eso es aire transparente**; el CSS la sube
+con un margen negativo, así que el borde invisible de la imagen se metía **33 px
+adentro de un botón de 59**. El aire no se ve, pero el navegador se lo cobra igual:
+un click en el centro del botón lo recibía la foto. Solo funcionaba la franja de
+arriba, que es justo donde nadie apunta.
+
+**La regla.** Una imagen **decorativa** que se superpone a algo clickeable lleva
+`pointer-events:none`. Y ojo con el tamaño real de un recorte: el archivo ocupa
+todo su rectángulo, no la silueta que se ve. Un margen negativo sobre una imagen
+con fondo transparente es exactamente la receta de este bug.
+
+**Cómo se verifica — y esto es lo que faltaba.** No alcanza con mirar la página ni
+con medir posiciones: hay que preguntarle al navegador **quién recibe el click** en
+cada botón. Se recorren todos los elementos clickeables y en cada uno se consulta
+`document.elementFromPoint` sobre su centro; si devuelve algo que no es el propio
+botón, está tapado. Se corre en escritorio y en celular, porque los anchos
+cambian con `vw` y el solapamiento también.
+
+**Por qué es regla y no un arreglo suelto.** El bug lo introdujo LANDING.2, al
+agrandar la caja de 132 a 356 px, y **ese bloque reportó el cierre como
+verificado**: se habían medido las dimensiones, los pesos y los colores, pero
+nadie probó tocar el botón. Es el mismo mecanismo de la M-9 — una lista de
+verificaciones ciertas que omite justamente la que importaba. Marcos lo encontró
+abriendo la página, que es el único control que quedaba.
+
+*Incidente: 2026-08-16, bloque AUDITORIA.1.*
+
+---
+
+*Última actualización: 2026-08-16 — bloque AUDITORIA.1*

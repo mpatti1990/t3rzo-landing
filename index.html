@@ -589,6 +589,12 @@ section{ padding-block:var(--aire); position:relative; }
   margin:clamp(-38px,-2.6vw,-10px) 0 clamp(-100px,-7vw,-40px) 50%;
   transform:translateX(-46.5%);
   filter:drop-shadow(0 26px 46px rgba(4,6,22,.66));
+  /* El margen negativo de arriba mete el borde de la imagen 33px adentro del
+     boton de WhatsApp, y sus 920px de ancho lo cruzan entero. Como el archivo
+     es 61% aire transparente no se ve nada, pero el aire recibia el click: el
+     centro del boton devolvia IMG.cierre__caja en vez del link. La imagen es
+     decorativa y no lleva a ningun lado, asi que deja de recibir clicks. */
+  pointer-events:none;
 }
 /* El corte lo hace la propia seccion: confiar solo en el overflow-x:hidden de
    body deja pasar el desplazamiento lateral en Safari de iPhone. Se usa clip y
@@ -699,7 +705,7 @@ section{ padding-block:var(--aire); position:relative; }
  <div class="cinta__ventana" id="ventanaCinta" tabindex="0" role="group" aria-label="Piezas de la línea, se desplazan de costado">
   <div class="cinta__pista" id="cinta">
     <img src="assets/p-01.webp" alt="Sensor de flujo de aire T3RZO" width="700" height="465" loading="lazy" />
-    <img src="assets/p-02.webp" alt="Válvula EGR T3RZO" width="596" height="508" loading="lazy" />
+    <img src="assets/p-02.webp" alt="Bomba de agua eléctrica T3RZO" width="596" height="508" loading="lazy" />
     <img src="assets/p-03.webp" alt="Inyector T3RZO" width="700" height="591" loading="lazy" />
     <img src="assets/p-04.webp" alt="Sonda lambda T3RZO" width="601" height="596" loading="lazy" />
     <img src="assets/p-05.webp" alt="Portatermostato T3RZO" width="633" height="407" loading="lazy" />
@@ -985,7 +991,7 @@ section{ padding-block:var(--aire); position:relative; }
       </article>
       <article class="pregunta">
         <h3>¿Dónde puedo comprarla?</h3>
-        <p>Pedila en tu casa de repuestos de confianza, o buscá productos seleccionados en nuestra presencia oficial de Mercado Libre.</p>
+        <p>Pedila en tu casa de repuestos de confianza, o buscá productos seleccionados en nuestra Tienda Oficial de Mercado Libre.</p>
       </article>
       <article class="pregunta">
         <h3>¿Cómo sé si una pieza corresponde a mi vehículo?</h3>

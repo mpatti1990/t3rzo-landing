@@ -127,18 +127,51 @@ publica en su sitio oficial", sin nombrar ninguna, justamente porque todavía no
 hay ninguna que responda. Es el paso que cierra el circuito del punto 10 de la
 política, que obliga a que exista un lugar donde consultar la versión vigente.
 
-**Detectado:** 2026-08-09, bloque METODOLOGIA.1. **Ampliado:** 2026-08-15, LANDING.2.
+**También atado a este ítem (2026-08-16, AUDITORIA.1): la imagen que se ve cuando
+alguien comparte la página.** El `og:image` de `index.html` apunta a
+`assets/hero-producto-caja.webp` con dirección relativa. WhatsApp, Facebook e
+Instagram necesitan la dirección completa (`https://dominio/assets/...`) para
+poder bajarla: tal como está hoy, el link compartido saldría **sin foto**. No se
+puede arreglar hasta que haya dominio, porque la dirección completa todavía no
+existe. Cuando se publique el sitio, se corrige junto con la dirección de la
+política de garantía.
+
+**Detectado:** 2026-08-09, bloque METODOLOGIA.1. **Ampliado:** 2026-08-15, LANDING.2,
+y 2026-08-16, AUDITORIA.1.
 
 ---
 
-## #7 — La página nunca se auditó contra la Fuente Maestra
+## #7 — La página nunca se auditó contra la Fuente Maestra — RESUELTO
 
 `T3RZO_Fuente_Maestra_Landing_Claude_Code.md` se incorporó como fuente de verdad
 del contenido el 2026-08-09, cuando la página ya estaba escrita. Nunca se
 compararon una contra otra en forma completa.
 
-En una lectura rápida de la sección 0.3 de la Fuente (la lista de datos que no
-se inventan) ya aparecen textos de la página que hay que confirmar o corregir:
+**RESUELTO el 2026-08-16, bloque AUDITORIA.1.** Se leyeron los 2425 renglones de
+la Fuente contra la página entera y el marco de `garantia.html`. Resultado:
+
+- **La página no inventa nada sobre la marca.** Título, descripción, hero, marca,
+  pilares, líneas, la placa de la pieza correcta, los pasos del desarrollo, el
+  respaldo, los dos caminos de compra, las seis preguntas y el cierre salen de la
+  Fuente, casi siempre textuales. Las cuatro reglas de contenido pasan: T3RZO con
+  el 3, ningún dato de contacto inventado, T3RZO protagonista y Patti como
+  respaldo, y en ningún lado se afirma fabricación en Argentina.
+- **Sí inventaba los nombres de las piezas.** Las catorce fotos de producto tenían
+  nombres deducidos de mirar la foto. Marcos los confirmó uno por uno: **trece
+  estaban bien y uno estaba mal** — lo que la página llamaba *válvula EGR* es una
+  bomba de agua eléctrica. Corregido. La lista completa quedó en la Fuente,
+  sección 13, para que no haya que volver a preguntarla.
+- **Una frase sin confirmar quedaba blindada dentro de la Fuente** (el superlativo
+  de Automechanika). Marcos la confirmó y de ahí sale la **M-10** de la
+  metodología.
+- **Dos correcciones menores:** la pregunta de dónde comprar decía "presencia
+  oficial" donde el resto de la página dice **Tienda Oficial**, y `garantia.html`
+  declaraba español neutro en vez de español de Argentina.
+
+**Lo que la tabla de abajo pedía revisar ya no aplica.** Cuatro de sus seis
+renglones ("50 años", "3ra generación", "Parque Avellaneda", "Calidad OEM") son
+textos que LANDING.1 borró de la página el 2026-08-12; la tabla quedó describiendo
+una versión que ya no existía. Se conserva como historia de qué se sospechaba:
 
 | Texto en la página | Por qué hay que revisarlo |
 |---|---|
@@ -149,16 +182,17 @@ se inventan) ya aparecen textos de la página que hay que confirmar o corregir:
 | "Calidad OEM" / "Calidad de equipo original" | OEM es un tema válido para la marca, pero la Fuente prohíbe afirmar OEM sin confirmar |
 | "Sondas Lambda", "Inyectores", "Válvulas EGR" | Hay que confirmar que sean líneas reales de T3RZO y no un ejemplo de la plantilla |
 
-**Qué hace falta:** un bloque propio de auditoría de contenido, leyendo la
-Fuente completa (2400 líneas) contra la página completa. Los ítems de la tabla
-son lo que saltó en una lectura parcial — no es la lista final.
-
 **Avance parcial 2026-08-15 (LANDING.2):** se resolvieron los dos `[CONFIRMAR]`
 que quedaban visibles en la página (la feria y la política de garantía) y se
-confirmó la Tienda Oficial de Mercado Libre. **La auditoría completa sigue
-pendiente**: los otros cinco renglones de la tabla no se tocaron.
+confirmó la Tienda Oficial de Mercado Libre.
 
-**Detectado:** 2026-08-09, bloque METODOLOGIA.1.
+**Lección que deja este ítem.** Un ítem de backlog que enumera hallazgos envejece
+igual que el código: cuatro de sus seis renglones estaban resueltos hacía cuatro
+días y el ítem seguía pidiéndolos. Un bloque que arranca de un backlog viejo
+empieza verificando que el problema todavía exista.
+
+**Detectado:** 2026-08-09, bloque METODOLOGIA.1. **Resuelto:** 2026-08-16,
+bloque AUDITORIA.1.
 
 ---
 
@@ -315,4 +349,28 @@ saca.
 
 ---
 
-*Última actualización: 2026-08-15 — bloque LANDING.2*
+## #15 — Falta la sección "Calidad y detalle" que pide la Fuente
+
+La Fuente Maestra (sección 28.8) pide un bloque titulado **"Los detalles también
+hablan de calidad"**, con fotos macro reales: un conector, una junta, un encastre,
+un mecanizado, una terminación. Es la forma que la propia Fuente elige para
+demostrar calidad sin decir "somos los mejores" — señales concretas en vez de
+adjetivos (sección 11).
+
+La página no lo tiene. Hoy la calidad se cuenta con palabras en el pilar "Calidad"
+y con la foto de producto sobre la caja, que no es un macro.
+
+**Qué hace falta:** que Marcos elija fotos de detalle. En
+`imagenes-para-la-pagina/Productos/` hay fotos de cámara profesional (`_MAP*.png`)
+que podrían servir, pero **la elección es suya** (Regla 4).
+
+**Por qué no se hizo en el bloque donde se detectó:** agregar una sección cambia
+cómo se ve la página, y eso dispara la Regla 3 — se abren las skills de diseño y
+se propone antes de escribir. Decisión de Marcos en la apertura de AUDITORIA.1:
+lo que aparezca a nivel sección se anota y se decide aparte.
+
+**Detectado:** 2026-08-16, bloque AUDITORIA.1.
+
+---
+
+*Última actualización: 2026-08-16 — bloque AUDITORIA.1*

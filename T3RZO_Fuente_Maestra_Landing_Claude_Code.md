@@ -637,6 +637,42 @@ Para mostrar líneas en la web:
 - evitar cantidades del tipo “más de 10.000 productos” sin confirmación;
 - evitar filtros por aplicación si no existe una base técnica preparada.
 
+## Piezas que la página muestra hoy — CONFIRMADAS POR MARCOS (2026-08-16, AUDITORIA.1)
+
+Las catorce fotos de producto de la landing (la cinta de doce, el hero y la celda
+"Calidad") tenían nombres que **había deducido Claude Code mirando la foto**: los
+archivos que aporta Marcos se llaman por código (`3187900.png`) o por número
+(`FotoMercaderia-9.png`) y no dicen qué pieza son. La auditoría de contenido los
+levantó todos y Marcos confirmó estos:
+
+| Archivo original | Qué es |
+|---|---|
+| `3184400` | Sensor de flujo de aire |
+| `3187900` | **Bomba de agua eléctrica** Golf, Sharan, A1, A3, A4, A5, Q3, Q5 2.0 TSI |
+| `1600100` | Inyector de combustible Renault Kwid |
+| `4183700` | Sonda lambda Fiat Uno, Fiorino 1.3 Fire, Nuevo Uno 1.4 |
+| `5182000` | Portatermostato |
+| `FotoMercaderia-9` | Depósito de refrigerante |
+| `3186400` | Enfriador |
+| `_MAP1473` | Caño de conducción |
+| `3191900` | Radiador enfriador de aceite VW Vento 2.0 desde 2011 / Tiguan |
+| `FotoMercaderia-20` | Módulo de bomba de combustible |
+| `3187500` | Solenoide de distribución variable |
+| `6011700` | Cuerpo de termostato |
+| `FotoMercaderia3+caja` | Depósito de refrigerante (foto del hero) |
+| `FotoMercaderia2+caja` | Módulo de bomba de combustible (celda "Calidad") |
+
+**Trece de catorce estaban bien. `3187900` estaba mal:** la página lo publicaba
+como *válvula EGR* y es una bomba de agua eléctrica — una familia de producto que
+T3RZO sí tiene, pero otra. La pieza correcta ya figuraba en la sección 37 de esta
+misma Fuente ("Bomba de agua eléctrica 2.0 TSI — OEM trabajado `06L121111H`"): el
+dato estaba, faltaba comparar las dos cosas.
+
+**Las aplicaciones (modelos y motorizaciones) NO se publican en la página.** Están
+acá porque Marcos las confirmó, pero los nombres visibles dicen solo la pieza. Si
+alguna vez se arma una sección de producto de verdad, se vuelven a validar antes
+de mostrarlas (regla de la sección 37).
+
 ---
 
 # 14. CORRECTA IDENTIFICACIÓN DE UNA AUTOPARTE
@@ -1489,11 +1525,23 @@ No usar logos de terceros sin necesidad.
 
 No inventar participación en eventos.
 
-**CONFIRMADO (2026-08-15, bloque LANDING.2).** Marcos confirmó la participación de
+**CONFIRMADO POR MARCOS (2026-08-15, bloque LANDING.2).** La participación de
 T3RZO/Patti en **Automechanika Buenos Aires, ediciones 2024 y 2026**, y que las dos
-ya se realizaron. La página lo publica como pie de la foto del stand, con la
-aclaración de que Automechanika es la feria más importante del sector automotriz
-del mundo. Ya no requiere validación previa.
+ya se realizaron.
+
+**CONFIRMADO POR MARCOS (2026-08-16, bloque AUDITORIA.1).** Que el pie de la foto
+diga que Automechanika es **la feria más importante del sector automotriz del
+mundo**. Sus palabras: *"se entiende que la feria Automechanika es la más
+importante del mundo y nosotros hablamos de la edición de Buenos Aires"*.
+
+*Cómo llegó acá esta frase.* La escribió Claude Code en LANDING.2 y quedó anotada
+en este mismo renglón bajo un "CONFIRMADO" que en realidad cubría solo la feria y
+las ediciones. Es decir: un dato sin confirmar quedó guardado dentro del documento
+que sirve para detectar datos sin confirmar. La auditoría de contenido de
+AUDITORIA.1 lo levantó y Marcos lo confirmó recién ahí. De ese incidente sale la
+**M-10** de `docs/metodologia-de-trabajo.md`: todo dato que se agrega a esta Fuente
+dice **quién** lo confirmó, y lo que no confirmó Marcos no entra bajo un título que
+diga CONFIRMADO.
 
 ---
 

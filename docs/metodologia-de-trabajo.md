@@ -489,6 +489,11 @@ suite es una lista de verificaciones concretas, que se recorre completa:
   visitas a una landing llegan desde el teléfono.
 - **Todas las imágenes cargan**, y ninguna aparece estirada o cortada.
 - **Todos los links llevan a algún lado**, incluidos los del menú y los del pie.
+- **Cada botón recibe su propio click.** Que el link esté bien escrito no alcanza:
+  una imagen encima puede estar comiéndose el click sin que se vea nada raro. Se
+  recorren todos los botones preguntándole al navegador quién recibe el click en
+  cada uno, en escritorio y en celular. Ver la regla del aire transparente en
+  [reglas-duras.md](reglas-duras.md).
 - **Los textos no tienen errores de tipeo** y dicen lo que Marcos quiso decir.
 - **El formulario de contacto**, si lo hay, manda a donde tiene que mandar. Se
   prueba enviando uno de verdad y verificando que llegue.
@@ -685,6 +690,28 @@ control.
 falta, no cuándo se hace. Faltaba atarlo a un momento fijo del ciclo, igual que
 los controles de gstack.
 
+**M-10 (AUDITORIA.1) — todo dato que se agrega a la Fuente Maestra dice quién lo
+confirmó.** Cuando Claude Code escribe en
+[la Fuente](../T3RZO_Fuente_Maestra_Landing_Claude_Code.md), el renglón nombra a
+quién viene el dato y de qué fecha: **CONFIRMADO POR MARCOS (fecha, bloque)**. Lo
+que Claude Code redactó por su cuenta no entra nunca bajo un título que diga
+CONFIRMADO, aunque esté en el mismo párrafo que algo que Marcos sí confirmó.
+
+*Justificación:* en LANDING.2 se publicó que Automechanika Buenos Aires es "la
+feria más importante del sector automotriz del mundo". Marcos había confirmado la
+feria y las ediciones; el superlativo lo agregó Claude Code. Y quedó anotado en la
+Fuente dentro del mismo renglón, bajo un **CONFIRMADO** que terminaba con "ya no
+requiere validación previa".
+
+*¿Qué dejó que esto pasara?* Que la Fuente es a la vez la vara y algo que Claude
+Code puede escribir. Un dato propio anotado ahí como confirmado se vuelve
+invisible: la auditoría siguiente compara la página contra la Fuente, ve que
+coinciden, y da el punto por bueno. El error no se detecta, **se blinda**. Por eso
+la regla es sobre la atribución y no sobre el cuidado: acordarse no es un control.
+
+*(Cómo terminó: Marcos confirmó la frase el 2026-08-16 y queda publicada. El
+problema nunca fue el dato, fue que nadie sabía que estaba sin confirmar.)*
+
 ---
 
 ## Para conversaciones nuevas
@@ -706,4 +733,4 @@ nunca), que aplica siempre.
 
 ---
 
-*Última actualización: 2026-08-15 — bloque LANDING.2*
+*Última actualización: 2026-08-16 — bloque AUDITORIA.1*
